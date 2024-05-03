@@ -1,0 +1,66 @@
+header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  width: 100%;
+  min-width: 100vw;
+
+  gap: 30px;
+  padding-bottom: 23px;
+}
+
+
+header .logo-container {
+  background: black;
+  padding: 34px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  max-width: 80%;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+header .text-container h1 {
+  font-size: 30px;
+  font-family: Gotham;
+  color: var(--dark-grey);
+}
+
+header .text-container p {
+  font-size: 20px;
+  color: var(--light-grey);
+  font-family: Gotham;
+}
+
+
+header .text-container .heading{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  margin-bottom: 24px;
+  gap: 12px;
+}
+header .text-container .heading-tracy{
+ height: 10px;
+ width: 40%;
+  background-color: var(--dark-grey);
+}
+
+
+header img {
+  width: 20%;
+}
