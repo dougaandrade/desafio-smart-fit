@@ -1,0 +1,32 @@
+footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: 100vw;
+  background-color: var(--dark-grey);
+  padding: 50px;
+  margin-top: 33px;
+}
+
+footer .logo-footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+footer .text-footer h3{
+    font-size: 16px;
+    font-family: Gotham;
+    padding: 10px;
+    color: var(--light-grey-010);
+    font-weight: 300;
+}
+
+footer .logo-footer img{
+  height: 30px;
+}

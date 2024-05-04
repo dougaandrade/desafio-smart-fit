@@ -33,7 +33,7 @@ header .text-container {
 }
 
 header .text-container h1 {
-  font-size: 30px;
+  font-size: 50px;
   font-family: Gotham;
   color: var(--dark-grey);
 }
@@ -55,12 +55,30 @@ header .text-container .heading{
   gap: 12px;
 }
 header .text-container .heading-tracy{
- height: 10px;
- width: 40%;
+ height: 5px;
+ width: 45%;
   background-color: var(--dark-grey);
 }
 
 
 header img {
   width: 20%;
+}
+
+
+@media (max-width: 768px) {
+  header img {
+  width: 50%;
+}
+
+header .text-container h1 {
+  font-size: 40px;
+}
+
+header .text-container p {
+  font-size: 15px;
+  color: var(--dark-grey);
+  font-family: Gotham;
+  font-weight: 300;
+}
 }
