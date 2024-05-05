@@ -28,7 +28,7 @@
 
 .container-form h3 {
   font-size: 20px;
-  color: var(--light-grey-010);
+  color: var(--light-grey);
   font-weight: 300;
   padding: 5px 0 15px 0;
 }
@@ -60,8 +60,8 @@
   border-radius: 4px;
   color: var(--dark-grey);
   font-weight: 700;
-  padding: 12px;
-  width: 25%;
+  padding: 10px;
+  width: 37%;
   border: none;
   cursor: pointer;
   text-transform: uppercase;
@@ -110,20 +110,28 @@
 }
 
 .container-form h3 {
-  width: 70%;
+  width: 90%;
   font-size: 25px;
-  padding: 10px 0;
+  padding: 15px 0;
 }
 
 .container-form .radio-wrapper {
   width: 100%;
 }
 
-
-.container-form .checkbox-wrapper span {
-  position: relative;
+.container-form .checkbox-wrapper {
   display: flex;
   justify-content: center;
+  padding-bottom: 20px;
+  font-size:20px;
+}
+
+.container-form .checkbox-wrapper span {
+  width: 100%;
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container-form .btn-wrapper .btn {
@@ -131,6 +139,10 @@
 }
 .container-form .btn-wrapper {
   flex-direction: column;
+}
+.container-form .btn-wrapper .btn {
+  font-size: 15px;
+
 }
 
 }

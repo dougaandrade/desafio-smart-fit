@@ -30,3 +30,9 @@ footer .text-footer h3{
 footer .logo-footer img{
   height: 30px;
 }
+
+@media (max-width: 768px){
+ footer .text-footer h3{
+    font-size: 14px;
+}
+}
