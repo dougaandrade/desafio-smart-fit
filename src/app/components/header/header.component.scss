@@ -4,7 +4,7 @@ header {
   flex-direction: column;
   align-content: center;
   width: 100%;
-  min-width: 100vw;
+  min-width: 100%;
 
   gap: 30px;
   padding-bottom: 23px;
@@ -13,7 +13,7 @@ header {
 
 header .logo-container {
   background: black;
-  padding: 34px;
+  padding: 34px 0;
   width: 100%;
 
   display: flex;
@@ -27,13 +27,13 @@ header .text-container {
   align-items: flex-start;
   justify-content: flex-start;
 
-  max-width: 80%;
+  max-width: 50%;
   margin: 0 auto;
   gap: 20px;
 }
 
 header .text-container h1 {
-  font-size: 50px;
+  font-size:50px;
   font-family: Gotham;
   color: var(--dark-grey);
 }
@@ -62,7 +62,7 @@ header .text-container .heading-tracy{
 
 
 header img {
-  width: 20%;
+  width: 10%;
 }
 
 
@@ -71,12 +71,16 @@ header img {
   width: 50%;
 }
 
+header .text-container {
+   min-width: 80%;
+}
 header .text-container h1 {
+   min-width: 80%;
   font-size: 40px;
 }
 
 header .text-container p {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--dark-grey);
   font-family: Gotham;
   font-weight: 300;

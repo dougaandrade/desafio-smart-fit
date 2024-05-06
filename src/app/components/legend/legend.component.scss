@@ -1,6 +1,6 @@
 .card {
   width: 100%;
-  max-width: 80%;
+  max-width: 50%;
 
   display: flex;
   align-items: center;
@@ -9,17 +9,16 @@
   margin: 0 auto;
   padding-top: 30px;
 }
-.container-legend {
+.card .container-legend {
   width: 100%;
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   background-color: var(--light-grey-015);
 }
 
-.container-legend .content-legend {
-  width: 100%;
+.card .container-legend .content-legend {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,11 +51,13 @@
 }
 
 .container-legend img {
-  height: 40px;
+  height: 70px;
 }
 
 @media (max-width: 768px) {
-
+.card{
+    min-width: 80%;
+}
 .container-legend {
   width: 100%;
 
@@ -79,7 +80,7 @@
   align-items: center;
 }
 .container-legend .content-legend .text-legend {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 .container-legend .content-legend .logo-legend .cardLegend p {
   font-size: 15px;
