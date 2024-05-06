@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component} from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Component, effect, OnInit} from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 
 @Component({
@@ -12,12 +12,28 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './forms.component.scss',
 })
 
-export class FormsComponent {
+export class FormsComponent implements OnInit {
 
-  public hour = new FormControl('dododododo')
+  formGroup!: FormGroup;
 
 
   results = [];
+
+  constructor(private formBuilder: FormBuilder) {}
+
+  ngOnInit(): void {
+      this.formGroup = new FormGroup({
+      hour: new FormControl(),
+      showClosed: new FormControl(false),
+  })
+  }
+
+  onSubmmit() {
+    console.log(this.formGroup.value);
+  }
+  onClear() {
+    this.formGroup.reset();
+  }
 
 }
 
