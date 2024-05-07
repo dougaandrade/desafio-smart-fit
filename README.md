@@ -1,27 +1,63 @@
-# DesafioSmartFit
+# Front-end Smart Fit
+> Esse é um pequeno projeto criado como base para a avaliação de habilidades técnicas para o papel de Front-end.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
+# Preview
 
-## Development server
+![preview](preview.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Proposta de Teste
+> A Smart Fit, por atuar no segmento de fitness, passou por várias mudanças na pandemia. Foi necessário desenvolver uma página para buscar unidades **fechadas** ou **abertas** para consulta e reserva.
 
-## Code scaffolding
+> Optamos por não disponibilizar a API de buscas de unidades abertas/fechadas original para esse teste.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+> Nesse teste você implementará as funcionalidades descritas abaixos. Tenha atenção com as regras de negócios definidas mais adiante.
 
-## Build
+> Lembre-se de **seguir o layout proposto** em _material.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+> Caso não consiga concluir todas as funcionalidade, lembre-se que o mais importante é termos noção da qualidade do código e de suas habilidades para projeto de sistemas. Nesse caso, complemente sua solução com comentários e documentação sobre como terminaria o teste.
 
-## Running unit tests
+### Funcionalidades
+- Carrega unidades através do arquivo json `https://test-frontend-developer.s3.amazonaws.com/data/locations.json` com method `GET`
+- Busca todas as unidades
+- Busca unidades com filtros
+- Mostra previsão de resultados encontrados
+- Mostra unidades ao buscar
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Regras de negócio
+- Filtrar unidades abertas ou fechadas
+- Filtrar unidades por período de funcionamento
+- Caso não encontre unidades, mostrar uma menssagem ao usuário "Nenhuma unidade encontrada"
+- Validar para mostrar ícones corretos de acordo com o status
 
-## Running end-to-end tests
+### Componentes Macro
+- Formulário de busca com filtros
+- Legenda
+- Lista de unidades
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Materiais disponíveis
+> Em `./_material` você encontra:
+- layout (mobile e desktop)
+- Textos
+- Cores
+- imagens
+- fonts
 
-## Further help
+# Entrega
+> No seu github, crie um repositório público com o teste e nos envie (caso queira enviar a url do app funcionando no Heroku, vercel ou equivalente seria um plus)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+> Não faça Pull Request para esse repositório.
+
+### Avaliação
+- Instruções no README.md
+- Lógica de programação
+- Qualidade de código
+- Qualidade de entrega (como se fosse para produção)
+- Fidelidade ao layout proposto
+- Responsive design
+- cross browser and device (mobile, tablet e desktop)
+
+> Plus
+- Teste unitário e e2e (teste apenas o que achar mais importante).
+- Travis CI
+- App em produção (Ex.: Heroku, Vercel e etc...)
+- Rodando com Docker localmente
