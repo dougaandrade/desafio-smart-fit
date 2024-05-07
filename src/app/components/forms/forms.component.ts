@@ -17,7 +17,7 @@ export class FormsComponent implements OnInit {
   formGroup!: FormGroup;
 
 
-  results = [];
+  results = [333,3,33,3,3,3,3,33,3,33,];
 
   constructor(private formBuilder: FormBuilder) {}
 
