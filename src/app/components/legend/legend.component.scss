@@ -1,97 +1,80 @@
-.card {
+.container-card {
   width: 100%;
-  max-width: 50%;
+  max-width: 55vw;
 
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
 
   margin: 0 auto;
-  padding-top: 30px;
-}
-.card .container-legend {
-  width: 100%;
-  padding:10px;
-  display: flex;
-  align-items: center;
+  padding: 10px;
 
-  justify-content: space-evenly;
   background-color: var(--light-grey-015);
 }
 
-.card .container-legend .content-legend {
-
+.container-card .card {
+  width:25%;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  padding: 5px;
-}
-.container-legend .content-legend .text-legend {
-  font-size: 0.4rem;
-}
-.container-legend .content-legend .logo-legend {
-  display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding: 5px;
+   gap: 5px;
+}
+.text-legend{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  font-size: 7px;
+  color: var(--dark-grey);
+  font-family: Gotham;
+  font-weight: 600;
+}
+.card-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px;
   gap: 5px;
 }
 
-.container-legend .content-legend .logo-legend .cardLegend {
-  width: 100%;
+.img-Icon {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
-.container-legend .content-legend .logo-legend .cardLegend p {
-  font-size: 11px;
-}
-
-.container-legend img {
+.img-Icon img{
   height: 40px;
 }
-
-@media (max-width: 768px) {
-.card{
-    min-width: 80%;
-}
-.container-legend {
+.img-Icon p{
   width: 100%;
-
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-}
- .content-legend {
-  width: 60%;
-  gap: 14px;
-  padding: 20px 0;
-
-}
-.container-legend .content-legend .logo-legend .cardLegend {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.container-legend .content-legend .text-legend {
-  font-size: 0.7rem;
-}
-.container-legend .content-legend .logo-legend .cardLegend p {
-  font-size: 15px;
+  font-size: 10px;
+  color: var(--dark-grey);
+  font-family: Gotham;
+  font-weight: 300;
 }
 
-.container-legend .content-legend .logo-legend {
-  width: 100%;
-  padding: 10px;
+@media (max-width: 768px){
+  .container-card {
+  max-width: 70vw;
+  padding: 5px;
+  flex-direction: column;
+
+}
+.card-img {
   gap: 20px;
 }
-.container-legend img {
-  height: 80px;
+
+.img-Icon img{
+  height: 50px;
 }
 }
+
+
