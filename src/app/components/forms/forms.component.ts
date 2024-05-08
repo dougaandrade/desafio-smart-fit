@@ -1,8 +1,11 @@
+import { FilterUnitsService } from './../../services/filter-units.service';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { GetUnitsService } from '../../services/get-units.service';
 import { Ilocation } from '../../Interfaces/Ilocation.interface';
+import { first, last } from 'rxjs';
+import { Ihour_index } from '../../Interfaces/Ihour_index.interface';
 
 @Component({
   selector: 'app-forms',
@@ -18,7 +21,8 @@ export class FormsComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private unitService: GetUnitsService
+    private unitService: GetUnitsService,
+    private filterUnitsService: FilterUnitsService
   ) {}
 
   ngOnInit(): void {
@@ -33,9 +37,12 @@ export class FormsComponent implements OnInit {
   }
 
   onSubmmit() {
-    if (!this.formGroup.value.showClosed) {
-      this.filteredResults = this.results.filter(location => location.opened === true)
-    }
+    let { showClosed, hour } = this.formGroup.value;
+    this.filteredResults = this.filterUnitsService.filter(
+      this.results,
+      showClosed,
+      hour
+    );
   }
   onClear() {
     this.formGroup.reset();
