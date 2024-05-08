@@ -12,17 +12,27 @@
   -webkit-box-shadow: 1px 1px 1px 1px rgba(51,51,51,0.15);
   -moz-box-shadow: 1px 1px 1px 1px rgba(51,51,51,0.15);
   box-shadow: 1px 1px 1px 1px rgba(51,51,51,0.15);
-
+  transition: all 0.3s ease;
   gap: 8px;
 
   width: 250px;
-  height: 400px;
+  height: 350px;
+}
+
+.card:hover{
+  transform: translateY(-10px);
 }
 
 .card .divider {
-  height: 2px;
+  height: 1px;
   width: 100%;
   background-color: #d7d7d7;
+}
+.checkboxFavorits{
+    display: flex;
+    height: 2px;
+    width: 100%;
+    justify-content: flex-end;
 }
 
 .card span {
@@ -37,20 +47,21 @@
 
 .card h3 {
   color: var(--dark-grey);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
 }
 
 .card p {
   color: var(--light-grey);
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .card ul {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  gap: 24px;
+  gap: 10px;
+  padding-bottom: 5px;
 }
 
 .card li {

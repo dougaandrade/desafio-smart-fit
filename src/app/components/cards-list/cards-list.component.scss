@@ -1,10 +1,28 @@
+.input-card{
+    display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 60%;
+  margin: 80px auto;
+}
+.input-card h1{
+  font-size:50px;
+  font-family: Gotham;
+  font-weight: 600;
+  color: var(--dark-grey);
+}
+
 .card-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  gap: 20px;
 
-  max-width: 90%;
+  max-width: 60%;
   margin: 0 auto;
 }
 
@@ -14,6 +32,6 @@
 
 @media (min-width: 768px) {
   .card-list {
-    max-width: 80%;
+    max-width: 55%;
   }
 }

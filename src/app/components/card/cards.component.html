@@ -1,20 +1,58 @@
 <div class="card">
-  <span [ngClass]="{
-    opened: card.opened
-  }">{{ card.opened ? 'Aberto' : 'Fechado'}}</span>
+
+  <checkbox-favorites class="checkboxFavorits"/>
+  <span [ngClass]="{opened: card.opened}">{{ card.opened ? 'Aberto' : 'Fechado'}}</span>
   <h3>{{ card.title }}</h3>
   <p [innerHTML]="card.content"></p>
   <div class="divider"></div>
+
+
+
+  <!-- Control Flow @if in ANGULAR 17 -->
   <ul>
+    @if(card.mask){
+    <img [src]="'./assets/img/' + card.mask + '-mask.png'" />
+    }
+    @if (card.towel){
+    <img [src]="'./assets/img/' + card.towel + '-towel.png'" />
+    }
+    @if (card.fountain) {
+    <img [src]="'./assets/img/' + card.fountain + '-fountain.png'" />
+    }
+    @if (card.locker_room) {
+    <img [src]="'./assets/img/' + card.locker_room + '-lockerroom.png'" />
+    }
+  </ul>
+
+
+  <!-- Control Flow *ngIf in ANGULAR LEGADO -->
+
+  <!-- <ul>
     <img *ngIf="card.mask" [src]="'./assets/img/' + card.mask + '-mask.png'" />
     <img *ngIf="card.towel" [src]="'./assets/img/' + card.towel + '-towel.png'" />
     <img *ngIf="card.fountain" [src]="'./assets/img/' + card.fountain + '-fountain.png'" />
     <img *ngIf="card.locker_room" [src]="'./assets/img/' + card.locker_room + '-lockerroom.png'" />
-  </ul>
+  </ul> -->
+
+
+
+  <!-- Control Flow @for in ANGULAR 17 -->
   <ul>
+    @for (item of card.schedules ; track item) {
+    <li>
+      <b>{{ item.weekdays }}</b>
+      {{ item.hour }}
+    </li>
+    }
+  </ul>
+
+
+  <!-- Control Flow  *ngFor in ANGULAR LEGADO -->
+
+  <!-- <ul>
     <li *ngFor="let schedule of card.schedules">
       <b>{{ schedule.weekdays }}</b>
       {{ schedule.hour }}
     </li>
-  </ul>
+  </ul> -->
 </div>

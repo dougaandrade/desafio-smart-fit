@@ -1,5 +1,10 @@
+<div class="input-card">
+  <h1 >Smart Find</h1>
+  <input-search />
+</div>
 <ul class="card-list">
-  <li *ngFor="let card of unitsList">
-    <app-cards [card]="card"></app-cards>
-  </li>
+  @for (item of unitsList; track unitsList) {
+    <app-cards [card]="item"></app-cards>
+  }
+  <!-- <li *ngFor="let card of unitsList"> -->
 </ul>
