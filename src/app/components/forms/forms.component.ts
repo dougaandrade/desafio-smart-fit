@@ -1,6 +1,6 @@
 import { FilterUnitsService } from './../../services/filter-units.service';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { GetUnitsService } from '../../services/get-units.service';
 import { Ilocation } from '../../Interfaces/Ilocation.interface';
@@ -15,6 +15,7 @@ import { Ihour_index } from '../../Interfaces/Ihour_index.interface';
   styleUrl: './forms.component.scss',
 })
 export class FormsComponent implements OnInit {
+  @Output() submitEvent = new EventEmitter();
   formGroup!: FormGroup;
   filteredResults: Ilocation[] = [];
   results: Ilocation[] = [];
@@ -31,8 +32,8 @@ export class FormsComponent implements OnInit {
       showClosed: false,
     });
     this.unitService.getAllUnits().subscribe((data) => {
-      this.results = data.locations;
-      this.filteredResults = data.locations;
+      this.results = data;
+      this.filteredResults = data;
     });
   }
 
@@ -43,6 +44,8 @@ export class FormsComponent implements OnInit {
       showClosed,
       hour
     );
+    this.unitService.setFilteredUnits(this.filteredResults);
+    this.submitEvent.emit();
   }
   onClear() {
     this.formGroup.reset();

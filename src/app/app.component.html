@@ -1,6 +1,9 @@
 <div class="app-container">
-  <app-header/>
-  <app-forms/>
-  <app-legend/>
-  <app-footer/>
+  <app-header />
+  <app-forms (submitEvent)="onSubmmit()" />
+  <app-legend />
+  @if (showList | async){
+  <app-cards-list [unitsList]="unitsList"/>
+  }
+  <app-footer />
 </div>

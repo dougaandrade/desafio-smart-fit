@@ -1,80 +1,61 @@
-.container-card {
-  width: 100%;
-  max-width: 80vw;
-
+.legend {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 
+  background-color: rgba(0,0,0,0.1);
+
+  max-width: 80%;
+  width: 100%;
   margin: 0 auto;
-  padding: 10px;
+  padding: 24px 12px;
 
-  background-color: var(--light-grey-015);
+  border-radius: 4px;
+  gap: 24px;
 }
 
-.container-card .card {
-  width:25%;
+.legend .legend-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 5px;
-   gap: 5px;
-}
-.text-legend{
-  display: flex;
-  justify-content:center;
-  align-items: center;
-  font-size: 7px;
-  color: var(--dark-grey);
-  font-family: Gotham;
-  font-weight: 600;
-}
-.card-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0px 10px;
-  gap: 5px;
+  gap: 8px;
 }
 
-.img-Icon {
+.legend .legend-item h4 {
+  text-align: center;
+}
+
+.legend .legend-item .legend-images {
   display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+}
+
+.legend .legend-item .legend-images .legend-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
 }
 
-.img-Icon img{
-  height: 40px;
-}
-.img-Icon p{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  color: var(--dark-grey);
-  font-family: Gotham;
-  font-weight: 300;
+.legend .legend-item .legend-images img {
+  width: 100px;
 }
 
-@media (max-width: 768px){
-  .container-card {
-  max-width: 80vw;
-  padding: 5px;
-  flex-direction: column;
+@media (min-width: 1120px) {
+  .legend {
+    flex-direction: row;
+  }
 
-}
-.card-img {
-  gap: 20px;
-}
-
-.img-Icon img{
-  height: 50px;
-}
+  .legend .legend-item .legend-images img {
+    width: 50px;
+  }
 }
 
-
+@media (min-width: 1380px) {
+  .legend .legend-item .legend-images img {
+    width: 100px;
+  }
+}
