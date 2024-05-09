@@ -10,7 +10,7 @@ import { InputSearchComponent } from './input-search/input-search.component';
   imports: [
     CommonModule,
     CardsComponent,
-    InputSearchComponent
+    InputSearchComponent,
   ],
   templateUrl: './cards-list.component.html',
   styleUrl: './cards-list.component.scss',

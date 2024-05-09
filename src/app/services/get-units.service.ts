@@ -10,8 +10,11 @@ import { Ilocation } from '../Interfaces/Ilocation.interface';
 export class GetUnitsService {
   readonly apiUrl =
     'https://test-frontend-developer.s3.amazonaws.com/data/locations.json';
-  private allUnitsSubject: BehaviorSubject<Ilocation[]> = new BehaviorSubject<Ilocation[]>([]);
-  private allUnits$: Observable<Ilocation[]> =this.allUnitsSubject.asObservable();
+  private allUnitsSubject: BehaviorSubject<Ilocation[]> = new BehaviorSubject<
+    Ilocation[]
+  >([]);
+  private allUnits$: Observable<Ilocation[]> =
+    this.allUnitsSubject.asObservable();
   private filteredUnits: Ilocation[] = [];
 
 
@@ -33,4 +36,6 @@ export class GetUnitsService {
   setFilteredUnits(value: Ilocation[]) {
     this.filteredUnits = value;
   }
+
+
 }
