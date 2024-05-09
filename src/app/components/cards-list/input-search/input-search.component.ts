@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CardsListComponent } from '../cards-list.component';
 import { GetUnitsService } from '../../../services/get-units.service';
 import { FormsModule } from '@angular/forms';
 import { CardsComponent } from '../../card/cards.component';
+import { Ilocation } from '../../../Interfaces/Ilocation.interface';
 
 @Component({
   selector: 'input-search',

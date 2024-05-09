@@ -1,5 +1,5 @@
 import { Ilocation } from './Interfaces/Ilocation.interface';
-import { Component } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FormsComponent } from './components/forms/forms.component';
@@ -20,7 +20,6 @@ import { FormsModule } from '@angular/forms';
     FormsComponent,
     FooterComponent,
     LegendComponent,
-    HttpClientModule,
     CardsListComponent,
     CommonModule,
   ],
@@ -29,13 +28,12 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  showList = new BehaviorSubject(false);
-  unitsList: Ilocation[] = [];
-
-  constructor(private unitService: GetUnitsService) {}
+  private readonly unitService = inject(GetUnitsService);
+  protected readonly unitsList = signal<Ilocation[]>([]);
 
   onSubmmit() {
-    this.unitsList = this.unitService.getFilteredUnits();
-    this.showList.next(true);
+    this.unitService.obterDados().subscribe((result) => {
+      this.unitsList.set(result.locations);
+    });
   }
 }

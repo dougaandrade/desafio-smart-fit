@@ -1,8 +1,7 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import {  map } from 'rxjs';
 import { IunitsResponse } from '../Interfaces/IunitsResponse.interfaces';
-import { Ilocation } from '../Interfaces/Ilocation.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -10,32 +9,26 @@ import { Ilocation } from '../Interfaces/Ilocation.interface';
 export class GetUnitsService {
   readonly apiUrl =
     'https://test-frontend-developer.s3.amazonaws.com/data/locations.json';
-  private allUnitsSubject: BehaviorSubject<Ilocation[]> = new BehaviorSubject<
-    Ilocation[]
-  >([]);
-  private allUnits$: Observable<Ilocation[]> =
-    this.allUnitsSubject.asObservable();
-  private filteredUnits: Ilocation[] = [];
 
+  private readonly source$ = inject(HttpClient).get<IunitsResponse>(this.apiUrl);
 
-  constructor(private httpClient: HttpClient) {
-    this.httpClient.get<IunitsResponse>(this.apiUrl).subscribe((data) => {
-      this.allUnitsSubject.next(data.locations);
-      this.filteredUnits = data.locations;
+  obterDados(filtro?: string) {
+    let result = this.source$;
 
-    });
+    if (filtro) {
+      const filtroNormalizado = filtro.toLocaleLowerCase();
+      result = result.pipe(
+        map((value) => {
+          const locations = value.locations.filter((loc) => loc.content.toLocaleLowerCase().includes(filtroNormalizado))
+
+          return {
+            ...value,
+            locations
+          }
+        })
+      )
+    }
+
+    return result;
   }
-
-  getAllUnits(): Observable<Ilocation[]> {
-    return this.allUnits$;
-  }
-  getFilteredUnits() {
-    return this.filteredUnits;
-  }
-
-  setFilteredUnits(value: Ilocation[]) {
-    this.filteredUnits = value;
-  }
-
-
 }

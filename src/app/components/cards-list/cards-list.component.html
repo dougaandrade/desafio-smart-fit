@@ -3,8 +3,8 @@
   <input-search />
 </div>
 <ul class="card-list">
-  @for (item of unitsList; track unitsList) {
-    <app-cards [card]="item"></app-cards>
+  @for (item of unitsList(); track item.id) {
+    <app-cards [card]="item" />
   }
 </ul>
 
