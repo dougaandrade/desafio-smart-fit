@@ -1,7 +1,7 @@
+import { IunitsResponse } from './../Interfaces/IunitsResponse.interfaces';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { map } from 'rxjs';
-import { IunitsResponse } from '../Interfaces/IunitsResponse.interfaces';
+import { firstValueFrom, map, Observable } from 'rxjs';
 import { Ilocation } from '../Interfaces/Ilocation.interface';
 import { Ihour_index } from '../Interfaces/Ihour_index.interface';
 
@@ -73,7 +73,7 @@ export class GetUnitsService {
     }
     return false;
   }
-  filtrarResultados(results: Ilocation[], showClosed: boolean, hour: string) {
+  obterResultados(results: Ilocation[], showClosed: boolean, hour: string) {
     let resultadosParc = results;
     if (showClosed) {
       resultadosParc = results.filter((location) => location.opened === true);
@@ -110,4 +110,18 @@ export class GetUnitsService {
     return result;
   }
 
+  async obterAcademias() {
+    // obter as academias do BD
+    const academias = await firstValueFrom(this.source$);
+
+    // filtrar os resultados, se necessario
+    const academiasFiltradas = this.filtrarAcademias(academias, xxxxx);
+
+    // retornar os resultados finais
+    return academiasFiltradas;
+  }
+
+  private filtrarAcademias() {
+    
+  }
 }

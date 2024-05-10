@@ -1,6 +1,7 @@
 <div class="app-container">
   <app-header />
-  <app-forms (submitEvent)="onSubmmit()" />
+  <app-forms (academias)="unitsList.set($event)" />
+
   @if (unitsList().length > 0) {
     <app-cards-list [unitsList]="unitsList()" />
   }
