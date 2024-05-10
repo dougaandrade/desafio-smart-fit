@@ -15,10 +15,10 @@ import { Ihour_index } from '../../Interfaces/Ihour_index.interface';
   styleUrl: './forms.component.scss',
 })
 export class FormsComponent implements OnInit {
-  // @Output() submitEvent = new EventEmitter();
-  // formGroup!: FormGroup;
-  // filteredResults: Ilocation[] = [];
-  // results: Ilocation[] = [];
+  @Output() submitEvent = new EventEmitter();
+  formGroup!: FormGroup;
+  filteredResults: Ilocation[] = [];
+  results: Ilocation[] = [];
 
   constructor(
     // private formBuilder: FormBuilder,
