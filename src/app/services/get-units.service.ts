@@ -48,7 +48,7 @@ export class GetUnitsService {
     if (!units.schedules) return true;
     let open_hour_filter = parseInt(open_hour, 10);
     let close_hour_filter = parseInt(close_hour, 10);
-
+    ///tentar consertar o metodo para reconhecer o schedules e o closehour
     let todays_weekday = this.transform_weekday(new Date().getDate());
 
     for (let i = 0; i < units.schedules.length; i++) {
