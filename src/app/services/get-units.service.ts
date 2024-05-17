@@ -30,7 +30,7 @@ export class GetUnitsService {
 
   //todo criar os metodos para os gets
 
-  transform_weekday(weekday: number) {
+  private transform_weekday(weekday: number) {
     switch (weekday) {
       case 0:
         return 'Dom.';
@@ -40,16 +40,20 @@ export class GetUnitsService {
         return 'Seg. à Sex.';
     }
   }
-  filtarUnidades(unit: Ilocation, open_hour: string, close_hour: string) {
-    if (!unit.schedules) return true;
+  private filtrarAcademias(
+    units: Ilocation[],
+    open_hour?: string,
+    close_hour?: string,
+  ): Ilocation[]  {
+    if (!units.schedules) return true;
     let open_hour_filter = parseInt(open_hour, 10);
     let close_hour_filter = parseInt(close_hour, 10);
 
     let todays_weekday = this.transform_weekday(new Date().getDate());
 
-    for (let i = 0; i < unit.schedules.length; i++) {
-      let schedule_hour = unit.schedules[i].hour;
-      let schedule_weekday = unit.schedules[i].weekdays;
+    for (let i = 0; i < units.schedules.length; i++) {
+      let schedule_hour = units.schedules[i].hour;
+      let schedule_weekday = units.schedules[i].weekdays;
 
       if ((todays_weekday = schedule_weekday)) {
         if (schedule_hour !== 'Fechada') {
@@ -73,7 +77,11 @@ export class GetUnitsService {
     }
     return false;
   }
-  obterResultados(results: Ilocation[], showClosed: boolean, hour: string) {
+  obterResultados(
+    results: Ilocation[],
+    showClosed: boolean,
+    hour: string
+  ) {
     let resultadosParc = results;
     if (showClosed) {
       resultadosParc = results.filter((location) => location.opened === true);
@@ -82,13 +90,13 @@ export class GetUnitsService {
       const OPEN_HOUR = OPPENING_HOURS[hour as Ihour_index].first;
       const CLOSE_HOUR = OPPENING_HOURS[hour as Ihour_index].last;
       return resultadosParc.filter((location) =>
-        this.filtarUnidades(location, OPEN_HOUR, CLOSE_HOUR)
+        this.filtrarAcademias(location, OPEN_HOUR, CLOSE_HOUR)
       );
     } else {
       return resultadosParc;
     }
   }
-  obterDados(filtro?: string) {
+  private obterDados(filtro?: string) {
     let result = this.source$;
 
     if (filtro) {
@@ -110,18 +118,17 @@ export class GetUnitsService {
     return result;
   }
 
-  async obterAcademias() {
+  async obterAcademias(open_hour?: string, close_hour?: string) {
     // obter as academias do BD
     const academias = await firstValueFrom(this.source$);
 
     // filtrar os resultados, se necessario
-    const academiasFiltradas = this.filtrarAcademias(academias, xxxxx);
-
+    const academiasfiltradas = this.filtrarAcademias(
+      academias.locations,
+      open_hour,
+      close_hour
+    );
     // retornar os resultados finais
-    return academiasFiltradas;
-  }
-
-  private filtrarAcademias() {
-    
+    return academiasfiltradas;
   }
 }
