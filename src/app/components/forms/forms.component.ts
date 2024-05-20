@@ -22,6 +22,7 @@ import { Ihour_index } from '../../Interfaces/Ihour_index.interface';
 })
 export class FormsComponent {
   readonly academias = output<Ilocation[]>();
+  results = this.academias;
   formGroup = this.formBuilder.group({
     hour: '',
     showClosed: false,
@@ -33,9 +34,14 @@ export class FormsComponent {
   ) {}
 
   async onSubmmit() {
-    const academias = await this.unitService.obterAcademias();
+    const { hour, showClosed } = this.formGroup.value;
+    const academias = await this.unitService.obterAcademias(
+      '',
+      '',
+      showClosed ? true : undefined,
+      typeof hour === 'string' ? hour : undefined
+    );
     this.academias.emit(academias);
-    let { showClosed, hour } = this.formGroup.value;
     console.log(academias);
   }
 

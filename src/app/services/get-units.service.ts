@@ -28,8 +28,6 @@ const API_APP =
 export class GetUnitsService {
   private readonly source$ = inject(HttpClient).get<IunitsResponse>(API_APP);
 
-  //todo criar os metodos para os gets
-
   private transform_weekday(weekday: number) {
     switch (weekday) {
       case 0:
@@ -40,6 +38,7 @@ export class GetUnitsService {
         return 'Seg. à Sex.';
     }
   }
+
   private filtrarAcademias(
     units: Ilocation[],
     open_hour?: string,
@@ -48,14 +47,14 @@ export class GetUnitsService {
     if (!open_hour || !close_hour) return units;
     let open_hour_filter = parseInt(open_hour, 10);
     let close_hour_filter = parseInt(close_hour, 10);
-    ///tentar consertar o metodo para reconhecer o schedules e o closehour
-    let todays_weekday = this.transform_weekday(new Date().getDate());
+    let todays_weekday = this.transform_weekday(new Date().getDay());
+
     return units.filter((unit) => {
       if (!unit.schedules) return true;
 
-      for (let shedule of unit.schedules) {
-        let schedule_hour = shedule.hour;
-        let schedule_weekday = shedule.weekdays;
+      for (let schedule of unit.schedules) {
+        let schedule_hour = schedule.hour;
+        let schedule_weekday = schedule.weekdays;
 
         if (schedule_weekday.includes(todays_weekday)) {
           if (schedule_hour !== 'Fechada') {
@@ -80,13 +79,14 @@ export class GetUnitsService {
       return false;
     });
   }
+
   private horarioLocais(
     units: Ilocation[],
     showClosed?: boolean,
     hour?: string
   ) {
     let oppening = units;
-    // paramentro para ser analisado pela service se o checbox estiver checado faça tal coisa
+
     if (showClosed) {
       oppening = oppening.filter((locais) => locais.opened === true);
     }
@@ -96,6 +96,7 @@ export class GetUnitsService {
       const CLOSE_HOUR = OPPENING_HOURS[hour as Ihour_index].last;
       oppening = this.filtrarAcademias(oppening, OPEN_HOUR, CLOSE_HOUR);
     }
+
     return oppening;
   }
 
@@ -105,10 +106,8 @@ export class GetUnitsService {
     showClosed?: boolean,
     hour?: string
   ) {
-    // obter as academias do BD
     const academias = await firstValueFrom(this.source$);
 
-    // filtrar os resultados, se necessario
     let academiasfiltradas = this.filtrarAcademias(
       academias.locations,
       open_hour,
@@ -120,7 +119,6 @@ export class GetUnitsService {
       hour
     );
 
-    // retornar os resultados finais
     return academiasfiltradas;
   }
 }
