@@ -35,6 +35,7 @@ export class FormsComponent {
   async onSubmmit() {
     const academias = await this.unitService.obterAcademias();
     this.academias.emit(academias);
+    let { showClosed, hour } = this.formGroup.value;
     console.log(academias);
   }
 

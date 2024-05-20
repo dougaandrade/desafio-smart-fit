@@ -59,7 +59,7 @@ export class GetUnitsService {
 
         if (schedule_weekday.includes(todays_weekday)) {
           if (schedule_hour !== 'Fechada') {
-            let [unit_open_hour, unit_close_hour] = schedule_hour.split(' às');
+            let [unit_open_hour, unit_close_hour] = schedule_hour.split('às');
             let unit_open_hour_int = parseInt(
               unit_open_hour.replace('h', ''),
               10
@@ -86,10 +86,11 @@ export class GetUnitsService {
     hour?: string
   ) {
     let oppening = units;
-
-    if (!showClosed) {
+    // paramentro para ser analisado pela service se o checbox estiver checado faça tal coisa
+    if (showClosed) {
       oppening = oppening.filter((locais) => locais.opened === true);
     }
+
     if (hour) {
       const OPEN_HOUR = OPPENING_HOURS[hour as Ihour_index].first;
       const CLOSE_HOUR = OPPENING_HOURS[hour as Ihour_index].last;
