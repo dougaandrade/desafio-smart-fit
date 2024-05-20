@@ -50,7 +50,6 @@ export class GetUnitsService {
     let close_hour_filter = parseInt(close_hour, 10);
     ///tentar consertar o metodo para reconhecer o schedules e o closehour
     let todays_weekday = this.transform_weekday(new Date().getDate());
-
     return units.filter((unit) => {
       if (!unit.schedules) return true;
 
@@ -81,53 +80,45 @@ export class GetUnitsService {
       return false;
     });
   }
-  obterResultados(results: Ilocation[], showClosed: boolean, hour: string) {
-    let resultadosParc = results;
-    if (showClosed) {
-      resultadosParc = results.filter((location) => location.opened === true);
+  private horarioLocais(
+    units: Ilocation[],
+    showClosed?: boolean,
+    hour?: string
+  ) {
+    let oppening = units;
+
+    if (!showClosed) {
+      oppening = oppening.filter((locais) => locais.opened === true);
     }
     if (hour) {
       const OPEN_HOUR = OPPENING_HOURS[hour as Ihour_index].first;
       const CLOSE_HOUR = OPPENING_HOURS[hour as Ihour_index].last;
-      return resultadosParc.filter((location) =>
-        this.filtrarAcademias(location, OPEN_HOUR, CLOSE_HOUR)
-      );
-    } else {
-      return resultadosParc;
+      oppening = this.filtrarAcademias(oppening, OPEN_HOUR, CLOSE_HOUR);
     }
-  }
-  private obterDados(filtro?: string) {
-    let result = this.source$;
-
-    if (filtro) {
-      const filtroNormalizado = filtro.toLocaleLowerCase();
-      result = result.pipe(
-        map((value) => {
-          const locations = value.locations.filter((loc) =>
-            loc.content.toLocaleLowerCase().includes(filtroNormalizado)
-          );
-
-          return {
-            ...value,
-            locations,
-          };
-        })
-      );
-    }
-
-    return result;
+    return oppening;
   }
 
-  async obterAcademias(open_hour?: string, close_hour?: string) {
+  async obterAcademias(
+    open_hour?: string,
+    close_hour?: string,
+    showClosed?: boolean,
+    hour?: string
+  ) {
     // obter as academias do BD
     const academias = await firstValueFrom(this.source$);
 
     // filtrar os resultados, se necessario
-    const academiasfiltradas = this.filtrarAcademias(
+    let academiasfiltradas = this.filtrarAcademias(
       academias.locations,
       open_hour,
       close_hour
     );
+    academiasfiltradas = this.horarioLocais(
+      academiasfiltradas,
+      showClosed,
+      hour
+    );
+
     // retornar os resultados finais
     return academiasfiltradas;
   }

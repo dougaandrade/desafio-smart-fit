@@ -32,8 +32,7 @@ export class AppComponent {
   protected readonly unitsList = signal<Ilocation[]>([]);
 
   onSubmmit() {
-    this.unitService.obterDados().subscribe((result) => {
-      this.unitsList.set(result.locations);
-    });
+    this.unitService.obterAcademias();
+    console.log(this.onSubmmit);
   }
 }

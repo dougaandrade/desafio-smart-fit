@@ -1,5 +1,5 @@
-<form action="" class="container-form"   [formGroup]="formGroup">
-<div class="form-textIcon">
+<form action="" class="container-form" [formGroup]="formGroup">
+  <div class="form-textIcon">
     <img src="/assets/img/icon-hour.png" alt="Icone de Horario">Horario
   </div>
   <h3>Qual período quer treinar?</h3>
@@ -23,13 +23,11 @@
       <input type="checkbox" name="showClosed" formControlName="showClosed" />
       <label for="showClosed" class="label-checkbox">Exibir unidades fechadas</label>
     </div>
-    <span>Resultados Encontrados:<strong>{{results.length}}</strong></span>
+    <span>Resultados Encontrados:<strong></strong></span>
   </div>
 
   <div class="btn-wrapper">
-    <button class="btn btn-primary" (click)="onSubmmit()" >encontrar unidade</button>
-    <button class="btn btn-secondary"(click)="onClear()">limpar</button>
+    <button class="btn btn-primary" (click)="onSubmmit()">encontrar unidade</button>
+    <button class="btn btn-secondary" (click)="onClear()">limpar</button>
   </div>
 </form>
-
-
