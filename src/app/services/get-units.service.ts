@@ -43,45 +43,45 @@ export class GetUnitsService {
   private filtrarAcademias(
     units: Ilocation[],
     open_hour?: string,
-    close_hour?: string,
-  ): Ilocation[]  {
-    if (!units.schedules) return true;
+    close_hour?: string
+  ): Ilocation[] {
+    if (!open_hour || !close_hour) return units;
     let open_hour_filter = parseInt(open_hour, 10);
     let close_hour_filter = parseInt(close_hour, 10);
     ///tentar consertar o metodo para reconhecer o schedules e o closehour
     let todays_weekday = this.transform_weekday(new Date().getDate());
 
-    for (let i = 0; i < units.schedules.length; i++) {
-      let schedule_hour = units.schedules[i].hour;
-      let schedule_weekday = units.schedules[i].weekdays;
+    return units.filter((unit) => {
+      if (!unit.schedules) return true;
 
-      if ((todays_weekday = schedule_weekday)) {
-        if (schedule_hour !== 'Fechada') {
-          let [unit_open_hour, unit_close_hour] = schedule_hour.split(' às');
-          let unit_open_hour_int = parseInt(
-            unit_open_hour.replace('h', ''),
-            10
-          );
-          let unit_close_hour_int = parseInt(
-            unit_close_hour.replace('h', ''),
-            10
-          );
-          if (
-            unit_open_hour_int <= open_hour_filter &&
-            unit_close_hour_int >= close_hour_filter
-          )
-            return true;
-          else return false;
+      for (let shedule of unit.schedules) {
+        let schedule_hour = shedule.hour;
+        let schedule_weekday = shedule.weekdays;
+
+        if (schedule_weekday.includes(todays_weekday)) {
+          if (schedule_hour !== 'Fechada') {
+            let [unit_open_hour, unit_close_hour] = schedule_hour.split(' às');
+            let unit_open_hour_int = parseInt(
+              unit_open_hour.replace('h', ''),
+              10
+            );
+            let unit_close_hour_int = parseInt(
+              unit_close_hour.replace('h', ''),
+              10
+            );
+            if (
+              unit_open_hour_int <= open_hour_filter &&
+              unit_close_hour_int >= close_hour_filter
+            ) {
+              return true;
+            }
+          }
         }
       }
-    }
-    return false;
+      return false;
+    });
   }
-  obterResultados(
-    results: Ilocation[],
-    showClosed: boolean,
-    hour: string
-  ) {
+  obterResultados(results: Ilocation[], showClosed: boolean, hour: string) {
     let resultadosParc = results;
     if (showClosed) {
       resultadosParc = results.filter((location) => location.opened === true);
