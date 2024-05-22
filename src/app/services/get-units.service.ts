@@ -5,6 +5,10 @@ import { firstValueFrom, map, Observable } from 'rxjs';
 import { Ilocation } from '../Interfaces/Ilocation.interface';
 import { Ihour_index } from '../Interfaces/Ihour_index.interface';
 
+interface Academia extends Ilocation {
+  uf: string;
+}
+
 const OPPENING_HOURS = {
   morning: {
     first: '06',
@@ -40,10 +44,10 @@ export class GetUnitsService {
   }
 
   private filtrarAcademias(
-    units: Ilocation[],
+    units: Academia[],
     open_hour?: string,
     close_hour?: string
-  ): Ilocation[] {
+  ): Academia[] {
     if (!open_hour || !close_hour) return units;
     let open_hour_filter = parseInt(open_hour, 10);
     let close_hour_filter = parseInt(close_hour, 10);
@@ -80,10 +84,10 @@ export class GetUnitsService {
   }
 
   private horarioLocais(
-    units: Ilocation[],
+    units: Academia[],
     showClosed?: boolean,
     hour?: string
-  ): Ilocation[] {
+  ): Academia[] {
     let oppening = units;
 
     if (showClosed) {
@@ -107,16 +111,19 @@ export class GetUnitsService {
   ) {
     const academias = await firstValueFrom(this.source$);
 
+    const ufPattern = /, (\w{2})<\/p>/;
+    const academiasComUF: Academia[] = academias.locations.map((item) => {
+      const match = ufPattern.exec(item.content);
+      const uf = match ? match[1] : '';
+      return { ...item, uf };
+    });
+
     let academiasfiltradas = this.filtrarAcademias(
-      academias.locations,
+      academiasComUF,
       open_hour,
       close_hour
     );
-    academiasfiltradas = this.horarioLocais(
-      academias.locations,
-      showClosed,
-      hour
-    );
+    academiasfiltradas = this.horarioLocais(academiasComUF, showClosed, hour);
 
     return academiasfiltradas;
   }
