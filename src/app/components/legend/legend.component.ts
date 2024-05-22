@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './legend.component.html',
-  styleUrl: './legend.component.scss'
+  styleUrl: './legend.component.scss',
 })
-export class LegendComponent {
-
-}
+export class LegendComponent {}

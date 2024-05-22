@@ -1,17 +1,8 @@
 import { Ilocation } from './../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  EventEmitter,
-  OnInit,
-  output,
-  Output,
-  OutputEmitterRef,
-} from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, output } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { GetUnitsService } from '../../services/get-units.service';
-import { first, last } from 'rxjs';
-import { Ihour_index } from '../../Interfaces/Ihour_index.interface';
 
 @Component({
   selector: 'app-forms',
@@ -22,7 +13,6 @@ import { Ihour_index } from '../../Interfaces/Ihour_index.interface';
 })
 export class FormsComponent {
   readonly academias = output<Ilocation[]>();
-  results = this.academias;
   formGroup = this.formBuilder.group({
     hour: '',
     showClosed: false,

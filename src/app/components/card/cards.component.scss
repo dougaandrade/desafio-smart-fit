@@ -7,11 +7,11 @@
   padding: 12px 8px;
   border-radius: 8px;
 
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0, 0, 0, 0.1);
 
-  -webkit-box-shadow: 1px 1px 1px 1px rgba(51,51,51,0.15);
-  -moz-box-shadow: 1px 1px 1px 1px rgba(51,51,51,0.15);
-  box-shadow: 1px 1px 1px 1px rgba(51,51,51,0.15);
+  -webkit-box-shadow: 1px 1px 1px 1px rgba(51, 51, 51, 0.15);
+  -moz-box-shadow: 1px 1px 1px 1px rgba(51, 51, 51, 0.15);
+  box-shadow: 1px 1px 1px 1px rgba(51, 51, 51, 0.15);
   transition: all 0.3s ease;
   gap: 8px;
 
@@ -19,8 +19,8 @@
   height: 350px;
 }
 
-.card:hover{
-  transform: translateY(-10px);
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .card .divider {
@@ -28,11 +28,11 @@
   width: 100%;
   background-color: #d7d7d7;
 }
-.checkboxFavorits{
-    display: flex;
-    height: 2px;
-    width: 100%;
-    justify-content: flex-end;
+.checkboxFavorits {
+  display: flex;
+  height: 2px;
+  width: 100%;
+  justify-content: flex-end;
 }
 
 .card span {

@@ -10,7 +10,6 @@ header {
   padding-bottom: 23px;
 }
 
-
 header .logo-container {
   background: black;
   padding: 34px 0;
@@ -27,13 +26,13 @@ header .text-container {
   align-items: flex-start;
   justify-content: flex-start;
 
-  max-width: 55%;
+  max-width: 50%;
   margin: 0 auto;
   gap: 20px;
 }
 
 header .text-container h1 {
-  font-size:50px;
+  font-size: 50px;
   font-family: Gotham;
   color: var(--dark-grey);
 }
@@ -44,8 +43,7 @@ header .text-container p {
   font-family: Gotham;
 }
 
-
-header .text-container .heading{
+header .text-container .heading {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -54,35 +52,33 @@ header .text-container .heading{
   margin-bottom: 24px;
   gap: 12px;
 }
-header .text-container .heading-tracy{
- height: 5px;
- width: 45%;
+header .text-container .heading-tracy {
+  height: 5px;
+  width: 45%;
   background-color: var(--dark-grey);
 }
-
 
 header img {
   width: 11%;
 }
 
-
 @media (max-width: 768px) {
   header img {
-  width: 50%;
-}
+    width: 50%;
+  }
 
-header .text-container {
-   min-width: 80%;
-}
-header .text-container h1 {
-   min-width: 80%;
-  font-size: 40px;
-}
+  header .text-container {
+    min-width: 80%;
+  }
+  header .text-container h1 {
+    min-width: 80%;
+    font-size: 40px;
+  }
 
-header .text-container p {
-  font-size: 17px;
-  color: var(--dark-grey);
-  font-family: Gotham;
-  font-weight: 300;
-}
+  header .text-container p {
+    font-size: 17px;
+    color: var(--dark-grey);
+    font-family: Gotham;
+    font-weight: 300;
+  }
 }

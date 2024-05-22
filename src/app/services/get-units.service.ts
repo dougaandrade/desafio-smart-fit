@@ -7,16 +7,16 @@ import { Ihour_index } from '../Interfaces/Ihour_index.interface';
 
 const OPPENING_HOURS = {
   morning: {
-    first: '06h',
-    last: '12h',
+    first: '06',
+    last: '12',
   },
   afternoon: {
-    first: '12h01',
-    last: '18h',
+    first: '12',
+    last: '18',
   },
   night: {
-    first: '18h01',
-    last: '23h',
+    first: '18',
+    last: '23',
   },
 };
 const API_APP =
@@ -56,9 +56,9 @@ export class GetUnitsService {
         let schedule_hour = schedule.hour;
         let schedule_weekday = schedule.weekdays;
 
-        if (schedule_weekday.includes(todays_weekday)) {
+        if (schedule_weekday === todays_weekday) {
           if (schedule_hour !== 'Fechada') {
-            let [unit_open_hour, unit_close_hour] = schedule_hour.split('às');
+            let [unit_open_hour, unit_close_hour] = schedule_hour.split(' às ');
             let unit_open_hour_int = parseInt(
               unit_open_hour.replace('h', ''),
               10
@@ -70,9 +70,8 @@ export class GetUnitsService {
             if (
               unit_open_hour_int <= open_hour_filter &&
               unit_close_hour_int >= close_hour_filter
-            ) {
+            )
               return true;
-            }
           }
         }
       }
@@ -84,11 +83,11 @@ export class GetUnitsService {
     units: Ilocation[],
     showClosed?: boolean,
     hour?: string
-  ) {
+  ): Ilocation[] {
     let oppening = units;
 
     if (showClosed) {
-      oppening = oppening.filter((locais) => locais.opened === true);
+      oppening = oppening.filter((locais) => locais.opened === false);
     }
 
     if (hour) {
@@ -114,7 +113,7 @@ export class GetUnitsService {
       close_hour
     );
     academiasfiltradas = this.horarioLocais(
-      academiasfiltradas,
+      academias.locations,
       showClosed,
       hour
     );

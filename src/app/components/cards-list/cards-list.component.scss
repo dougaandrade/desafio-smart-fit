@@ -1,5 +1,5 @@
-.input-card{
-    display: flex;
+.input-card {
+  display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
@@ -9,8 +9,8 @@
   max-width: 60%;
   margin: 80px auto;
 }
-.input-card h1{
-  font-size:50px;
+.input-card h1 {
+  font-size: 50px;
   font-family: Gotham;
   font-weight: 600;
   color: var(--dark-grey);
@@ -21,9 +21,11 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-
-  max-width: 60%;
+  padding: 5px;
+  max-width: 55%;
   margin: 0 auto;
+  overflow-y: scroll;
+  height: 50rem;
 }
 
 .card-list li {
@@ -34,4 +36,8 @@
   .card-list {
     max-width: 55%;
   }
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
