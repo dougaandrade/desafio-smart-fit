@@ -44,16 +44,16 @@ export class GetUnitsService {
   }
 
   private filtrarAcademias(
-    units: Academia[],
+    academias: Academia[],
     open_hour?: string,
     close_hour?: string
   ): Academia[] {
-    if (!open_hour || !close_hour) return units;
+    if (!open_hour || !close_hour) return academias;
     let open_hour_filter = parseInt(open_hour, 10);
     let close_hour_filter = parseInt(close_hour, 10);
     let todays_weekday = this.transform_weekday(new Date().getDay());
 
-    return units.filter((unit) => {
+    return academias.filter((unit) => {
       if (!unit.schedules) return true;
 
       for (let schedule of unit.schedules) {
@@ -92,6 +92,10 @@ export class GetUnitsService {
 
     if (showClosed) {
       oppening = oppening.filter((locais) => locais.opened === false);
+      // validacao de array vazio
+      if (showClosed === length > 0) {
+        console.log('vazio');
+      }
     }
 
     if (hour) {
@@ -124,7 +128,6 @@ export class GetUnitsService {
       close_hour
     );
     academiasfiltradas = this.horarioLocais(academiasComUF, showClosed, hour);
-
     return academiasfiltradas;
   }
 }

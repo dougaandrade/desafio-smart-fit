@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CardsListComponent } from '../cards-list.component';
 import { GetUnitsService } from '../../../services/get-units.service';
 import { FormsModule } from '@angular/forms';
@@ -12,6 +12,4 @@ import { Ilocation } from '../../../Interfaces/Ilocation.interface';
   templateUrl: './input-search.component.html',
   styleUrl: './input-search.component.scss',
 })
-export class InputSearchComponent {
-
-}
+export class InputSearchComponent {}
