@@ -5,12 +5,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { FormsComponent } from './components/forms/forms.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LegendComponent } from './components/legend/legend.component';
-import { HttpClientModule } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
 import { CardsListComponent } from './components/cards-list/cards-list.component';
 import { CommonModule } from '@angular/common';
 import { GetUnitsService } from './services/get-units.service';
-import { FormsModule } from '@angular/forms';
+import { LoaderComponent } from './components/loader/loader.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -22,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     LegendComponent,
     CardsListComponent,
     CommonModule,
+    LoaderComponent,
   ],
 
   templateUrl: './app.component.html',

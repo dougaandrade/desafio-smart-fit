@@ -1,3 +1,4 @@
+@defer(on timer(5s)){
 <div class="app-container">
   <app-header />
   <app-forms (academias)="unitsList.set($event)" />
@@ -7,3 +8,10 @@
   }
   <app-footer />
 </div>
+
+
+}@placeholder {
+<div class="app-load">
+  <loader />
+</div>
+}

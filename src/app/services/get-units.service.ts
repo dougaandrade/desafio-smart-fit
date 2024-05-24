@@ -1,7 +1,7 @@
 import { IunitsResponse } from './../Interfaces/IunitsResponse.interfaces';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { firstValueFrom, map, Observable } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 import { Ilocation } from '../Interfaces/Ilocation.interface';
 import { Ihour_index } from '../Interfaces/Ihour_index.interface';
 
@@ -84,18 +84,14 @@ export class GetUnitsService {
   }
 
   private horarioLocais(
-    units: Academia[],
+    academias: Academia[],
     showClosed?: boolean,
     hour?: string
   ): Academia[] {
-    let oppening = units;
+    let oppening = academias;
 
     if (showClosed) {
       oppening = oppening.filter((locais) => locais.opened === false);
-      // validacao de array vazio
-      if (showClosed === length > 0) {
-        console.log('vazio');
-      }
     }
 
     if (hour) {
@@ -104,6 +100,10 @@ export class GetUnitsService {
       oppening = this.filtrarAcademias(oppening, OPEN_HOUR, CLOSE_HOUR);
     }
 
+    if (oppening.length == 0) {
+      alert('Sem Resultados');
+      location.reload();
+    }
     return oppening;
   }
 

@@ -1,7 +1,29 @@
-.app-container{
+.app-container {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap:32px
+  gap: 32px;
+  animation: fade 0.5s;
+}
+
+.app-load {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 32px;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
