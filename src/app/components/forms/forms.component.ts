@@ -1,6 +1,6 @@
 import { Ilocation } from './../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
-import { Component, output } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { GetUnitsService } from '../../services/get-units.service';
 
@@ -33,6 +33,7 @@ export class FormsComponent {
     );
     this.academias.emit(academias);
     console.log(academias);
+    console.log(academias.length);
   }
 
   onClear() {
