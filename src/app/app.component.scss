@@ -1,3 +1,20 @@
+.input-card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 60%;
+  margin: 80px auto;
+}
+.input-card h1 {
+  font-size: 50px;
+  font-family: Gotham;
+  font-weight: 600;
+  color: var(--dark-grey);
+}
 .app-container {
   width: 100%;
   height: 100%;

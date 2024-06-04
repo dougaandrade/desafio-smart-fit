@@ -4,6 +4,10 @@
   <app-forms (academias)="unitsList.set($event)" />
   <app-legend />
   @if (unitsList().length > 0) {
+  <div class="input-card">
+    <h1>Smart Find</h1>
+    <input-search />
+  </div>
   <app-cards-list [unitsList]="unitsList()" />
   }
   <app-footer />

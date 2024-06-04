@@ -9,6 +9,7 @@ import { CardsListComponent } from './components/cards-list/cards-list.component
 import { CommonModule } from '@angular/common';
 import { GetUnitsService } from './services/get-units.service';
 import { LoaderComponent } from './components/loader/loader.component';
+import { InputSearchComponent } from './components/input-search/input-search.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -21,6 +22,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     CardsListComponent,
     CommonModule,
     LoaderComponent,
+    InputSearchComponent,
   ],
 
   templateUrl: './app.component.html',
