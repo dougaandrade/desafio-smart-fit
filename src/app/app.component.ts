@@ -1,4 +1,4 @@
-import { Ilocation } from './Interfaces/Ilocation.interface';
+import { Academias } from './Interfaces/Ilocation.interface';
 import { Component, signal, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
@@ -9,7 +9,6 @@ import { CardsListComponent } from './components/cards-list/cards-list.component
 import { CommonModule } from '@angular/common';
 import { GetUnitsService } from './services/get-units.service';
 import { LoaderComponent } from './components/loader/loader.component';
-import { InputSearchComponent } from './components/input-search/input-search.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -22,7 +21,6 @@ import { InputSearchComponent } from './components/input-search/input-search.com
     CardsListComponent,
     CommonModule,
     LoaderComponent,
-    InputSearchComponent,
   ],
 
   templateUrl: './app.component.html',
@@ -30,7 +28,7 @@ import { InputSearchComponent } from './components/input-search/input-search.com
 })
 export class AppComponent {
   private readonly unitService = inject(GetUnitsService);
-  protected readonly unitsList = signal<Ilocation[]>([]);
+  protected readonly unitsList = signal<Academias[]>([]);
 
   onSubmmit() {
     this.unitService.obterAcademias();

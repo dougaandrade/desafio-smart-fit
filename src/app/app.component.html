@@ -1,13 +1,9 @@
-@defer(on timer(2s)){
+@defer(on timer(0s)){
 <div class="app-container">
   <app-header />
   <app-forms (academias)="unitsList.set($event)" />
-  <app-legend />
+  <!-- <app-legend /> -->
   @if (unitsList().length > 0) {
-  <div class="input-card">
-    <h1>Smart Find</h1>
-    <input-search />
-  </div>
   <app-cards-list [unitsList]="unitsList()" />
   }
   <app-footer />

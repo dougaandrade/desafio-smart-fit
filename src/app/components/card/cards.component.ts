@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, input, Input, OnInit } from '@angular/core';
-import { Ilocation } from '../../Interfaces/Ilocation.interface';
+import { Academias } from '../../Interfaces/Ilocation.interface';
 import { CheckboxComponentComponent } from './checkbox-component/checkbox-component.component';
 
 @Component({
@@ -11,7 +11,7 @@ import { CheckboxComponentComponent } from './checkbox-component/checkbox-compon
   styleUrl: './cards.component.scss',
 })
 export class CardsComponent {
-  @Input() card!: Ilocation;
+  @Input() card!: Academias;
 
   constructor() {}
 }

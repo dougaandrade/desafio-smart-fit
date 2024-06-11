@@ -2,10 +2,10 @@ import { IunitsResponse } from './../Interfaces/IunitsResponse.interfaces';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { Ilocation } from '../Interfaces/Ilocation.interface';
+import { Academias } from '../Interfaces/Ilocation.interface';
 import { Ihour_index } from '../Interfaces/Ihour_index.interface';
 
-interface Academia extends Ilocation {
+interface Academia extends Academias {
   uf: string;
 }
 
