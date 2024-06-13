@@ -1,4 +1,4 @@
-// uf.enum.ts
+
 export enum UF {
   AC = 'AC',
   AL = 'AL',
