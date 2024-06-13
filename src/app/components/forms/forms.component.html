@@ -19,8 +19,13 @@
     <span>18h01 às 23h</span>
   </div>
   <div class="radio-wrapper">
-  <label for="uf">Localidade</label>
-  <input id="uf" formControlName="uf" type="text">
+    <label for="uf">Estado: </label>
+    <select id="uf" formControlName="uf">
+      <option value="">Selecionar UF</option>
+      @for (uf of localUF; track $index) {
+      <option [value]="uf">{{uf}}</option>
+      }
+    </select>
   </div>
   <div class="checkbox-wrapper">
     <div class="checkbox">

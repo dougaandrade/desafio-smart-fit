@@ -1,8 +1,9 @@
 import { Academias } from './../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
-import { Component, input, output, signal } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { GetUnitsService } from '../../services/get-units.service';
+import { UF } from '../enum/locaisUf.enum';
 
 @Component({
   selector: 'app-forms',
@@ -18,6 +19,7 @@ export class FormsComponent {
     showClosed: false,
     uf: '',
   });
+  localUF = Object.values(UF);
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,20 +29,19 @@ export class FormsComponent {
     const { hour, showClosed, uf } = this.formGroup.value;
 
     const academias = await this.unitService.obterAcademias(
-      uf ? uf : '',
+      uf ? '' : '',
       '',
       showClosed ? true : undefined,
       typeof hour === 'string' ? hour : undefined
     );
-    if (uf === '') {
-      this.academias.emit(academias);
-    } else {
-      this.academias.emit(
-        academias.filter((value) => {
-          value.uf;
-        })
-      );
+    if (!uf) {
+      return this.academias.emit(academias);
     }
+    this.academias.emit(
+      academias.filter((value) => {
+        return value.uf === uf;
+      })
+    );
   }
 
   onClear() {
