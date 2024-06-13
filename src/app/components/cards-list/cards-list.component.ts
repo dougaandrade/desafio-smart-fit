@@ -1,4 +1,4 @@
-import { Component, input, OnInit } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Academias } from '../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
 import { CardsComponent } from '../card/cards.component';

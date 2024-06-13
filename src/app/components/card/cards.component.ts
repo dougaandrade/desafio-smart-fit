@@ -13,5 +13,4 @@ import { CheckboxComponentComponent } from './checkbox-component/checkbox-compon
 export class CardsComponent {
   @Input() card!: Academias;
 
-  constructor() {}
 }

@@ -86,7 +86,7 @@ export class GetUnitsService {
   private horarioLocais(
     academias: Academia[],
     showClosed?: boolean,
-    hour?: string
+    hour?: string,
   ): Academia[] {
     let oppening = academias;
 
@@ -100,18 +100,18 @@ export class GetUnitsService {
       oppening = this.filtrarAcademias(oppening, OPEN_HOUR, CLOSE_HOUR);
     }
 
+
+
     if (oppening.length == 0) {
       alert('Sem Resultados');
-      location.reload();
     }
     return oppening;
   }
-
   async obterAcademias(
     open_hour?: string,
     close_hour?: string,
     showClosed?: boolean,
-    hour?: string
+    hour?: string,
   ) {
     const academias = await firstValueFrom(this.source$);
 
@@ -127,7 +127,11 @@ export class GetUnitsService {
       open_hour,
       close_hour
     );
-    academiasfiltradas = this.horarioLocais(academiasComUF, showClosed, hour);
+    academiasfiltradas = this.horarioLocais(
+      academiasComUF,
+      showClosed,
+      hour,
+    );
     return academiasfiltradas;
   }
 }

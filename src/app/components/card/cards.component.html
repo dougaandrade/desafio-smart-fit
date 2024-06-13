@@ -6,9 +6,6 @@
   <p [innerHTML]="card.content"></p>
   <div class="divider"></div>
 
-
-
-  <!-- Control Flow @if in ANGULAR 17 -->
   <ul>
     @if(card.mask){
     <img [src]="'./assets/img/' + card.mask + '-mask.png'" />
@@ -24,19 +21,6 @@
     }
   </ul>
 
-
-  <!-- Control Flow *ngIf in ANGULAR LEGADO -->
-
-  <!-- <ul>
-    <img *ngIf="card.mask" [src]="'./assets/img/' + card.mask + '-mask.png'" />
-    <img *ngIf="card.towel" [src]="'./assets/img/' + card.towel + '-towel.png'" />
-    <img *ngIf="card.fountain" [src]="'./assets/img/' + card.fountain + '-fountain.png'" />
-    <img *ngIf="card.locker_room" [src]="'./assets/img/' + card.locker_room + '-lockerroom.png'" />
-  </ul> -->
-
-
-
-  <!-- Control Flow @for in ANGULAR 17 -->
   <ul>
     @for (item of card.schedules ; track item) {
     <li>
@@ -45,14 +29,4 @@
     </li>
     }
   </ul>
-
-
-  <!-- Control Flow  *ngFor in ANGULAR LEGADO -->
-
-  <!-- <ul>
-    <li *ngFor="let schedule of card.schedules">
-      <b>{{ schedule.weekdays }}</b>
-      {{ schedule.hour }}
-    </li>
-  </ul> -->
 </div>

@@ -1,14 +1,13 @@
 import { Academias } from './../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
-import { Component, output } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { GetUnitsService } from '../../services/get-units.service';
-import { SelectComponent } from './select/select.component';
 
 @Component({
   selector: 'app-forms',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, SelectComponent],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './forms.component.html',
   styleUrl: './forms.component.scss',
 })
@@ -17,25 +16,31 @@ export class FormsComponent {
   formGroup = this.formBuilder.group({
     hour: '',
     showClosed: false,
-    });
+    uf: '',
+  });
 
   constructor(
     private formBuilder: FormBuilder,
     private unitService: GetUnitsService
   ) {}
-
   async onSubmmit() {
-    const { hour, showClosed} = this.formGroup.value;
+    const { hour, showClosed, uf } = this.formGroup.value;
 
     const academias = await this.unitService.obterAcademias(
-      '',
+      uf ? uf : '',
       '',
       showClosed ? true : undefined,
-      typeof hour === 'string' ? hour : undefined,
+      typeof hour === 'string' ? hour : undefined
     );
-    this.academias.emit(academias);
-    console.log(academias.length);
-    console.log(academias);
+    if (uf === '') {
+      this.academias.emit(academias);
+    } else {
+      this.academias.emit(
+        academias.filter((value) => {
+          value.uf;
+        })
+      );
+    }
   }
 
   onClear() {
