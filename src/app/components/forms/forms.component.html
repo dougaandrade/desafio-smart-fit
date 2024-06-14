@@ -1,40 +1,42 @@
 <form class="container-form" [formGroup]="formGroup">
-  <div class="form-textIcon">
-    <img src="/assets/img/icon-hour.png" alt="Icone de Horario">Horario
-  </div>
-  <h3>Qual período quer treinar?</h3>
-  <div class="radio-wrapper">
-    <input type="radio" name="hour" value="morning" formControlName="hour">
-    <label for="morning">Manhã</label>
-    <span>06h às 12h</span>
-  </div>
-  <div class="radio-wrapper">
-    <input type="radio" name="hour" value="afternoon" formControlName="hour">
-    <label for="afternoon">Tarde</label>
-    <span>12h01 às 18h</span>
-  </div>
-  <div class="radio-wrapper">
-    <input type="radio" name="hour" value="night" formControlName="hour">
-    <label for="night">Noite</label>
-    <span>18h01 às 23h</span>
-  </div>
-  <div class="radio-wrapper">
-    <label for="uf">Estado: </label>
-    <select id="uf" formControlName="uf">
-      <option value="">Selecionar UF</option>
-      @for (uf of localUF; track $index) {
-        <option [value]="uf">{{uf}}</option>
-      }
-    </select>
-  </div>
-  <div class="checkbox-wrapper">
-    <div class="checkbox">
-      <input type="checkbox" name="showClosed" formControlName="showClosed" />
-      <label for="showClosed" class="label-checkbox">Exibir unidades fechadas</label>
-      <label for="showClosed" class="label-checkbox">e</label>
+  <div class="span-textIcon">
+    Aplicar Filtros
+    <p class="span-filter">Horario</p>
+    <div class="radio-wrapper">
+      <input type="radio" name="hour" value="morning" formControlName="hour" (click)="onMorging()">
+      <label class="text-check" for="morning">Manhã</label>
+    </div>
+    <div class="radio-wrapper">
+      <input type="radio" name="hour" value="afternoon" formControlName="hour" (click)="onAfternoon()">
+      <label class="text-check" for="afternoon">Tarde</label>
+    </div>
+    <div class="radio-wrapper">
+      <input type="radio" name="hour" value="night" formControlName="hour"(click)="onNight()">
+      <label class="text-check" for="night">Noite</label>
+    </div>
+    <div class="radio-wrapper">
+      <input type="radio" name="hour" value="s" formControlName="hour"(click)="onMask()">
+      <label class="text-check" for="s">mask</label>
     </div>
   </div>
-
+  <div class="span-textIcon">
+    <p class="span-filter">Localidade</p>
+    <div class="radio-wrapper">
+      <select id="uf" formControlName="uf">
+        <option value="">Selecionar UF</option>
+        @for (uf of localUF; track $index) {
+        <option [value]="uf">{{uf}}</option>
+        }
+      </select>
+    </div>
+  </div>
+  <div class="span-textIcon">
+    <p class="span-filter">Unidades <br>Fechadas</p>
+    <div class="checkbox-wrapper">
+      <input type="checkbox" name="showClosed" formControlName="showClosed" />
+      <label for="showClosed" class="text-check">Exibir</label>
+    </div>
+  </div>
   <div class="btn-wrapper">
     <button class="btn btn-primary" (click)="onSubmmit()">encontrar unidade</button>
     <button class="btn btn-secondary" (click)="onClear()">limpar</button>

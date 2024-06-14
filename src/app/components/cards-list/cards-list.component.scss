@@ -1,13 +1,10 @@
 .card-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 20px;
   padding: 5px;
-  max-width: 55%;
-  margin: 0 auto;
   overflow-y: scroll;
-  height: 50rem;
+  height: 46rem;
 }
 
 .card-list li {

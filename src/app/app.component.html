@@ -1,11 +1,12 @@
 @defer(on timer(0s)){
 <div class="app-container">
   <app-header />
-  <app-forms (academias)="unitsList.set($event)" />
-  <!-- <app-legend /> -->
-  @if (unitsList().length > 0) {
-  <app-cards-list [unitsList]="unitsList()" />
-  }
+  <div class="card-separator">
+    <app-forms (academias)="unitsList.set($event)" />
+    <!-- <app-legend /> -->
+
+    <app-cards-list [unitsList]="unitsList()" />
+  </div>
   <app-footer />
 </div>
 
