@@ -25,6 +25,7 @@ export class FormsComponent {
     private formBuilder: FormBuilder,
     private unitService: GetUnitsService
   ) {}
+
   async onSubmmit() {
     const { hour, showClosed, uf } = this.formGroup.value;
 
@@ -45,7 +46,6 @@ export class FormsComponent {
       );
     }
   }
-
   async onMorging() {
     const { hour } = this.formGroup.value;
 
@@ -57,7 +57,7 @@ export class FormsComponent {
       academias.filter((academia) => {
         return (
           academia.schedules &&
-          academia.schedules.some((schedule) => schedule.hour !== '06h às 12h')
+          academia.schedules.map((schedule) => schedule.hour === '06h')
         );
       })
     );
@@ -73,7 +73,7 @@ export class FormsComponent {
       academias.filter((academia) => {
         return (
           academia.schedules &&
-          academia.schedules.some((schedule) => schedule.hour !== '12h às 18h')
+          academia.schedules.map((schedule) => schedule.hour === '05h ', '')
         );
       })
     );
@@ -89,21 +89,47 @@ export class FormsComponent {
       academias.filter((academia) => {
         return (
           academia.schedules &&
-          academia.schedules.some((schedule) => schedule.hour == '18h')
+          academia.schedules.some((schedule) => schedule.hour === '')
         );
       })
     );
   }
-
-  async onMask() {
+  async onFilterMask() {
+    const academias = await this.unitService.obterAcademias();
+    this.academias.emit(academias.filter((value) => value.mask === 'required'));
+  }
+  async onFilterTowel() {
     const academias = await this.unitService.obterAcademias();
     this.academias.emit(
-      academias.filter((value) => value.mask === 'recommended')
+      academias.filter((value) => value.towel === 'required')
     );
   }
+  async onFilterFountain() {
+    const academias = await this.unitService.obterAcademias();
+    this.academias.emit(
+      academias.filter((value) => value.fountain === 'partial')
+    );
+  }
+  async onFilterLocker() {
+    const academias = await this.unitService.obterAcademias();
+    this.academias.emit(
+      academias.filter((value) => value.locker_room === 'allowed')
+    );
+  }
+  async onShowClose() {
+    const { showClosed } = this.formGroup.value;
 
-  onClear() {
-    this.formGroup.reset();
+    const academias = await this.unitService.obterAcademias(
+      '',
+      '',
+      showClosed ? true : undefined
+    );
+
+    this.academias.emit(
+      academias.filter((value) => {
+        return value.opened === false;
+      })
+    );
   }
 }
 /// posso criar metodos para caso tenha mascara e afins mas tem que arrumar esse dos horarios

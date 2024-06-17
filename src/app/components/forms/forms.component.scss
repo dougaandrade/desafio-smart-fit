@@ -15,25 +15,30 @@
 
   font-size: 1.6rem;
   gap: 8px;
-  padding: 16px 0;
+  padding: 25px 0;
 }
 
-input[type="checkbox"], input[type="radio"] {
-  border: 0px;
-  width: 23px;
-  height: 23px;
+input[type="radio"] {
+  display: none;
+}
+
+.title-filter {
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding: 20px 0;
 }
 
 .text-check {
-  font-size: 1.4rem;
-  padding: 0 5px;
+  font-size: 1.2rem;
+  font-weight: 300;
+  padding: 0 2px;
 }
 
 .span-filter {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: var(--dark-grey);
   font-weight: 800;
-  padding-top: 20px;
+  padding: 0.5rem 0 ;
 }
 
 .container-form h3 {
@@ -93,7 +98,6 @@ input[type="checkbox"], input[type="radio"] {
   width: 100%;
   display: flex;
   align-items: center;
-
 }
 
 .container-form .checkbox-wrapper .label-checkbox {
