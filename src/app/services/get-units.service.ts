@@ -11,16 +11,16 @@ interface Academia extends Academias {
 
 const OPPENING_HOURS = {
   morning: {
-    first: '06',
-    last: '12',
+    first: '06h',
+    last: '12h',
   },
   afternoon: {
-    first: '12',
-    last: '18',
+    first: '12h',
+    last: '18h',
   },
   night: {
-    first: '18',
-    last: '23',
+    first: '18h',
+    last: '23h',
   },
 };
 const API_APP =
@@ -100,13 +100,13 @@ export class GetUnitsService {
       oppening = this.filtrarAcademias(oppening, OPEN_HOUR, CLOSE_HOUR);
     }
 
-
-
     if (oppening.length == 0) {
       alert('Sem Resultados');
     }
+
     return oppening;
   }
+
   async obterAcademias(
     open_hour?: string,
     close_hour?: string,

@@ -89,10 +89,11 @@ export class FormsComponent {
       academias.filter((academia) => {
         return (
           academia.schedules &&
-          academia.schedules.some((schedule) => schedule.hour === '')
+          academia.schedules.some((schedule) => schedule.hour.trim() === '22h')
         );
       })
     );
+
   }
   async onFilterMask() {
     const academias = await this.unitService.obterAcademias();
