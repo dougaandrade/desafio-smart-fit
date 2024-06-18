@@ -1,4 +1,5 @@
 .container-form {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,15 +8,14 @@
   border-radius: 4px;
 }
 
-.container-form .span-textIcon {
+.container-form .content-filters {
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-
-  font-size: 1.6rem;
+  font-size: 0.9rem;
   gap: 8px;
-  padding: 25px 0;
+  padding: 18px 0;
 }
 
 input[type="radio"] {
@@ -23,29 +23,20 @@ input[type="radio"] {
 }
 
 .title-filter {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: 700;
-  padding: 20px 0;
+  padding: 15px 0;
 }
 
 .text-check {
-  font-size: 1.2rem;
-  font-weight: 300;
-  padding: 0 2px;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
-.span-filter {
-  font-size: 1.2rem;
-  color: var(--dark-grey);
-  font-weight: 800;
-  padding: 0.5rem 0 ;
-}
-
-.container-form h3 {
-  font-size: 20px;
-  color: var(--light-grey);
-  font-weight: 300;
-  padding: 5px 0 15px 0;
+.h1-title-filter {
+  font-size: 1.5rem;
+  color: #252525;
+  font-weight: 600;
 }
 
 .container-form .radio-wrapper {
@@ -54,7 +45,7 @@ input[type="radio"] {
   align-items: center;
   justify-content: flex-start;
 
-  padding: 10px 0 10px 3px;
+  padding: 5px 0;
   position: relative;
   gap: 4px;
 }

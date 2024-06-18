@@ -27,4 +27,8 @@ import { LoaderComponent } from './components/loader/loader.component';
 export class AppComponent {
   private readonly unitService = inject(GetUnitsService);
   protected readonly unitsList = signal<Academias[]>([]);
+
+  onSubmit() {
+    this.unitService.obterAcademias()
+  }
 }

@@ -9,7 +9,7 @@ interface Academia extends Academias {
   uf: string;
 }
 
-const OPPENING_HOURS = {
+const OPENING_HOURS = {
   morning: {
     first: '06h',
     last: '12h',
@@ -23,96 +23,95 @@ const OPPENING_HOURS = {
     last: '23h',
   },
 };
-const API_APP =
+
+const API_URL =
   'https://test-frontend-developer.s3.amazonaws.com/data/locations.json';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GetUnitsService {
-  private readonly source$ = inject(HttpClient).get<IunitsResponse>(API_APP);
+  private readonly source$ = inject(HttpClient).get<IunitsResponse>(API_URL);
 
-  private transform_weekday(weekday: number) {
-    switch (weekday) {
-      case 0:
-        return 'Dom.';
-      case 6:
-        return 'Sáb.';
-      default:
-        return 'Seg. à Sex.';
-    }
+  private transformWeekday(weekday: number): string {
+    const weekdays = [
+      'Dom.',
+      'Seg. à Sex.',
+      'Seg. à Sex.',
+      'Seg. à Sex.',
+      'Seg. à Sex.',
+      'Seg. à Sex.',
+      'Sáb.',
+    ];
+    return weekdays[weekday] || 'Seg. à Sex.';
   }
 
-  private filtrarAcademias(
+  private parseHours(hourStr: string): { open: number; close: number } {
+    const [openHour, closeHour] = hourStr
+      .split(' às ')
+      .map((h) => parseInt(h.replace('h', ''), 10));
+    return { open: openHour, close: closeHour };
+  }
+
+  private filterAcademias(
     academias: Academia[],
-    open_hour?: string,
-    close_hour?: string
+    openHour?: string,
+    closeHour?: string
   ): Academia[] {
-    if (!open_hour || !close_hour) return academias;
-    let open_hour_filter = parseInt(open_hour, 10);
-    let close_hour_filter = parseInt(close_hour, 10);
-    let todays_weekday = this.transform_weekday(new Date().getDay());
+    if (!openHour || !closeHour) return academias;
+    const openHourFilter = parseInt(openHour, 10);
+    const closeHourFilter = parseInt(closeHour, 10);
+    const todayWeekday = this.transformWeekday(new Date().getDay());
 
     return academias.filter((unit) => {
       if (!unit.schedules) return true;
 
-      for (let schedule of unit.schedules) {
-        let schedule_hour = schedule.hour;
-        let schedule_weekday = schedule.weekdays;
-
-        if (schedule_weekday === todays_weekday) {
-          if (schedule_hour !== 'Fechada') {
-            let [unit_open_hour, unit_close_hour] = schedule_hour.split(' às ');
-            let unit_open_hour_int = parseInt(
-              unit_open_hour.replace('h', ''),
-              10
-            );
-            let unit_close_hour_int = parseInt(
-              unit_close_hour.replace('h', ''),
-              10
-            );
-            if (
-              unit_open_hour_int <= open_hour_filter &&
-              unit_close_hour_int >= close_hour_filter
-            )
-              return true;
-          }
+      return unit.schedules.some((schedule) => {
+        if (schedule.weekdays === todayWeekday && schedule.hour !== 'Fechada') {
+          const { open, close } = this.parseHours(schedule.hour);
+          return open <= openHourFilter && close >= closeHourFilter;
         }
-      }
-      return false;
+        return false;
+      });
     });
   }
 
-  private horarioLocais(
+  private filterBySchedule(
     academias: Academia[],
     showClosed?: boolean,
-    hour?: string,
+    hour?: string
   ): Academia[] {
-    let oppening = academias;
+    let filteredAcademias = academias;
 
     if (showClosed) {
-      oppening = oppening.filter((locais) => locais.opened === false);
+      filteredAcademias = filteredAcademias.filter((acad) => !acad.opened);
     }
 
     if (hour) {
-      const OPEN_HOUR = OPPENING_HOURS[hour as Ihour_index].first;
-      const CLOSE_HOUR = OPPENING_HOURS[hour as Ihour_index].last;
-      oppening = this.filtrarAcademias(oppening, OPEN_HOUR, CLOSE_HOUR);
+      const openHour = OPENING_HOURS[hour as Ihour_index]?.first;
+      const closeHour = OPENING_HOURS[hour as Ihour_index]?.last;
+      if (openHour && closeHour) {
+        filteredAcademias = this.filterAcademias(
+          filteredAcademias,
+          openHour,
+          closeHour
+        );
+      }
     }
 
-    if (oppening.length == 0) {
+    if (filteredAcademias.length === 0) {
       alert('Sem Resultados');
     }
 
-    return oppening;
+    return filteredAcademias;
   }
 
   async obterAcademias(
-    open_hour?: string,
-    close_hour?: string,
+    openHour?: string,
+    closeHour?: string,
     showClosed?: boolean,
-    hour?: string,
-  ) {
+    hour?: string
+  ): Promise<Academia[]> {
     const academias = await firstValueFrom(this.source$);
 
     const ufPattern = /, (\w{2})<\/p>/;
@@ -122,16 +121,17 @@ export class GetUnitsService {
       return { ...item, uf };
     });
 
-    let academiasfiltradas = this.filtrarAcademias(
+    let filteredAcademias = this.filterAcademias(
       academiasComUF,
-      open_hour,
-      close_hour
+      openHour,
+      closeHour
     );
-    academiasfiltradas = this.horarioLocais(
-      academiasComUF,
+    filteredAcademias = this.filterBySchedule(
+      filteredAcademias,
       showClosed,
-      hour,
+      hour
     );
-    return academiasfiltradas;
+
+    return filteredAcademias;
   }
 }

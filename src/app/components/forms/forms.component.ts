@@ -26,7 +26,18 @@ export class FormsComponent {
     private unitService: GetUnitsService
   ) {}
 
-  async onSubmmit() {
+  // async onFullAcademias() {
+  //   const { hour, showClosed } = this.formGroup.value;
+
+  //   const academias = await this.unitService.obterAcademias(
+  //     '',
+  //     '',
+  //     showClosed ? true : undefined,
+  //     typeof hour === 'string' ? hour : undefined
+  //   );
+  //   this.academias.emit(academias);
+  // }
+  async onSearchLocal() {
     const { hour, showClosed, uf } = this.formGroup.value;
 
     const academias = await this.unitService.obterAcademias(
@@ -57,7 +68,7 @@ export class FormsComponent {
       academias.filter((academia) => {
         return (
           academia.schedules &&
-          academia.schedules.map((schedule) => schedule.hour === '06h')
+          academia.schedules.some((schedule) => schedule.hour === '06h às 12h')
         );
       })
     );
@@ -73,7 +84,7 @@ export class FormsComponent {
       academias.filter((academia) => {
         return (
           academia.schedules &&
-          academia.schedules.map((schedule) => schedule.hour === '05h ', '')
+          academia.schedules.some((schedule) => schedule.hour === '12h às 18h')
         );
       })
     );
@@ -89,11 +100,10 @@ export class FormsComponent {
       academias.filter((academia) => {
         return (
           academia.schedules &&
-          academia.schedules.some((schedule) => schedule.hour.trim() === '22h')
+          academia.schedules.some((schedule) => schedule.hour === '18h às 21h')
         );
       })
     );
-
   }
   async onFilterMask() {
     const academias = await this.unitService.obterAcademias();

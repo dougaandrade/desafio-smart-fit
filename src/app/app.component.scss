@@ -1,4 +1,3 @@
-
 .app-container {
   width: 100%;
   height: 100%;
@@ -9,10 +8,13 @@
   animation: fade 0.5s;
 }
 
-.card-separator{
+.card-separator {
+  width: 100%;
   display: flex;
   max-width: 70%;
   margin: 0 auto;
+  flex-direction: row;
+  align-items: center;
 }
 
 .app-load {

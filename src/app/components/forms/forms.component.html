@@ -1,7 +1,7 @@
 <form class="container-form" [formGroup]="formGroup">
-  <h1 class="title-filter">Aplicar Filtros</h1>
-  <div class="span-textIcon">
-    <h1 class="span-filter">Horario</h1>
+  <h1 class="title-filter">Aplicar<br>Filtros</h1>
+  <div class="content-filters">
+    <h1 class="h1-title-filter">Horario</h1>
     <div class="radio-wrapper">
       <input type="radio" name="hour" value="morning" formControlName="hour">
       <label class="text-check" for="morning" (click)="onMorging()">Manhã</label>
@@ -15,8 +15,8 @@
       <label class="text-check" for="night" (click)="onNight()">Noite</label>
     </div>
   </div>
-  <div class="span-textIcon">
-    <h1 class="span-filter">Estrutura</h1>
+  <div class="content-filters">
+    <h1 class="h1-title-filter">Estrutura</h1>
     <div class="radio-wrapper">
       <input type="radio" name="hour" value="mask" formControlName="hour">
       <label class="text-check" for="mask" (click)="onFilterMask()">Máscara</label>
@@ -34,10 +34,10 @@
       <label class="text-check" for="locker_room" (click)="onFilterLocker()">Vestiário</label>
     </div>
   </div>
-  <div class="span-textIcon">
-    <h1 class="span-filter">Localidade</h1>
+  <div class="content-filters">
+    <h1 class="h1-title-filter">Localidade</h1>
     <div class="radio-wrapper">
-      <select id="uf" formControlName="uf" (click)="onSubmmit()">
+      <select id="uf" formControlName="uf" (click)="onSearchLocal()">
         <option value="">Selecionar UF</option>
         @for (uf of localUF; track $index) {
         <option [value]="uf">{{uf}}</option>
@@ -45,8 +45,8 @@
       </select>
     </div>
   </div>
-  <div class="span-textIcon">
-    <p class="span-filter">Unidades <br>Fechadas</p>
+  <div class="content-filters">
+    <p class="h1-title-filter">Unidades <br>Fechadas</p>
     <div class="checkbox-wrapper">
       <input type="radio" name="showClosed" formControlName="showClosed" />
       <label for="showClosed" class="text-check" (click)="onShowClose()">Exibir</label>

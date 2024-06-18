@@ -11,7 +11,7 @@ header {
 }
 
 header .logo-container {
-  background: black;
+  background-color: #252525;
   padding: 15px 40px;
   width: 100%;
 
@@ -20,7 +20,7 @@ header .logo-container {
   justify-content: flex-start;
 }
 
-.logo-icon{
+.logo-icon {
   width: 110px;
   height: 110px;
 }
@@ -54,7 +54,7 @@ header .text-container .heading {
   justify-content: flex-start;
   flex-direction: column;
 
-  margin-bottom: 24px;
+  margin: 24px 0px;
   gap: 12px;
 }
 header .text-container .heading-tracy {

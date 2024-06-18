@@ -36,9 +36,11 @@
 }
 
 .card span {
+  display: flex;
   font-weight: 700;
-  font-size: 14px;
   color: var(--red);
+  width: 100%;
+  justify-content: flex-end;
 }
 
 .card span.opened {
@@ -47,7 +49,7 @@
 
 .card h3 {
   color: var(--dark-grey);
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
 }
 
