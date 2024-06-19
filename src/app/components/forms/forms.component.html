@@ -1,10 +1,11 @@
 <form class="container-form" [formGroup]="formGroup">
   <h1 class="title-filter">Aplicar<br>Filtros</h1>
+  <h1 class="title-filter-resultados">{{resultadosCount}} Unidades<br>Encontradas</h1>
   <div class="content-filters">
     <h1 class="h1-title-filter">Horario</h1>
     <div class="radio-wrapper">
       <input type="radio" name="hour" value="morning" formControlName="hour">
-      <label class="text-check" for="morning" (click)="onMorging()">Manhã</label>
+      <label class="text-check" for="morning" (click)="onMorning()">Manhã</label>
     </div>
     <div class="radio-wrapper">
       <input type="radio" name="hour" value="afternoon" formControlName="hour">
