@@ -1,6 +1,6 @@
 import { Academias } from './../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { GetUnitsService } from '../../services/get-units.service';
 import { UF } from '../enum/locaisUf.enum';
@@ -13,7 +13,8 @@ import { UF } from '../enum/locaisUf.enum';
   styleUrls: ['./forms.component.scss'],
 })
 export class FormsComponent {
-  @Output() academias = new EventEmitter<Academias[]>();
+  academias = output<Academias[]>();
+
   formGroup = this.formBuilder.group({
     hour: '',
     showClosed: false,
