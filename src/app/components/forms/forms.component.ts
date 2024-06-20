@@ -14,7 +14,6 @@ import { UF } from '../enum/locaisUf.enum';
 })
 export class FormsComponent {
   academias = output<Academias[]>();
-
   formGroup = this.formBuilder.group({
     hour: '',
     showClosed: false,
