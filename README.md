@@ -26,3 +26,28 @@
 - Filtrar unidades por período de funcionamento
 - Caso não encontre unidades, mostrar uma menssagem ao usuário "Nenhuma unidade encontrada"
 - Validar para mostrar ícones corretos de acordo com o status
+
+###⚙️ Como Executar
+
+Para executar a aplicação localmente, siga os passos abaixo:
+
+1. Clone este repositório:
+
+```bash
+  git clone https://github.com/dougaandrade/desafio-smart-fit
+  cd desafio-smart-fit
+
+```
+
+2. Instale as dependências
+
+```bash
+  npm install
+```
+
+3. Inicie a aplicação
+
+```bash
+  npm start
+```
+
