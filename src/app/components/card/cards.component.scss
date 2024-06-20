@@ -83,3 +83,26 @@
 .card img {
   height: 50px;
 }
+
+@media (max-width: 768px) {
+  .card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  padding: 6px 8px;
+  border-radius: 8px;
+
+  background-color: rgba(0, 0, 0, 0.1);
+
+  -webkit-box-shadow: 1px 1px 1px 1px rgba(51, 51, 51, 0.15);
+  -moz-box-shadow: 1px 1px 1px 1px rgba(51, 51, 51, 0.15);
+  box-shadow: 1px 1px 1px 1px rgba(51, 51, 51, 0.15);
+  transition: all 0.3s ease;
+  gap: 8px;
+
+  width: 250px;
+  height: 350px;
+}
+}
