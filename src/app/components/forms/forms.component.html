@@ -54,3 +54,6 @@
     </div>
   </div>
 </form>
+<button (click)="openModal()" class="modal">Filtro</button>
+<app-modal [isVisible]="isModalVisible" [formGroup]="formGroup" (closed)="onModalClosed()" >
+</app-modal>

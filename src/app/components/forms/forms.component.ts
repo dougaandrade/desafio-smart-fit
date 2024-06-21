@@ -1,14 +1,15 @@
 import { Academias } from './../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
-import { Component, Output, EventEmitter, output } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { GetUnitsService } from '../../services/get-units.service';
 import { UF } from '../enum/locaisUf.enum';
+import { ModalComponent } from './modal/modal.component';
 
 @Component({
   selector: 'app-forms',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, ModalComponent],
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.scss'],
 })
@@ -27,6 +28,16 @@ export class FormsComponent {
     private unitService: GetUnitsService
   ) {
     this.loadAllAcademias();
+  }
+
+  isModalVisible = false;
+
+  openModal() {
+    this.isModalVisible = true;
+  }
+
+  onModalClosed() {
+    this.isModalVisible = false;
   }
 
   private updateResultadosCount(academias: Academias[]) {

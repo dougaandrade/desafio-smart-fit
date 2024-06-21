@@ -38,6 +38,10 @@ input[type="radio"] {
   font-weight: 500;
 }
 
+.modal {
+  display: none;
+}
+
 .h1-title-filter {
   font-size: 1.5rem;
   color: #252525;
@@ -102,11 +106,36 @@ input[type="radio"] {
 
 @media (max-width: 768px) {
   .container-form {
-    min-width: 40%;
+    display: none;
   }
 
   .container-form .form-textIcon {
     padding-bottom: 10px;
+  }
+
+  .modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100px;
+    height: 30px;
+    
+    color: #252525;
+    font-size: 17px;
+    border: none;
+    border-radius: 15px;
+    font-weight: 600;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 10px;
+    transition: all 0.1s;
+    border: 1px solid var(--yellow-010);
+  }
+  .modal:active {
+    box-shadow: 0px 2px 0px #d35400;
+    position: relative;
+    top: 2px;
   }
 
   .container-form h3 {

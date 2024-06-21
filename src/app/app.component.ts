@@ -11,6 +11,8 @@ import { LoaderComponent } from './components/loader/loader.component';
 @Component({
   selector: 'app-root',
   standalone: true,
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
   imports: [
     RouterOutlet,
     HeaderComponent,
@@ -20,15 +22,12 @@ import { LoaderComponent } from './components/loader/loader.component';
     CommonModule,
     LoaderComponent,
   ],
-
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   private readonly unitService = inject(GetUnitsService);
   protected readonly unitsList = signal<Academias[]>([]);
 
   onSubmit() {
-    this.unitService.obterAcademias()
+    this.unitService.obterAcademias();
   }
 }
