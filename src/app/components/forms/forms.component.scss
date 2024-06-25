@@ -114,23 +114,19 @@ input[type="radio"] {
   }
 
   .modal {
-    position: absolute;
-
     display: flex;
     align-items: center;
     justify-content: center;
 
     width: 100px;
     height: 30px;
-    top: 38%;
-    right: 20%;
 
     color: #252525;
     font-size: 17px;
     border: none;
     border-radius: 100px;
     font-weight: 600;
-    background-color: var(--yellow-010);
+    background-color: transparent;
     cursor: pointer;
     padding: 10px;
     transition: all 0.1s;
