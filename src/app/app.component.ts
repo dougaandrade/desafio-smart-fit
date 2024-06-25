@@ -8,6 +8,7 @@ import { CardsListComponent } from './components/cards-list/cards-list.component
 import { CommonModule } from '@angular/common';
 import { GetUnitsService } from './services/get-units.service';
 import { LoaderComponent } from './components/loader/loader.component';
+import { methodsFilter } from './components/core/methods-filter.core';
 @Component({
   selector: 'app-root',
   standalone: true,
