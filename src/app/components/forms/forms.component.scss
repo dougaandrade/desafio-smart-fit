@@ -114,32 +114,31 @@ input[type="radio"] {
   }
 
   .modal {
+    position: absolute;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
     width: 100px;
     height: 30px;
-    
+    right: 15%;
+    top: 36%;
+
     color: #252525;
     font-size: 17px;
     border: none;
-    border-radius: 15px;
+    border-radius: 100px;
     font-weight: 600;
-    background-color: transparent;
+    background-color: var(--yellow-010);
     cursor: pointer;
     padding: 10px;
     transition: all 0.1s;
     border: 1px solid var(--yellow-010);
   }
-  .modal:active {
-    box-shadow: 0px 2px 0px #d35400;
-    position: relative;
-    top: 2px;
-  }
 
   .container-form h3 {
-    width: 90%;
+    width: 80%;
     font-size: 25px;
     padding: 15px 0;
   }
