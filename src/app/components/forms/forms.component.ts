@@ -1,7 +1,7 @@
-import { methodsFilter } from './../core/methods-filter.core';
+import { methodsFilter } from '../common/methods-filter.common';
 import { Academias } from './../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
-import { Component, output } from '@angular/core';
+import { Component, EventEmitter, Output, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UF } from '../enum/locaisUf.enum';
 import { ModalComponent } from './modal/modal.component';
@@ -14,6 +14,7 @@ import { ModalComponent } from './modal/modal.component';
   styleUrls: ['./forms.component.scss'],
 })
 export class FormsComponent {
+
   academias = output<Academias[]>();
 
   formGroup = this.methodsFilter.formGroup;
@@ -22,6 +23,10 @@ export class FormsComponent {
   localUF = Object.values(UF);
 
   constructor(private methodsFilter: methodsFilter) {
+    this.methodsFilter.academias.subscribe((academias) => {
+      this.academias.emit(academias);
+      this.updateResultadosCount(academias);
+    });
     this.methodsFilter.loadAllAcademias();
   }
 
@@ -34,46 +39,46 @@ export class FormsComponent {
   }
 
   updateResultadosCount(academias: Academias[]) {
-    this.methodsFilter.resultadosCount = academias.length;
+    this.resultadosCount = academias.length;
   }
 
-  async loadAllAcademias() {
+  loadAllAcademias() {
     this.methodsFilter.loadAllAcademias();
   }
 
-  async onSearchLocal() {
+  onSearchLocal() {
     this.methodsFilter.onSearchLocal();
   }
 
-  async onMorning() {
+  onMorning() {
     this.methodsFilter.onMorning();
   }
 
-  async onAfternoon() {
+  onAfternoon() {
     this.methodsFilter.onAfternoon();
   }
 
-  async onNight() {
+  onNight() {
     this.methodsFilter.onNight();
   }
 
-  async onFilterMask() {
+  onFilterMask() {
     this.methodsFilter.onFilterMask();
   }
 
-  async onFilterTowel() {
+  onFilterTowel() {
     this.methodsFilter.onFilterTowel();
   }
 
-  async onFilterFountain() {
+  onFilterFountain() {
     this.methodsFilter.onFilterFountain();
   }
 
-  async onFilterLocker() {
+  onFilterLocker() {
     this.methodsFilter.onFilterLocker();
   }
 
-  async onShowClose() {
+  onShowClose() {
     this.methodsFilter.onShowClose();
   }
 }

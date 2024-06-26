@@ -1,7 +1,7 @@
 import { FormBuilder } from '@angular/forms';
 import { GetUnitsService } from '../../services/get-units.service';
 import { Academias } from '../../Interfaces/Ilocation.interface';
-import { EventEmitter, Injectable, Input, Output } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { UF } from '../enum/locaisUf.enum';
 
 @Injectable({
