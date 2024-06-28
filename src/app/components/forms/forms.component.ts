@@ -1,7 +1,7 @@
 import { methodsFilter } from '../common/methods-filter.common';
 import { Academias } from './../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output, output } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UF } from '../enum/locaisUf.enum';
 import { ModalComponent } from './modal/modal.component';
@@ -30,20 +30,20 @@ export class FormsComponent {
     this.methodsFilter.loadAllAcademias();
   }
 
-  openModal() {
-    this.isModalVisible = true;
-  }
-
-  onModalClosed() {
-    this.isModalVisible = false;
-  }
-
   updateResultadosCount(academias: Academias[]) {
     this.resultadosCount = academias.length;
   }
 
   loadAllAcademias() {
     this.methodsFilter.loadAllAcademias();
+  }
+
+  openModal() {
+    this.isModalVisible = true;
+  }
+
+  onModalClosed() {
+    this.isModalVisible = false;
   }
 
   onSearchLocal() {
