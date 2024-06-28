@@ -14,20 +14,19 @@ import { ModalComponent } from './modal/modal.component';
   styleUrls: ['./forms.component.scss'],
 })
 export class FormsComponent {
-
   academias = output<Academias[]>();
 
-  formGroup = this.methodsFilter.formGroup;
+  formGroup = this.methods.formGroup;
   isModalVisible = false;
   resultadosCount = 0;
   localUF = Object.values(UF);
 
-  constructor(private methodsFilter: methodsFilter) {
-    this.methodsFilter.academias.subscribe((academias) => {
+  constructor(private methods: methodsFilter) {
+    this.methods.filtersmethods.subscribe((academias) => {
       this.academias.emit(academias);
       this.updateResultadosCount(academias);
     });
-    this.methodsFilter.loadAllAcademias();
+    this.methods.loadAllAcademias();
   }
 
   updateResultadosCount(academias: Academias[]) {
@@ -35,7 +34,7 @@ export class FormsComponent {
   }
 
   loadAllAcademias() {
-    this.methodsFilter.loadAllAcademias();
+    this.methods.loadAllAcademias();
   }
 
   openModal() {
@@ -47,38 +46,38 @@ export class FormsComponent {
   }
 
   onSearchLocal() {
-    this.methodsFilter.onSearchLocal();
+    this.methods.onSearchLocal();
   }
 
   onMorning() {
-    this.methodsFilter.onMorning();
+    this.methods.onMorning();
   }
 
   onAfternoon() {
-    this.methodsFilter.onAfternoon();
+    this.methods.onAfternoon();
   }
 
   onNight() {
-    this.methodsFilter.onNight();
+    this.methods.onNight();
   }
 
   onFilterMask() {
-    this.methodsFilter.onFilterMask();
+    this.methods.onFilterMask();
   }
 
   onFilterTowel() {
-    this.methodsFilter.onFilterTowel();
+    this.methods.onFilterTowel();
   }
 
   onFilterFountain() {
-    this.methodsFilter.onFilterFountain();
+    this.methods.onFilterFountain();
   }
 
   onFilterLocker() {
-    this.methodsFilter.onFilterLocker();
+    this.methods.onFilterLocker();
   }
 
   onShowClose() {
-    this.methodsFilter.onShowClose();
+    this.methods.onShowClose();
   }
 }

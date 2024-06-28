@@ -8,8 +8,7 @@ import { UF } from '../enum/locaisUf.enum';
   providedIn: 'root',
 })
 export class methodsFilter {
-
-  @Output() academias = new EventEmitter<Academias[]>();
+  @Output() filtersmethods = new EventEmitter<Academias[]>();
 
   formGroup = this.formBuilder.group({
     hour: '',
@@ -30,10 +29,11 @@ export class methodsFilter {
   updateResultadosCount(academias: Academias[]) {
     this.resultadosCount = academias.length;
   }
+
   async loadAllAcademias() {
     const academias = await this.unitService.obterAcademias();
     this.updateResultadosCount(academias);
-    this.academias.emit(academias);
+    this.filtersmethods.emit(academias);
   }
 
   async onSearchLocal() {
@@ -48,11 +48,11 @@ export class methodsFilter {
 
     if (!uf) {
       this.updateResultadosCount(academias);
-      this.academias.emit(academias);
+      this.filtersmethods.emit(academias);
     } else {
       const filteredAcademias = academias.filter((value) => value.uf === uf);
       this.updateResultadosCount(filteredAcademias);
-      this.academias.emit(filteredAcademias);
+      this.filtersmethods.emit(filteredAcademias);
     }
   }
 
@@ -71,7 +71,7 @@ export class methodsFilter {
     );
 
     this.updateResultadosCount(filteredAcademias);
-    this.academias.emit(filteredAcademias);
+    this.filtersmethods.emit(filteredAcademias);
   }
 
   async onAfternoon() {
@@ -89,7 +89,7 @@ export class methodsFilter {
     );
 
     this.updateResultadosCount(filteredAcademias);
-    this.academias.emit(filteredAcademias);
+    this.filtersmethods.emit(filteredAcademias);
   }
 
   async onNight() {
@@ -107,7 +107,7 @@ export class methodsFilter {
     );
 
     this.updateResultadosCount(filteredAcademias);
-    this.academias.emit(filteredAcademias);
+    this.filtersmethods.emit(filteredAcademias);
   }
 
   async onFilterMask() {
@@ -118,7 +118,7 @@ export class methodsFilter {
     );
 
     this.updateResultadosCount(filteredAcademias);
-    this.academias.emit(filteredAcademias);
+    this.filtersmethods.emit(filteredAcademias);
   }
 
   async onFilterTowel() {
@@ -129,7 +129,7 @@ export class methodsFilter {
     );
 
     this.updateResultadosCount(filteredAcademias);
-    this.academias.emit(filteredAcademias);
+    this.filtersmethods.emit(filteredAcademias);
   }
 
   async onFilterFountain() {
@@ -140,7 +140,7 @@ export class methodsFilter {
     );
 
     this.updateResultadosCount(filteredAcademias);
-    this.academias.emit(filteredAcademias);
+    this.filtersmethods.emit(filteredAcademias);
   }
 
   async onFilterLocker() {
@@ -151,7 +151,7 @@ export class methodsFilter {
     );
 
     this.updateResultadosCount(filteredAcademias);
-    this.academias.emit(filteredAcademias);
+    this.filtersmethods.emit(filteredAcademias);
   }
 
   async onShowClose() {
@@ -166,6 +166,6 @@ export class methodsFilter {
     const filteredAcademias = academias.filter((value) => !value.opened);
 
     this.updateResultadosCount(filteredAcademias);
-    this.academias.emit(filteredAcademias);
+    this.filtersmethods.emit(filteredAcademias);
   }
 }

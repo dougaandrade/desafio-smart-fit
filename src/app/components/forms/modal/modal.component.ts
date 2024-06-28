@@ -18,48 +18,48 @@ export class ModalComponent {
   localUF = Object.values(UF);
   @Output() closed = new EventEmitter<void>();
 
-  constructor(private form: FormsComponent) {}
+  constructor(private forms: FormsComponent) {}
 
   onSearchLocal() {
-    this.form.onSearchLocal();
+    this.forms.onSearchLocal();
   }
   onMorning() {
-    this.form.onMorning();
+    this.forms.onMorning();
     this.closed.emit();
   }
 
   onAfternoon() {
-    this.form.onAfternoon();
+    this.forms.onAfternoon();
     this.closed.emit();
   }
 
   onNight() {
-    this.form.onNight();
+    this.forms.onNight();
     this.closed.emit();
   }
 
   onFilterMask() {
-    this.form.onFilterMask();
+    this.forms.onFilterMask();
     this.closed.emit();
   }
 
   onFilterTowel() {
-    this.form.onFilterTowel();
+    this.forms.onFilterTowel();
     this.closed.emit();
   }
 
   onFilterFountain() {
-    this.form.onFilterFountain();
+    this.forms.onFilterFountain();
     this.closed.emit();
   }
 
   onFilterLocker() {
-    this.form.onFilterLocker();
+    this.forms.onFilterLocker();
     this.closed.emit();
   }
 
   onShowClose() {
-    this.form.onShowClose();
+    this.forms.onShowClose();
     this.closed.emit();
   }
 
