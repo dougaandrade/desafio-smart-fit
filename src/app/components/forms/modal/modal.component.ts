@@ -12,8 +12,8 @@ import { UF } from '../../enum/locaisUf.enum';
   styleUrl: './modal.component.scss',
 })
 export class ModalComponent {
-  @Input()
-  formGroup!: FormGroup;
+
+  @Input() formGroup!: FormGroup;
   @Input() isVisible = false;
   localUF = Object.values(UF);
   @Output() closed = new EventEmitter<void>();
@@ -23,6 +23,7 @@ export class ModalComponent {
   onSearchLocal() {
     this.forms.onSearchLocal();
   }
+
   onMorning() {
     this.forms.onMorning();
     this.closed.emit();

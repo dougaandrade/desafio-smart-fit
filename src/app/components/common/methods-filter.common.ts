@@ -8,6 +8,7 @@ import { UF } from '../enum/locaisUf.enum';
   providedIn: 'root',
 })
 export class methodsFilter {
+  
   @Output() filtersmethods = new EventEmitter<Academias[]>();
 
   formGroup = this.formBuilder.group({

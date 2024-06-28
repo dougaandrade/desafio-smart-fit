@@ -14,6 +14,7 @@ import { ModalComponent } from './modal/modal.component';
   styleUrls: ['./forms.component.scss'],
 })
 export class FormsComponent {
+  
   academias = output<Academias[]>();
 
   formGroup = this.methods.formGroup;
