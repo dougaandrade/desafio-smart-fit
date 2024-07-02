@@ -46,14 +46,7 @@
       </select>
     </div>
   </div>
-  <div class="content-filters">
-    <p class="h1-title-filter">Unidades <br>Fechadas</p>
-    <div class="checkbox-wrapper">
-      <input type="radio" name="showClosed" formControlName="showClosed" />
-      <label for="showClosed" class="text-check" (click)="onShowClose()">Exibir</label>
-    </div>
-  </div>
+  <undFechadas [formGroup]="formGroup" (undFechada)="onfiltroUndFechada($event)" />
 </form>
 <button (click)="openModal()" class="modal">Filtro</button>
-<app-modal [isVisible]="isModalVisible" [formGroup]="formGroup" (closed)="onModalClosed()">
-</app-modal>
+<app-modal [isVisible]="isModalVisible" [formGroup]="formGroup" (closed)="onModalClosed()" />

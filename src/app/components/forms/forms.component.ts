@@ -1,20 +1,25 @@
 import { methodsFilter } from '../common/methods-filter.common';
 import { Academias } from './../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
-import { Component, output } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UF } from '../enum/locaisUf.enum';
 import { ModalComponent } from './modal/modal.component';
+import { UndFechadasComponent } from './und-fechadas/und-fechadas.component';
 
 @Component({
   selector: 'app-forms',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ModalComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    ModalComponent,
+    UndFechadasComponent,
+  ],
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.scss'],
 })
 export class FormsComponent {
-  
   academias = output<Academias[]>();
 
   formGroup = this.methods.formGroup;
@@ -28,10 +33,6 @@ export class FormsComponent {
       this.updateResultadosCount(academias);
     });
     this.methods.loadAllAcademias();
-  }
-
-  updateResultadosCount(academias: Academias[]) {
-    this.resultadosCount = academias.length;
   }
 
   loadAllAcademias() {
@@ -77,8 +78,12 @@ export class FormsComponent {
   onFilterLocker() {
     this.methods.onFilterLocker();
   }
+  onfiltroUndFechada(academias: Academias[]) {
+    this.academias.emit(academias);
+    this.resultadosCount = academias.length;
+  }
 
-  onShowClose() {
-    this.methods.onShowClose();
+  updateResultadosCount(academias: Academias[]) {
+    this.resultadosCount = academias.length;
   }
 }

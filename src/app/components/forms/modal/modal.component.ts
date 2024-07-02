@@ -1,8 +1,9 @@
 import { FormsComponent } from './../forms.component';
 import { Component, EventEmitter, input, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { UF } from '../../enum/locaisUf.enum';
+import { methodsFilter } from '../../common/methods-filter.common';
 
 @Component({
   selector: 'app-modal',
@@ -12,55 +13,54 @@ import { UF } from '../../enum/locaisUf.enum';
   styleUrl: './modal.component.scss',
 })
 export class ModalComponent {
-
-  @Input() formGroup!: FormGroup;
+  formGroup = this.methods.formGroup;
   @Input() isVisible = false;
   localUF = Object.values(UF);
   @Output() closed = new EventEmitter<void>();
 
-  constructor(private forms: FormsComponent) {}
+  constructor(private methods: methodsFilter) {}
 
   onSearchLocal() {
-    this.forms.onSearchLocal();
+    this.methods.onSearchLocal();
   }
 
   onMorning() {
-    this.forms.onMorning();
+    this.methods.onMorning();
     this.closed.emit();
   }
 
   onAfternoon() {
-    this.forms.onAfternoon();
+    this.methods.onAfternoon();
     this.closed.emit();
   }
 
   onNight() {
-    this.forms.onNight();
+    this.methods.onNight();
     this.closed.emit();
   }
 
   onFilterMask() {
-    this.forms.onFilterMask();
+    this.methods.onFilterMask();
     this.closed.emit();
   }
 
   onFilterTowel() {
-    this.forms.onFilterTowel();
+    this.methods.onFilterTowel();
     this.closed.emit();
   }
 
   onFilterFountain() {
-    this.forms.onFilterFountain();
+    this.methods.onFilterFountain();
     this.closed.emit();
   }
 
   onFilterLocker() {
-    this.forms.onFilterLocker();
+    this.methods.onFilterLocker();
     this.closed.emit();
   }
 
   onShowClose() {
-    this.forms.onShowClose();
+    this.methods.onShowClose();
     this.closed.emit();
   }
 
