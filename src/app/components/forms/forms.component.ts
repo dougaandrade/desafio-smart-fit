@@ -7,6 +7,7 @@ import { UF } from '../enum/locaisUf.enum';
 import { ModalComponent } from './modal/modal.component';
 import { UndFechadasComponent } from './und-fechadas/und-fechadas.component';
 import { HorariosComponent } from './horarios/horarios.component';
+import { EstruturaComponent } from './estrutura/estrutura.component';
 
 @Component({
   selector: 'app-forms',
@@ -17,6 +18,7 @@ import { HorariosComponent } from './horarios/horarios.component';
     ModalComponent,
     UndFechadasComponent,
     HorariosComponent,
+    EstruturaComponent,
   ],
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.scss'],
@@ -69,12 +71,8 @@ export class FormsComponent {
   onFilterLocker() {
     this.methods.onFilterLocker();
   }
-  onfiltroUndFechada(academias: Academias[]) {
-    this.academias.emit(academias);
-    this.resultadosCount = academias.length;
-  }
 
-  onfiltroHorario(academias: Academias[]) {
+  onGetFilters(academias: Academias[]) {
     this.academias.emit(academias);
     this.resultadosCount = academias.length;
   }

@@ -1,1 +1,21 @@
-<p>estrutura works!</p>
+<form [formGroup]="formGroup">
+  <div class="content-filters">
+    <h1 class="h1-title-filter">Estrutura</h1>
+    <div class="radio-wrapper">
+      <input type="radio" name="hour" value="mask" formControlName="hour">
+      <label class="text-check" for="mask" (click)="onFilterMask()">Máscara</label>
+    </div>
+    <div class="radio-wrapper">
+      <input type="radio" name="hour" value="towel" formControlName="hour">
+      <label class="text-check" for="towel" (click)="onFilterTowel()">Banheiro</label>
+    </div>
+    <div class="radio-wrapper">
+      <input type="radio" name="hour" value="fountain" formControlName="hour">
+      <label class="text-check" for="fountain" (click)="onFilterFountain()">Bebedouro</label>
+    </div>
+    <div class="radio-wrapper">
+      <input type="radio" name="hour" value="locker_room" formControlName="hour">
+      <label class="text-check" for="locker_room" (click)="onFilterLocker()">Vestiário</label>
+    </div>
+  </div>
+</form>

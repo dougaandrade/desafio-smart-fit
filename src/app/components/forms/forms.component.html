@@ -1,7 +1,8 @@
 <form class="container-form" [formGroup]="formGroup">
   <h1 class="title-filter">Aplicar<br>Filtros</h1>
   <h1 class="title-filter-resultados">{{resultadosCount}} Unidades<br>Encontradas</h1>
-  <horarios [formGroup]="formGroup" (filterhorarios)="onfiltroHorario($event)" />
+  <horarios [formGroup]="formGroup" (filterhorarios)="onGetFilters($event)" />
+  <estrutura [formGroup]="formGroup" (estrutura)="onGetFilters($event)" />
   <div class="content-filters">
     <h1 class="h1-title-filter">Estrutura</h1>
     <div class="radio-wrapper">
@@ -32,7 +33,7 @@
       </select>
     </div>
   </div>
-  <undFechadas [formGroup]="formGroup" (undFechada)="onfiltroUndFechada($event)" />
+  <undFechadas [formGroup]="formGroup" (undFechada)="onGetFilters($event)" />
 </form>
 <button (click)="openModal()" class="modal">Filtro</button>
 <app-modal [isVisible]="isModalVisible" [formGroup]="formGroup" (closed)="onModalClosed()" />
