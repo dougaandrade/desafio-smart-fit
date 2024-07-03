@@ -9,50 +9,34 @@
       </div>
       <div class="modal-body">
         <form [formGroup]="formGroup">
-        <div class="content-filters">
-          <h1 class="h1-title-filter">Horario</h1>
-          <div class="radio-wrapper">
-            <label class="text-check" for="morning" (click)="onMorning()">Manhã</label>
+          <horarios [formGroup]="formGroup" (filterhorarios)="onfiltroHorario($event)" />
+          <div class="content-filters">
+            <h1 class="h1-title-filter">Estrutura</h1>
+            <div class="radio-wrapper">
+              <label class="text-check" for="mask" (click)="onFilterMask()">Máscara</label>
+            </div>
+            <div class="radio-wrapper">
+              <label class="text-check" for="towel" (click)="onFilterTowel()">Banheiro</label>
+            </div>
+            <div class="radio-wrapper">
+              <label class="text-check" for="fountain" (click)="onFilterFountain()">Bebedouro</label>
+            </div>
+            <div class="radio-wrapper">
+              <label class="text-check" for="locker_room" (click)="onFilterLocker()">Vestiário</label>
+            </div>
           </div>
-          <div class="radio-wrapper">
-            <label class="text-check" for="afternoon" (click)="onAfternoon()">Tarde</label>
+          <div class="content-filters">
+            <h1 class="h1-title-filter">Localidade</h1>
+            <div class="radio-wrapper">
+              <select id="uf" formControlName="uf" (click)="onSearchLocal()">
+                <option>Selecionar UF</option>
+                @for (uf of localUF; track $index) {
+                <option [value]="uf">{{uf}}</option>
+                }
+              </select>
+            </div>
           </div>
-          <div class="radio-wrapper">
-            <label class="text-check" for="night" (click)="onNight()">Noite</label>
-          </div>
-        </div>
-        <div class="content-filters">
-          <h1 class="h1-title-filter">Estrutura</h1>
-          <div class="radio-wrapper">
-            <label class="text-check" for="mask" (click)="onFilterMask()">Máscara</label>
-          </div>
-          <div class="radio-wrapper">
-            <label class="text-check" for="towel" (click)="onFilterTowel()">Banheiro</label>
-          </div>
-          <div class="radio-wrapper">
-            <label class="text-check" for="fountain" (click)="onFilterFountain()">Bebedouro</label>
-          </div>
-          <div class="radio-wrapper">
-            <label class="text-check" for="locker_room" (click)="onFilterLocker()">Vestiário</label>
-          </div>
-        </div>
-        <div class="content-filters">
-          <h1 class="h1-title-filter">Localidade</h1>
-          <div class="radio-wrapper">
-            <select id="uf" formControlName="uf" (click)="onSearchLocal()">
-              <option>Selecionar UF</option>
-              @for (uf of localUF; track $index) {
-              <option [value]="uf">{{uf}}</option>
-              }
-            </select>
-          </div>
-        </div>
-        <div class="content-filters">
-          <p class="h1-title-filter">Unidades <br>Fechadas</p>
-          <div class="checkbox-wrapper">
-            <label for="showClosed" class="text-check" (click)="onShowClose()">Exibir</label>
-          </div>
-        </div>
+          <undFechadas (undFechada)="onfiltroUndFechada($event)" />
         </form>
       </div>
     </div>
