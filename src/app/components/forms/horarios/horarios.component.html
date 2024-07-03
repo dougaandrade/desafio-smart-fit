@@ -1,0 +1,17 @@
+<form [formGroup]="formGroup">
+  <div class="content-filters">
+    <h1 class="h1-title-filter">Horario</h1>
+    <div class="radio-wrapper">
+      <input type="radio" name="hour" value="morning" formControlName="hour">
+      <label class="text-check" for="morning" (click)="onMorning()">Manhã</label>
+    </div>
+    <div class="radio-wrapper">
+      <input type="radio" name="hour" value="afternoon" formControlName="hour">
+      <label class="text-check" for="afternoon" (click)="onAfternoon()">Tarde</label>
+    </div>
+    <div class="radio-wrapper">
+      <input type="radio" name="hour" value="night" formControlName="hour">
+      <label class="text-check" for="night" (click)="onNight()">Noite</label>
+    </div>
+  </div>
+</form>
