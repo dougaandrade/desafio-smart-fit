@@ -1,18 +1,36 @@
 import { FormsComponent } from './../forms.component';
-import { Component, EventEmitter, input, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  input,
+  Input,
+  output,
+  Output,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UF } from '../../enum/locaisUf.enum';
 import { methodsFilter } from '../../common/methods-filter.common';
+import { EstruturaComponent } from '../estrutura/estrutura.component';
+import { UndFechadasComponent } from '../und-fechadas/und-fechadas.component';
+import { HorariosComponent } from '../horarios/horarios.component';
+import { Academias } from '../../../Interfaces/Ilocation.interface';
 
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    EstruturaComponent,
+    UndFechadasComponent,
+    HorariosComponent,
+  ],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss',
 })
 export class ModalComponent {
+  academias = output<Academias[]>();
   formGroup = this.methods.formGroup;
   @Input() isVisible = false;
   localUF = Object.values(UF);
@@ -22,21 +40,6 @@ export class ModalComponent {
 
   onSearchLocal() {
     this.methods.onSearchLocal();
-  }
-
-  onMorning() {
-    this.methods.onMorning();
-    this.closed.emit();
-  }
-
-  onAfternoon() {
-    this.methods.onAfternoon();
-    this.closed.emit();
-  }
-
-  onNight() {
-    this.methods.onNight();
-    this.closed.emit();
   }
 
   onFilterMask() {
@@ -66,6 +69,15 @@ export class ModalComponent {
 
   close() {
     this.isVisible = false;
+    this.closed.emit();
+  }
+  onfiltroUndFechada(academias: Academias[]) {
+    this.academias.emit(academias);
+    this.closed.emit();
+  }
+
+  onfiltroHorario(academias: Academias[]) {
+    this.academias.emit(academias);
     this.closed.emit();
   }
 }
