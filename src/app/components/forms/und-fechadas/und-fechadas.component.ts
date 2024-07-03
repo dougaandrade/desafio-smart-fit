@@ -6,7 +6,7 @@ import { methodsFilter } from '../../common/methods-filter.common';
 import { GetUnitsService } from '../../../services/get-units.service';
 
 @Component({
-  selector: 'undFechadas',
+  selector: 'fechadas',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './und-fechadas.component.html',
@@ -35,6 +35,5 @@ export class UndFechadasComponent {
 
     this.updateResultadosCount(filteredAcademias);
     this.undFechada.emit(filteredAcademias);
-    console.log(filteredAcademias);
   }
 }

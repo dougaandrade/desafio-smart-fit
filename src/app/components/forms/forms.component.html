@@ -1,39 +1,12 @@
 <form class="container-form" [formGroup]="formGroup">
-  <h1 class="title-filter">Aplicar<br>Filtros</h1>
-  <h1 class="title-filter-resultados">{{resultadosCount}} Unidades<br>Encontradas</h1>
-  <horarios [formGroup]="formGroup" (filterhorarios)="onGetFilters($event)" />
-  <estrutura [formGroup]="formGroup" (estrutura)="onGetFilters($event)" />
   <div class="content-filters">
-    <h1 class="h1-title-filter">Estrutura</h1>
-    <div class="radio-wrapper">
-      <input type="radio" name="hour" value="mask" formControlName="hour">
-      <label class="text-check" for="mask" (click)="onFilterMask()">Máscara</label>
-    </div>
-    <div class="radio-wrapper">
-      <input type="radio" name="hour" value="towel" formControlName="hour">
-      <label class="text-check" for="towel" (click)="onFilterTowel()">Banheiro</label>
-    </div>
-    <div class="radio-wrapper">
-      <input type="radio" name="hour" value="fountain" formControlName="hour">
-      <label class="text-check" for="fountain" (click)="onFilterFountain()">Bebedouro</label>
-    </div>
-    <div class="radio-wrapper">
-      <input type="radio" name="hour" value="locker_room" formControlName="hour">
-      <label class="text-check" for="locker_room" (click)="onFilterLocker()">Vestiário</label>
-    </div>
+    <h1 class="title-filter">Aplicar<br>Filtros</h1>
+    <h1 class="title-filter-resultados">{{resultadosCount}} Unidades<br>Encontradas</h1>
   </div>
-  <div class="content-filters">
-    <h1 class="h1-title-filter">Localidade</h1>
-    <div class="radio-wrapper">
-      <select id="uf" formControlName="uf" (click)="onSearchLocal()">
-        <option value="">Selecionar UF</option>
-        @for (uf of localUF; track $index) {
-        <option [value]="uf">{{uf}}</option>
-        }
-      </select>
-    </div>
-  </div>
-  <undFechadas [formGroup]="formGroup" (undFechada)="onGetFilters($event)" />
+  <horarios (filterhorarios)="onGetFilters($event)" />
+  <estrutura (estrutura)="onGetFilters($event)" />
+  <local (local)="onGetFilters($event)" />
+  <fechadas (undFechada)="onGetFilters($event)" />
 </form>
 <button (click)="openModal()" class="modal">Filtro</button>
-<app-modal [isVisible]="isModalVisible" [formGroup]="formGroup" (closed)="onModalClosed()" />
+<modal [isVisible]="isModalVisible" (closed)="onModalClosed()" (modal)="onGetFilters($event)" />

@@ -16,7 +16,6 @@ export class methodsFilter {
     uf: '',
   });
 
-  localUF = Object.values(UF);
   resultadosCount = 0;
 
   constructor(
@@ -34,84 +33,5 @@ export class methodsFilter {
     const academias = await this.unitService.obterAcademias();
     this.updateResultadosCount(academias);
     this.filtersmethods.emit(academias);
-  }
-
-  async onSearchLocal() {
-    const { hour, showClosed, uf } = this.formGroup.value;
-
-    const academias = await this.unitService.obterAcademias(
-      uf ? '' : '',
-      '',
-      showClosed ? true : undefined,
-      typeof hour === 'string' ? hour : undefined
-    );
-
-    if (!uf) {
-      this.updateResultadosCount(academias);
-      this.filtersmethods.emit(academias);
-    } else {
-      const filteredAcademias = academias.filter((value) => value.uf === uf);
-      this.updateResultadosCount(filteredAcademias);
-      this.filtersmethods.emit(filteredAcademias);
-    }
-  }
-
-  async onFilterMask() {
-    const academias = await this.unitService.obterAcademias();
-
-    const filteredAcademias = academias.filter(
-      (value) => value.mask === 'required'
-    );
-
-    this.updateResultadosCount(filteredAcademias);
-    this.filtersmethods.emit(filteredAcademias);
-  }
-
-  async onFilterTowel() {
-    const academias = await this.unitService.obterAcademias();
-
-    const filteredAcademias = academias.filter(
-      (value) => value.towel === 'required'
-    );
-
-    this.updateResultadosCount(filteredAcademias);
-    this.filtersmethods.emit(filteredAcademias);
-  }
-
-  async onFilterFountain() {
-    const academias = await this.unitService.obterAcademias();
-
-    const filteredAcademias = academias.filter(
-      (value) => value.fountain === 'partial'
-    );
-
-    this.updateResultadosCount(filteredAcademias);
-    this.filtersmethods.emit(filteredAcademias);
-  }
-
-  async onFilterLocker() {
-    const academias = await this.unitService.obterAcademias();
-
-    const filteredAcademias = academias.filter(
-      (value) => value.locker_room === 'allowed'
-    );
-
-    this.updateResultadosCount(filteredAcademias);
-    this.filtersmethods.emit(filteredAcademias);
-  }
-
-  async onShowClose() {
-    const { showClosed } = this.formGroup.value;
-
-    const academias = await this.unitService.obterAcademias(
-      '',
-      '',
-      showClosed ? true : undefined
-    );
-
-    const filteredAcademias = academias.filter((value) => !value.opened);
-
-    this.updateResultadosCount(filteredAcademias);
-    this.filtersmethods.emit(filteredAcademias);
   }
 }

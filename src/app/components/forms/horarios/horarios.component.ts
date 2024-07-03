@@ -31,10 +31,8 @@ export class HorariosComponent {
       typeof hour === 'string' ? hour : undefined
     );
 
-    const filteredAcademias = academias.filter(
-      (academia) =>
-        academia.schedules &&
-        academia.schedules.some((schedule) => schedule.hour === '06h às 12h')
+    const filteredAcademias = academias.filter(({ schedules }) =>
+      schedules?.some(({ hour }) => hour === '06h às 12h')
     );
 
     this.updateResultadosCount(filteredAcademias);
@@ -49,10 +47,8 @@ export class HorariosComponent {
       typeof hour === 'string' ? hour : undefined
     );
 
-    const filteredAcademias = academias.filter(
-      (academia) =>
-        academia.schedules &&
-        academia.schedules.some((schedule) => schedule.hour === '12h às 18h')
+    const filteredAcademias = academias.filter(({ schedules }) =>
+      schedules?.some(({ hour }) => hour === '12h às 18h')
     );
 
     this.updateResultadosCount(filteredAcademias);
@@ -67,10 +63,8 @@ export class HorariosComponent {
       typeof hour === 'string' ? hour : undefined
     );
 
-    const filteredAcademias = academias.filter(
-      (academia) =>
-        academia.schedules &&
-        academia.schedules.some((schedule) => schedule.hour === '18h às 21h')
+    const filteredAcademias = academias.filter(({ schedules }) =>
+      schedules?.some(({ hour }) => hour === '18h às 21h')
     );
 
     this.updateResultadosCount(filteredAcademias);
