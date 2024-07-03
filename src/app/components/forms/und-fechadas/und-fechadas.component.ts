@@ -1,6 +1,6 @@
 import { Academias } from './../../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, output, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { methodsFilter } from '../../common/methods-filter.common';
 import { GetUnitsService } from '../../../services/get-units.service';

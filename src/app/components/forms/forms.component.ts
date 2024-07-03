@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UF } from '../enum/locaisUf.enum';
 import { ModalComponent } from './modal/modal.component';
 import { UndFechadasComponent } from './und-fechadas/und-fechadas.component';
+import { HorariosComponent } from './horarios/horarios.component';
 
 @Component({
   selector: 'app-forms',
@@ -15,6 +16,7 @@ import { UndFechadasComponent } from './und-fechadas/und-fechadas.component';
     ReactiveFormsModule,
     ModalComponent,
     UndFechadasComponent,
+    HorariosComponent,
   ],
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.scss'],
@@ -23,6 +25,7 @@ export class FormsComponent {
   academias = output<Academias[]>();
 
   formGroup = this.methods.formGroup;
+
   isModalVisible = false;
   resultadosCount = 0;
   localUF = Object.values(UF);
@@ -51,18 +54,6 @@ export class FormsComponent {
     this.methods.onSearchLocal();
   }
 
-  onMorning() {
-    this.methods.onMorning();
-  }
-
-  onAfternoon() {
-    this.methods.onAfternoon();
-  }
-
-  onNight() {
-    this.methods.onNight();
-  }
-
   onFilterMask() {
     this.methods.onFilterMask();
   }
@@ -79,6 +70,11 @@ export class FormsComponent {
     this.methods.onFilterLocker();
   }
   onfiltroUndFechada(academias: Academias[]) {
+    this.academias.emit(academias);
+    this.resultadosCount = academias.length;
+  }
+
+  onfiltroHorario(academias: Academias[]) {
     this.academias.emit(academias);
     this.resultadosCount = academias.length;
   }

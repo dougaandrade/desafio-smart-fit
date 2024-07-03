@@ -8,7 +8,6 @@ import { UF } from '../enum/locaisUf.enum';
   providedIn: 'root',
 })
 export class methodsFilter {
-  
   @Output() filtersmethods = new EventEmitter<Academias[]>();
 
   formGroup = this.formBuilder.group({
@@ -55,60 +54,6 @@ export class methodsFilter {
       this.updateResultadosCount(filteredAcademias);
       this.filtersmethods.emit(filteredAcademias);
     }
-  }
-
-  async onMorning() {
-    const { hour } = this.formGroup.value;
-
-    const academias = await this.unitService.obterAcademias(
-      '',
-      typeof hour === 'string' ? hour : undefined
-    );
-
-    const filteredAcademias = academias.filter(
-      (academia) =>
-        academia.schedules &&
-        academia.schedules.some((schedule) => schedule.hour === '06h às 12h')
-    );
-
-    this.updateResultadosCount(filteredAcademias);
-    this.filtersmethods.emit(filteredAcademias);
-  }
-
-  async onAfternoon() {
-    const { hour } = this.formGroup.value;
-
-    const academias = await this.unitService.obterAcademias(
-      '',
-      typeof hour === 'string' ? hour : undefined
-    );
-
-    const filteredAcademias = academias.filter(
-      (academia) =>
-        academia.schedules &&
-        academia.schedules.some((schedule) => schedule.hour === '12h às 18h')
-    );
-
-    this.updateResultadosCount(filteredAcademias);
-    this.filtersmethods.emit(filteredAcademias);
-  }
-
-  async onNight() {
-    const { hour } = this.formGroup.value;
-
-    const academias = await this.unitService.obterAcademias(
-      '',
-      typeof hour === 'string' ? hour : undefined
-    );
-
-    const filteredAcademias = academias.filter(
-      (academia) =>
-        academia.schedules &&
-        academia.schedules.some((schedule) => schedule.hour === '18h às 21h')
-    );
-
-    this.updateResultadosCount(filteredAcademias);
-    this.filtersmethods.emit(filteredAcademias);
   }
 
   async onFilterMask() {
