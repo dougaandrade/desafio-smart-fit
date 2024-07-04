@@ -30,6 +30,11 @@
 - Filtrar unidades por Estrutura (Máscara, Banheiros, Vestiário, Bebedouro)
 - Validar para mostrar ícones corretos de acordo com o status
 
+### Organizações
+- Aplicação do design patern FACADE
+- Componente Service(Requisições API)
+- Fragmentação dos Componentes(Manutenibilidade do Código)
+
 ###⚙️ Como Executar
 
 Para executar a aplicação localmente, siga os passos abaixo:
