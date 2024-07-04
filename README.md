@@ -1,14 +1,18 @@
 # Desafio Frontend - Smart Fit
+# Frontend Challenge - Smart Fit
 
 ![Smart Fit](./src/assets/img/svg/logo.svg)
 
 > Esse é um pequeno projeto criado no framework Angular como base para a avaliação de habilidades técnicas para o papel de Front-end.
+> This is a small project created in the Angular framework as a basis for evaluating technical skills for the Front-end role.
 
 # Protótipo Sugerido
+### Suggested prototype
 
 ![preview](preview-origin.png)
 
 # Protótipo Criado
+### Prototype Created
 
 ![preview](preview.png)
 
@@ -56,6 +60,10 @@ Para executar a aplicação localmente, siga os passos abaixo:
 ```bash
   npm start
 ```
+
+
+
+
 
 
 # Test Proposal
