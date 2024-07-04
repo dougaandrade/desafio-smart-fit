@@ -35,7 +35,7 @@
 - Componente Service(Requisições API)
 - Fragmentação dos Componentes(Manutenibilidade do Código)
 
-###⚙️ Como Executar
+### ⚙️ Como Executar
 
 Para executar a aplicação localmente, siga os passos abaixo:
 
