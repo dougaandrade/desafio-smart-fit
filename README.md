@@ -15,8 +15,6 @@
 # Proposta de Teste
 > A Smart Fit, por atuar no segmento de fitness, passou por várias mudanças na pandemia. Foi necessário desenvolver uma página para buscar unidades **fechadas** ou **abertas** para consulta e reserva.
 
-> Nesse teste você implementará as funcionalidades descritas abaixos. Tenha atenção com as regras de negócios definidas mais adiante.
-
 ### Funcionalidades
 - Carrega unidades através do arquivo json `https://test-frontend-developer.s3.amazonaws.com/data/locations.json` com method `GET`
 - Busca todas as unidades
@@ -58,4 +56,51 @@ Para executar a aplicação localmente, siga os passos abaixo:
 ```bash
   npm start
 ```
+
+
+# Test Proposal
+> Smart Fit, as it operates in the fitness segment, went through several changes during the pandemic. It was necessary to develop a page to search for **closed** or **open** units for consultation and reservation.
+
+### Functionalities
+- Load units through the json file `https://test-frontend-developer.s3.amazonaws.com/data/locations.json` with method `GET`
+- Search all units
+- Search units with filters
+- Shows prediction of results found
+- Shows units when searching
+
+### Business rules
+- Filter open or closed units
+- Filter units by operating period
+- Filter units by Structure (Mask, Bathrooms, Changing Room, Drinking Fountain)
+- Validate to show correct icons according to status
+
+### Organizations
+- Application of the FACADE patern design
+- Service component (API Requests)
+- Fragmentation of Components (Code Maintainability)
+
+### ⚙️ How to Execute
+
+To run the application locally, follow the steps below:
+
+> 1. Clone this repository:
+
+```bash
+  git clone https://github.com/dougaandrade/desafio-smart-fit
+  smart-fit challenge cd
+
+```
+
+> 2. Install dependencies
+
+```bash
+  npm install
+```
+
+> 3. Start the application
+
+```bash
+  npm start
+```
+
 
