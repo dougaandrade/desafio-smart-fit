@@ -17,25 +17,25 @@
 
 > Nesse teste você implementará as funcionalidades descritas abaixos. Tenha atenção com as regras de negócios definidas mais adiante.
 
-> ### Funcionalidades
+### Funcionalidades
 - Carrega unidades através do arquivo json `https://test-frontend-developer.s3.amazonaws.com/data/locations.json` com method `GET`
 - Busca todas as unidades
 - Busca unidades com filtros
 - Mostra previsão de resultados encontrados
 - Mostra unidades ao buscar
 
-> ### Regras de negócio
+### Regras de negócio
 - Filtrar unidades abertas ou fechadas
 - Filtrar unidades por período de funcionamento
 - Filtrar unidades por Estrutura (Máscara, Banheiros, Vestiário, Bebedouro)
 - Validar para mostrar ícones corretos de acordo com o status
 
-> ### Organizações
+### Organizações
 - Aplicação do design patern FACADE
 - Componente Service(Requisições API)
 - Fragmentação dos Componentes(Manutenibilidade do Código)
 
-> ### ⚙️ Como Executar
+### ⚙️ Como Executar
 
 Para executar a aplicação localmente, siga os passos abaixo:
 
