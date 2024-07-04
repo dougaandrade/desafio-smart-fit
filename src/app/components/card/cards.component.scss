@@ -5,19 +5,14 @@
   justify-content: flex-start;
 
   padding: 12px 8px;
-  border-radius: 8px;
+  border-radius: 13px;
 
-  background-color: rgba(0, 0, 0, 0.1);
-   backdrop-filter: blur(70px);
-  background-color: rgba(65, 65, 65, 0.308);
-  -webkit-box-shadow: 1px 1px 1px 1px rgba(51, 51, 51, 0.15);
-  -moz-box-shadow: 1px 1px 1px 1px rgba(51, 51, 51, 0.15);
-  box-shadow: 1px 1px 1px 1px rgba(51, 51, 51, 0.15);
+  background-color: #25252515;
   transition: all 0.3s ease;
-  gap: 8px;
+  gap: 10px;
 
   width: 300px;
-  height: 350px;
+  height: 340px;
 }
 
 .card:hover {
@@ -25,7 +20,8 @@
 }
 
 .card .divider {
-  height: 1px;
+  height: 2px;
+  border-radius: 100%;
   width: 100%;
   background-color: #d7d7d7;
 }
@@ -41,6 +37,7 @@
   font-weight: 700;
   color: var(--red);
   width: 100%;
+  font-size: 15px;
   justify-content: flex-end;
 }
 
@@ -50,7 +47,7 @@
 
 .card h3 {
   color: var(--dark-grey);
-  font-size: 25px;
+  font-size: 22px;
   font-weight: bold;
 }
 
