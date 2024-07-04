@@ -1,4 +1,4 @@
-import { methodsFilter } from '../common/methods-filter.common';
+import { MethodsFilter } from '../common/methods-filter.common';
 import { Academias } from './../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
 import { Component, output } from '@angular/core';
@@ -32,7 +32,7 @@ export class FormsComponent {
   isModalVisible = false;
   resultadosCount = 0;
 
-  constructor(private methods: methodsFilter) {
+  constructor(private methods: MethodsFilter) {
     this.methods.filtersmethods.subscribe((academias) => {
       this.academias.emit(academias);
       this.updateResultadosCount(academias);

@@ -2,12 +2,11 @@ import { FormBuilder } from '@angular/forms';
 import { GetUnitsService } from '../../services/get-units.service';
 import { Academias } from '../../Interfaces/Ilocation.interface';
 import { EventEmitter, Injectable, Output } from '@angular/core';
-import { UF } from '../enum/locaisUf.enum';
 
 @Injectable({
   providedIn: 'root',
 })
-export class methodsFilter {
+export class MethodsFilter {
   @Output() filtersmethods = new EventEmitter<Academias[]>();
 
   formGroup = this.formBuilder.group({

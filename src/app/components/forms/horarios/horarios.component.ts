@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GetUnitsService } from '../../../services/get-units.service';
-import { methodsFilter } from '../../common/methods-filter.common';
+import { MethodsFilter } from '../../common/methods-filter.common';
 import { Academias } from '../../../Interfaces/Ilocation.interface';
 
 @Component({
@@ -19,7 +19,7 @@ export class HorariosComponent {
   updateResultadosCount = this.methods.updateResultadosCount;
 
   constructor(
-    private methods: methodsFilter,
+    private methods: MethodsFilter,
     private unitService: GetUnitsService
   ) {}
 

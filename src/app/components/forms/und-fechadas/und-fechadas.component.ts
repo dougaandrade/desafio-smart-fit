@@ -2,7 +2,7 @@ import { Academias } from './../../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { methodsFilter } from '../../common/methods-filter.common';
+import { MethodsFilter } from '../../common/methods-filter.common';
 import { GetUnitsService } from '../../../services/get-units.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class UndFechadasComponent {
   formGroup = this.methods.formGroup;
 
   constructor(
-    private methods: methodsFilter,
+    private methods: MethodsFilter,
     private unitService: GetUnitsService
   ) {}
 

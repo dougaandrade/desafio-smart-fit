@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Academias } from '../../../Interfaces/Ilocation.interface';
 import { GetUnitsService } from '../../../services/get-units.service';
-import { methodsFilter } from '../../common/methods-filter.common';
+import { MethodsFilter } from '../../common/methods-filter.common';
 import { UF } from '../../enum/locaisUf.enum';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -20,7 +20,7 @@ export class LocalComponent {
   localUF = Object.values(UF);
 
   constructor(
-    private methods: methodsFilter,
+    private methods: MethodsFilter,
     private unitService: GetUnitsService
   ) {}
 
