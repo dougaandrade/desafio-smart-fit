@@ -1,21 +1,22 @@
 .card-list {
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 5px;
   overflow-y: scroll;
   height: 46rem;
+  padding: 0px 40px;
+  padding-top: 60px;
 }
 
+@media (max-width: 768px) {
+  .card-list {
+    padding: 0px 40px;
+  }
+}
 .card-list li {
   list-style: none;
 }
-
-// @media (min-width: 768px) {
-//   .card-list {
-//     max-width: 55%;
-//   }
-// }
 
 ::-webkit-scrollbar {
   display: none;

@@ -2,11 +2,11 @@ import { Academias } from './../../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { methodsFilter } from '../../common/methods-filter.common';
+import { MethodsFilter } from '../../common/methods-filter.common';
 import { GetUnitsService } from '../../../services/get-units.service';
 
 @Component({
-  selector: 'undFechadas',
+  selector: 'fechadas',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './und-fechadas.component.html',
@@ -17,7 +17,7 @@ export class UndFechadasComponent {
   formGroup = this.methods.formGroup;
 
   constructor(
-    private methods: methodsFilter,
+    private methods: MethodsFilter,
     private unitService: GetUnitsService
   ) {}
 
@@ -35,6 +35,5 @@ export class UndFechadasComponent {
 
     this.updateResultadosCount(filteredAcademias);
     this.undFechada.emit(filteredAcademias);
-    console.log(filteredAcademias);
   }
 }

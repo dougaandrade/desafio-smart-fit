@@ -1,23 +1,16 @@
-import { FormsComponent } from './../forms.component';
-import {
-  Component,
-  EventEmitter,
-  input,
-  Input,
-  output,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, output, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UF } from '../../enum/locaisUf.enum';
-import { methodsFilter } from '../../common/methods-filter.common';
+import { MethodsFilter } from '../../common/methods-filter.common';
 import { EstruturaComponent } from '../estrutura/estrutura.component';
 import { UndFechadasComponent } from '../und-fechadas/und-fechadas.component';
 import { HorariosComponent } from '../horarios/horarios.component';
 import { Academias } from '../../../Interfaces/Ilocation.interface';
+import { LocalComponent } from '../local/local.component';
 
 @Component({
-  selector: 'app-modal',
+  selector: 'modal',
   standalone: true,
   imports: [
     CommonModule,
@@ -25,59 +18,27 @@ import { Academias } from '../../../Interfaces/Ilocation.interface';
     EstruturaComponent,
     UndFechadasComponent,
     HorariosComponent,
+    LocalComponent,
   ],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss',
 })
 export class ModalComponent {
-  academias = output<Academias[]>();
+  modal = output<Academias[]>();
   formGroup = this.methods.formGroup;
   @Input() isVisible = false;
   localUF = Object.values(UF);
   @Output() closed = new EventEmitter<void>();
 
-  constructor(private methods: methodsFilter) {}
+  constructor(private methods: MethodsFilter) {}
 
-  onSearchLocal() {
-    this.methods.onSearchLocal();
-  }
-
-  onFilterMask() {
-    this.methods.onFilterMask();
-    this.closed.emit();
-  }
-
-  onFilterTowel() {
-    this.methods.onFilterTowel();
-    this.closed.emit();
-  }
-
-  onFilterFountain() {
-    this.methods.onFilterFountain();
-    this.closed.emit();
-  }
-
-  onFilterLocker() {
-    this.methods.onFilterLocker();
-    this.closed.emit();
-  }
-
-  onShowClose() {
-    this.methods.onShowClose();
+  onGetFilters(academias: Academias[]) {
+    this.modal.emit(academias);
     this.closed.emit();
   }
 
   close() {
     this.isVisible = false;
-    this.closed.emit();
-  }
-  onfiltroUndFechada(academias: Academias[]) {
-    this.academias.emit(academias);
-    this.closed.emit();
-  }
-
-  onfiltroHorario(academias: Academias[]) {
-    this.academias.emit(academias);
     this.closed.emit();
   }
 }
