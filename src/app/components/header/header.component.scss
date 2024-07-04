@@ -72,6 +72,16 @@ header img {
     width: 50%;
   }
 
+  header .logo-container {
+  background-color: #252525;
+  padding: 15px 40px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
   header .text-container {
     min-width: 80%;
   }
