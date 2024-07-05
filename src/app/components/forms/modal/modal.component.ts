@@ -37,6 +37,10 @@ export class ModalComponent {
     this.closed.emit();
   }
 
+  onGetFiltersLocal(academias: Academias[]) {
+    this.modal.emit(academias);
+  }
+
   close() {
     this.isVisible = false;
     this.closed.emit();

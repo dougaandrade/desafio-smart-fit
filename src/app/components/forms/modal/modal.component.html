@@ -11,7 +11,7 @@
         <form [formGroup]="formGroup">
           <horarios (filterhorarios)="onGetFilters($event)" />
           <estrutura (estrutura)="onGetFilters($event)" />
-          <local (local)="onGetFilters($event)" />
+          <local (local)="onGetFiltersLocal($event)" />
           <fechadas (undFechada)="onGetFilters($event)" />
         </form>
       </div>
