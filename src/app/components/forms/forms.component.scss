@@ -22,7 +22,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
   padding: 10px 0;
 }
 
@@ -168,5 +168,45 @@ input[type="radio"] {
   .container-form .btn-wrapper {
     flex-direction: column;
   }
+}
+button {
+  font-size: 18px;
+  color: #252525;
+  font-family: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}
 
+button:focus,
+button:hover {
+  color: var(--yellow);
+}
+
+button:focus:after,
+button:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+.selectbox {
+  cursor: pointer;
+  outline: 0;
+  color: #252525;
+  font-size: 12px;
+  padding: 4px 15px;
+  border-radius: 5px;
+  border: 0px solid #ffffff;
+  background-color: #ededed;
+}
+.selectbox:hover,
+.selectbox:focus {
+  background-color: #ffffff;
+  color: #000000;
+  border: 0px solid #ffffff;
 }
