@@ -2,34 +2,32 @@ import { IunitsResponse } from './../Interfaces/IunitsResponse.interfaces';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { Academias } from '../Interfaces/Ilocation.interface';
 import { Ihour_index } from '../components/types/Ihour_index.interface';
 import { Academia } from '../Interfaces/Iacademia.interface';
 
 const API_URL =
   'https://test-frontend-developer.s3.amazonaws.com/data/locations.json';
 
-  const OPENING_HOURS = {
-    morning: {
-      first: '06h',
-      last: '12h',
-    },
-    afternoon: {
-      first: '12h',
-      last: '18h',
-    },
-    night: {
-      first: '18h',
-      last: '23h',
-    },
-  };
+const OPENING_HOURS = {
+  morning: {
+    first: '06h',
+    last: '12h',
+  },
+  afternoon: {
+    first: '12h',
+    last: '18h',
+  },
+  night: {
+    first: '18h',
+    last: '23h',
+  },
+};
 
 @Injectable({
   providedIn: 'root',
 })
 export class GetUnitsService {
   private readonly source$ = inject(HttpClient).get<IunitsResponse>(API_URL);
-
 
   private transformWeekday(weekday: number): string {
     const weekdays = [
