@@ -3,35 +3,33 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { Academias } from '../Interfaces/Ilocation.interface';
-import { Ihour_index } from '../Interfaces/Ihour_index.interface';
-
-interface Academia extends Academias {
-  uf: string;
-}
-
-const OPENING_HOURS = {
-  morning: {
-    first: '06h',
-    last: '12h',
-  },
-  afternoon: {
-    first: '12h',
-    last: '18h',
-  },
-  night: {
-    first: '18h',
-    last: '23h',
-  },
-};
+import { Ihour_index } from '../components/types/Ihour_index.interface';
+import { Academia } from '../Interfaces/Iacademia.interface';
 
 const API_URL =
   'https://test-frontend-developer.s3.amazonaws.com/data/locations.json';
+
+  const OPENING_HOURS = {
+    morning: {
+      first: '06h',
+      last: '12h',
+    },
+    afternoon: {
+      first: '12h',
+      last: '18h',
+    },
+    night: {
+      first: '18h',
+      last: '23h',
+    },
+  };
 
 @Injectable({
   providedIn: 'root',
 })
 export class GetUnitsService {
   private readonly source$ = inject(HttpClient).get<IunitsResponse>(API_URL);
+
 
   private transformWeekday(weekday: number): string {
     const weekdays = [
@@ -55,16 +53,18 @@ export class GetUnitsService {
 
   private filterAcademias(
     academias: Academia[],
-    openHour?: string,
-    closeHour?: string
+    startHour?: string,
+    endHour?: string
   ): Academia[] {
-    if (!openHour || !closeHour) return academias;
-    const openHourFilter = parseInt(openHour, 10);
-    const closeHourFilter = parseInt(closeHour, 10);
+    if (!startHour || !endHour) return academias;
+    const openHourFilter = parseInt(startHour, 10);
+    const closeHourFilter = parseInt(endHour, 10);
     const todayWeekday = this.transformWeekday(new Date().getDay());
 
     return academias.filter((unit) => {
-      if (!unit.schedules) return true;
+      if (!unit.schedules) {
+        return true;
+      }
 
       return unit.schedules.some((schedule) => {
         if (schedule.weekdays === todayWeekday && schedule.hour !== 'Fechada') {
@@ -98,11 +98,6 @@ export class GetUnitsService {
         );
       }
     }
-
-    if (filteredAcademias.length === 0) {
-      alert('Sem Resultados');
-    }
-
     return filteredAcademias;
   }
 
