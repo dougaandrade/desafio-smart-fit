@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GetUnitsService } from '../../../services/get-units.service';
-import { MethodsFilter } from '../../common/methods-filter.common';
+import { MethodsFilter } from '../../../services/methods-filter.service';
 import { Academias } from '../../../Interfaces/Ilocation.interface';
 
 @Component({

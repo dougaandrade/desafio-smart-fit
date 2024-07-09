@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Academias } from '../../../Interfaces/Ilocation.interface';
 import { GetUnitsService } from '../../../services/get-units.service';
-import { MethodsFilter } from '../../common/methods-filter.common';
+import { MethodsFilter } from '../../../services/methods-filter.service';
 import { UF } from '../../enum/locaisUf.enum';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -25,13 +25,10 @@ export class LocalComponent {
   ) {}
 
   async onSearchLocal() {
-    const { hour, showClosed, uf } = this.formGroup.value;
+    const { uf } = this.formGroup.value;
 
     const academias = await this.unitService.obterAcademias(
       uf ? '' : '',
-      '',
-      showClosed ? true : undefined,
-      typeof hour === 'string' ? hour : undefined
     );
 
     if (!uf) {

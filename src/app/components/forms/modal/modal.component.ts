@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, output, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UF } from '../../enum/locaisUf.enum';
-import { MethodsFilter } from '../../common/methods-filter.common';
+import { MethodsFilter } from '../../../services/methods-filter.service';
 import { EstruturaComponent } from '../estrutura/estrutura.component';
 import { UndFechadasComponent } from '../und-fechadas/und-fechadas.component';
 import { HorariosComponent } from '../horarios/horarios.component';
