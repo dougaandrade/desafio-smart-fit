@@ -1,6 +1,6 @@
 import { FormBuilder } from '@angular/forms';
-import { GetUnitsService } from '../../services/get-units.service';
-import { Academias } from '../../Interfaces/Ilocation.interface';
+import { GetUnitsService } from './get-units.service';
+import { Academias } from '../Interfaces/Ilocation.interface';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 
 @Injectable({

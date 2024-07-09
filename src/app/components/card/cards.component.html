@@ -8,16 +8,16 @@
 
   <ul>
     @if(card.mask){
-    <img [src]="'./assets/img/' + card.mask + '-mask.png'" />
+    <img [src]="'./assets/img/' + card.mask + '-mask.png'" alt="masks" title="Mascáras"/>
     }
     @if (card.towel){
-    <img [src]="'./assets/img/' + card.towel + '-towel.png'" />
+    <img [src]="'./assets/img/' + card.towel + '-towel.png'" alt="towel" title="Banheiro"/>
     }
     @if (card.fountain) {
-    <img [src]="'./assets/img/' + card.fountain + '-fountain.png'" />
+    <img [src]="'./assets/img/' + card.fountain + '-fountain.png'" alt="fountain" title="Bebedouro"/>
     }
     @if (card.locker_room) {
-    <img [src]="'./assets/img/' + card.locker_room + '-lockerroom.png'" />
+    <img [src]="'./assets/img/' + card.locker_room + '-lockerroom.png'" alt="locker" title="Vestiário"/>
     }
   </ul>
 

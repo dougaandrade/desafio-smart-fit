@@ -1,4 +1,4 @@
-import { MethodsFilter } from '../common/methods-filter.common';
+import { MethodsFilter } from '../../services/methods-filter.service';
 import { Academias } from './../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
 import { Component, output } from '@angular/core';
