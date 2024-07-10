@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GetUnitsService } from '../../../services/get-units.service';
 import { MethodsFilter } from '../../../services/methods-filter.service';
@@ -14,19 +14,17 @@ import { Academias } from '../../../Interfaces/Ilocation.interface';
 })
 export class HorariosComponent {
   @Output() filterhorarios = new EventEmitter<Academias[]>();
+  private methods$ = inject(MethodsFilter);
+  private unitService$ = inject(GetUnitsService);
 
-  formGroup = this.methods.formGroup;
-  updateResultadosCount = this.methods.updateResultadosCount;
+  formGroup = this.methods$.formGroup;
+  updateResultadosCount = this.methods$.updateResultadosCount;
 
-  constructor(
-    private methods: MethodsFilter,
-    private unitService: GetUnitsService
-  ) {}
 
   async onMorning() {
     const { hour } = this.formGroup.value;
 
-    const academias = await this.unitService.obterAcademias(
+    const academias = await this.unitService$.obterAcademias(
       '',
       typeof hour === 'string' ? hour : undefined
     );
@@ -42,7 +40,7 @@ export class HorariosComponent {
   async onAfternoon() {
     const { hour } = this.formGroup.value;
 
-    const academias = await this.unitService.obterAcademias(
+    const academias = await this.unitService$.obterAcademias(
       '',
       typeof hour === 'string' ? hour : undefined
     );
@@ -58,7 +56,7 @@ export class HorariosComponent {
   async onNight() {
     const { hour } = this.formGroup.value;
 
-    const academias = await this.unitService.obterAcademias(
+    const academias = await this.unitService$.obterAcademias(
       '',
       typeof hour === 'string' ? hour : undefined
     );

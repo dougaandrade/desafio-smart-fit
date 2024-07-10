@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GetUnitsService } from '../../../services/get-units.service';
 import { MethodsFilter } from '../../../services/methods-filter.service';
@@ -14,16 +14,13 @@ import { Academias } from '../../../Interfaces/Ilocation.interface';
 })
 export class EstruturaComponent {
   @Output() estrutura = new EventEmitter<Academias[]>();
-  formGroup = this.methods.formGroup;
-  updateResultadosCount = this.methods.updateResultadosCount;
-
-  constructor(
-    private methods: MethodsFilter,
-    private unitService: GetUnitsService
-  ) {}
+  private methods$ = inject(MethodsFilter);
+  private unitService$ = inject(GetUnitsService);
+  formGroup = this.methods$.formGroup;
+  updateResultadosCount = this.methods$.updateResultadosCount;
 
   async onFilterMask() {
-    const academias = await this.unitService.obterAcademias();
+    const academias = await this.unitService$.obterAcademias();
 
     const filteredAcademias = academias.filter(
       (value) => value.mask === 'required'
@@ -34,7 +31,7 @@ export class EstruturaComponent {
   }
 
   async onFilterTowel() {
-    const academias = await this.unitService.obterAcademias();
+    const academias = await this.unitService$.obterAcademias();
 
     const filteredAcademias = academias.filter(
       (value) => value.towel === 'required'
@@ -45,7 +42,7 @@ export class EstruturaComponent {
   }
 
   async onFilterFountain() {
-    const academias = await this.unitService.obterAcademias();
+    const academias = await this.unitService$.obterAcademias();
 
     const filteredAcademias = academias.filter(
       (value) => value.fountain === 'partial'
@@ -56,7 +53,7 @@ export class EstruturaComponent {
   }
 
   async onFilterLocker() {
-    const academias = await this.unitService.obterAcademias();
+    const academias = await this.unitService$.obterAcademias();
 
     const filteredAcademias = academias.filter(
       (value) => value.locker_room === 'allowed'
