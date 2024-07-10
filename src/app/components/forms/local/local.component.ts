@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { Academias } from '../../../Interfaces/Ilocation.interface';
 import { GetUnitsService } from '../../../services/get-units.service';
 import { MethodsFilter } from '../../../services/methods-filter.service';
@@ -15,21 +15,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class LocalComponent {
   @Output() local = new EventEmitter<Academias[]>();
-  formGroup = this.methods.formGroup;
-  updateResultadosCount = this.methods.updateResultadosCount;
+  private methods$ = inject(MethodsFilter);
+  private unitService$ = inject(GetUnitsService);
+  formGroup = this.methods$.formGroup;
+  updateResultadosCount = this.methods$.updateResultadosCount;
   localUF = Object.values(UF);
-
-  constructor(
-    private methods: MethodsFilter,
-    private unitService: GetUnitsService
-  ) {}
 
   async onSearchLocal() {
     const { uf } = this.formGroup.value;
 
-    const academias = await this.unitService.obterAcademias(
-      uf ? '' : '',
-    );
+    const academias = await this.unitService$.obterAcademias(uf ? '' : '');
 
     if (!uf) {
       this.updateResultadosCount(academias);

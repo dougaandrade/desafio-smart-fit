@@ -1,6 +1,6 @@
 import { Academias } from './../../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MethodsFilter } from '../../../services/methods-filter.service';
 import { GetUnitsService } from '../../../services/get-units.service';
@@ -14,18 +14,16 @@ import { GetUnitsService } from '../../../services/get-units.service';
 })
 export class UndFechadasComponent {
   @Output() undFechada = new EventEmitter<Academias[]>();
-  formGroup = this.methods.formGroup;
+  private methods$ = inject(MethodsFilter);
+  private unitService$ = inject(GetUnitsService);
+  formGroup = this.methods$.formGroup;
 
-  constructor(
-    private methods: MethodsFilter,
-    private unitService: GetUnitsService
-  ) {}
 
-  updateResultadosCount = this.methods.updateResultadosCount;
+  updateResultadosCount = this.methods$.updateResultadosCount;
   async onShowClose() {
     const { showClosed } = this.formGroup.value;
 
-    const academias = await this.unitService.obterAcademias(
+    const academias = await this.unitService$.obterAcademias(
       '',
       '',
       showClosed ? true : undefined

@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, output, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  output,
+  Output,
+  inject,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UF } from '../../enum/locaisUf.enum';
@@ -25,12 +32,11 @@ import { LocalComponent } from '../local/local.component';
 })
 export class ModalComponent {
   modal = output<Academias[]>();
-  formGroup = this.methods.formGroup;
+  private methods$ = inject(MethodsFilter);
+  formGroup = this.methods$.formGroup;
   @Input() isVisible = false;
   localUF = Object.values(UF);
   @Output() closed = new EventEmitter<void>();
-
-  constructor(private methods: MethodsFilter) {}
 
   onGetFilters(academias: Academias[]) {
     this.modal.emit(academias);
