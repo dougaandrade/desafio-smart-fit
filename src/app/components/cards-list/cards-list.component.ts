@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CardsComponent } from '../card/cards.component';
 
 @Component({
-  selector: 'app-cards-list',
+  selector: 'cards-list',
   standalone: true,
   imports: [CommonModule, CardsComponent],
   templateUrl: './cards-list.component.html',

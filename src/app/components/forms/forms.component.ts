@@ -10,7 +10,7 @@ import { EstruturaComponent } from './estrutura/estrutura.component';
 import { LocalComponent } from './local/local.component';
 
 @Component({
-  selector: 'app-forms',
+  selector: 'forms',
   standalone: true,
   imports: [
     CommonModule,

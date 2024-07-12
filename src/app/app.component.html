@@ -1,11 +1,11 @@
-@defer(on timer(1s)){
+@defer(on timer(2s)){
 <div class="app-container">
-  <app-header />
+  <header-component/>
   <div class="card-separator">
-    <app-forms (academias)="unitsList.set($event)" />
-    <app-cards-list [unitsList]="unitsList()" />
+    <forms (academias)="unitsList.set($event)" />
+    <cards-list [unitsList]="unitsList()" />
   </div>
-  <app-footer />
+  <footer-component/>
 </div>
 
 }@placeholder {
