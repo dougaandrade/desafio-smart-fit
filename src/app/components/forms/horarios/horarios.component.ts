@@ -20,7 +20,6 @@ export class HorariosComponent {
   formGroup = this.methods$.formGroup;
   updateResultadosCount = this.methods$.updateResultadosCount;
 
-
   async onMorning() {
     const { hour } = this.formGroup.value;
 
@@ -30,7 +29,8 @@ export class HorariosComponent {
     );
 
     const filteredAcademias = academias.filter(({ schedules }) =>
-      schedules?.some(({ hour }) => hour === '06h às 12h')
+      schedules?.some(
+        ({ hour }) => hour === '06h às 12h')
     );
 
     this.updateResultadosCount(filteredAcademias);
