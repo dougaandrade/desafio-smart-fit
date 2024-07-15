@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Academias } from '../../Interfaces/Ilocation.interface';
 
 @Component({
@@ -11,4 +11,8 @@ import { Academias } from '../../Interfaces/Ilocation.interface';
 })
 export class CardsComponent {
   @Input() card!: Academias;
+  alert() {
+    console.log(`id: ${this.card.id}`);
+    console.log(this.card.title);
+  }
 }
