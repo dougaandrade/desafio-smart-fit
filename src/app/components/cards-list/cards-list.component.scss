@@ -26,19 +26,19 @@ button:hover {
   .card-list {
     padding: 0px 40px;
   }
+  button {
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    width: 301px;
+    height: 352px;
+  }
+}
 
 .card-list li {
   list-style: none;
 }
 
-button {
-  cursor: pointer;
-  border: none;
-  border-radius: 10px;
-  width: 301px;
-  height: 352px;
-}
 ::-webkit-scrollbar {
   display: none;
-}
 }
