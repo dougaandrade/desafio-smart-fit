@@ -8,15 +8,37 @@
   padding: 0px 40px;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 13px;
+  width: 301px;
+  height: 342px;
+}
+
+button:focus,
+button:hover {
+  color: #fff;
+  background-color: rgba(90, 84, 84, 0.205);
+}
+
 @media (max-width: 768px) {
   .card-list {
     padding: 0px 40px;
   }
-}
+
 .card-list li {
   list-style: none;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  width: 301px;
+  height: 352px;
+}
 ::-webkit-scrollbar {
   display: none;
+}
 }
