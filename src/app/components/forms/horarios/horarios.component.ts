@@ -29,8 +29,7 @@ export class HorariosComponent {
     );
 
     const filteredAcademias = academias.filter(({ schedules }) =>
-      schedules?.some(
-        ({ hour }) => hour === '06h às 12h')
+      schedules?.some(({ hour }) => hour === '06h às 12h')
     );
 
     this.updateResultadosCount(filteredAcademias);

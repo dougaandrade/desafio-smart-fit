@@ -11,9 +11,8 @@ import { Academias } from '../../Interfaces/Ilocation.interface';
 })
 export class CardsComponent {
   @Input() card!: Academias;
-  alert() {
-    console.log(`id: ${this.card.id}`);
-    console.log(this.card.title);
-
+  alertMethod() {
+    alert(
+      `Você selecionou á academia: ${this.card.title},`);
   }
 }
