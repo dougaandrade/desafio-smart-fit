@@ -1,7 +1,7 @@
 import { MethodsFilter } from '../../services/methods-filter.service';
 import { Academias } from './../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
-import { Component, output } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './modal/modal.component';
 import { UndFechadasComponent } from './und-fechadas/und-fechadas.component';
@@ -26,13 +26,13 @@ import { LocalComponent } from './local/local.component';
 })
 export class FormsComponent {
   academias = output<Academias[]>();
+  private methods = inject(MethodsFilter);
 
   formGroup = this.methods.formGroup;
 
   isModalVisible = false;
   resultadosCount = 0;
-
-  constructor(private methods: MethodsFilter) {
+  constructor() {
     this.methods.filtersmethods.subscribe((academias) => {
       this.academias.emit(academias);
       this.updateResultadosCount(academias);

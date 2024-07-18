@@ -13,6 +13,6 @@ export class CardsComponent {
   @Input() card!: Academias;
   alertMethod() {
     alert(
-      `Você selecionou á academia: ${this.card.title},`);
+      `Você clicou na academia: ${this.card.title}`);
   }
 }
