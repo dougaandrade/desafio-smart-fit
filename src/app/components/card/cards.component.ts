@@ -14,5 +14,6 @@ export class CardsComponent {
   alert() {
     console.log(`id: ${this.card.id}`);
     console.log(this.card.title);
+
   }
 }

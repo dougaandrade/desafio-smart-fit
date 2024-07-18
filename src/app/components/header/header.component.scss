@@ -69,7 +69,7 @@ header img {
 
 @media (max-width: 768px) {
   header img {
-    width: 50%;
+    width: 30%;
   }
 
   header .logo-container {
@@ -83,7 +83,10 @@ header img {
 }
 
   header .text-container {
-    min-width: 80%;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+    min-width: 65%;
   }
   header .text-container h1 {
     min-width: 80%;
