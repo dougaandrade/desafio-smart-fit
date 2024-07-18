@@ -25,7 +25,7 @@ header .logo-container {
   height: 110px;
 }
 
-header .text-container {
+  header .text-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -36,19 +36,17 @@ header .text-container {
   gap: 10px;
 }
 
-header .text-container h1 {
+  header .text-container h1 {
   font-size: 50px;
-  font-family: Gotham;
   color: var(--dark-grey);
 }
 
-header .text-container p {
+  header .text-container p {
   font-size: 20px;
   color: var(--light-grey);
-  font-family: Gotham;
 }
 
-header .text-container .heading {
+  header .text-container .heading {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -57,13 +55,13 @@ header .text-container .heading {
   margin: 15px 0px;
   gap: 12px;
 }
-header .text-container .heading-tracy {
+  header .text-container .heading-tracy {
   height: 5px;
   width: 45%;
   background-color: var(--dark-grey);
 }
 
-header img {
+  header img {
   width: 11%;
 }
 
@@ -73,19 +71,19 @@ header img {
   }
 
   header .logo-container {
-  background-color: #252525;
-  padding: 15px 40px;
-  width: 100%;
+    background-color: #252525;
+    padding: 15px 40px;
+    width: 100%;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-header .text-container {
- justify-content: center;
- align-items: center;
- text-align: center;
+  header .text-container {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     min-width: 65%;
   }
   header .text-container h1 {
@@ -96,7 +94,6 @@ header .text-container {
   header .text-container p {
     font-size: 17px;
     color: var(--dark-grey);
-    font-family: Gotham;
     font-weight: 300;
   }
 }
