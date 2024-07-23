@@ -1,6 +1,6 @@
 @defer(on timer(1.5s)){
 <div class="app-container">
-  <header-component/>
+  <header-component />
   <div class="card-separator">
     <forms (academias)="unitsList.set($event)" />
     <cards-list [unitsList]="unitsList()" />

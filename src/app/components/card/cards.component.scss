@@ -4,15 +4,15 @@
   align-items: flex-start;
   justify-content: flex-start;
 
-  padding: 12px 8px;
+  padding: 16px 8px;
   border-radius: 13px;
 
   background-color: #25252515;
   transition: all 0.3s ease;
-  gap: 10px;
+  gap: 12px;
 
-  width: 300px;
-  height: 340px;
+  width: 320px;
+  height: 370px;
 }
 
 .card .divider {
@@ -43,13 +43,15 @@
 
 .card h3 {
   color: var(--dark-grey);
-  font-size: 22px;
+  font-size: 18px;
+  margin: 3px 0;
   font-weight: bold;
 }
 
 .card p {
   color: var(--light-grey);
-  font-size: 12px;
+  margin: 0;
+  font-size: 13px;
 }
 
 .card ul {
