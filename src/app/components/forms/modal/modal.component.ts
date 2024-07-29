@@ -31,12 +31,12 @@ import { LocalComponent } from '../local/local.component';
   styleUrl: './modal.component.scss',
 })
 export class ModalComponent {
-  modal = output<Academias[]>();
-  private methods$ = inject(MethodsFilter);
-  formGroup = this.methods$.formGroup;
   @Input() isVisible = false;
   localUF = Object.values(UF);
   @Output() closed = new EventEmitter<void>();
+  modal = output<Academias[]>();
+  private methods$ = inject(MethodsFilter);
+  formGroup = this.methods$.formGroup;
 
   onGetFilters(academias: Academias[]) {
     this.modal.emit(academias);
