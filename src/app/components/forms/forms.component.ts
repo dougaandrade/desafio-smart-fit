@@ -1,7 +1,7 @@
 import { MethodsFilter } from '../../services/methods-filter.service';
 import { Academias } from './../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
-import { Component, inject, output } from '@angular/core';
+import { Component, inject, OnInit, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './modal/modal.component';
 import { UndFechadasComponent } from './und-fechadas/und-fechadas.component';
@@ -24,7 +24,8 @@ import { LocalComponent } from './local/local.component';
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.scss'],
 })
-export class FormsComponent {
+export class FormsComponent implements OnInit {
+
   academias = output<Academias[]>();
   private methods = inject(MethodsFilter);
 
@@ -32,7 +33,8 @@ export class FormsComponent {
 
   isModalVisible = false;
   resultadosCount = 0;
-  constructor() {
+  
+  ngOnInit() {
     this.methods.filtersmethods.subscribe((academias) => {
       this.academias.emit(academias);
       this.updateResultadosCount(academias);
