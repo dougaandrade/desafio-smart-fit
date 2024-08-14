@@ -8,7 +8,9 @@ import { EventEmitter, inject, Injectable, Output } from '@angular/core';
 })
 export class MethodsFilter {
   @Output() filtersmethods = new EventEmitter<Academias[]>();
+
   resultadosCount = 0;
+
   formBuilder$ = inject(FormBuilder);
   unitService$ = inject(GetUnitsService);
 

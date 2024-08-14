@@ -18,7 +18,6 @@ export class EstruturaComponent {
   private unitService$ = inject(GetUnitsService);
   formGroup = this.methods$.formGroup;
   updateResultadosCount = this.methods$.updateResultadosCount;
-
   async onFilterMask() {
     const academias = await this.unitService$.obterAcademias();
 
