@@ -32,8 +32,9 @@ import { LocalComponent } from '../local/local.component';
 })
 export class ModalComponent {
   @Input() isVisible = false;
-  localUF = Object.values(UF);
   @Output() closed = new EventEmitter<void>();
+
+  localUF = Object.values(UF);
   modal = output<Academias[]>();
   private methods$ = inject(MethodsFilter);
   formGroup = this.methods$.formGroup;
@@ -41,6 +42,7 @@ export class ModalComponent {
   onGetFilters(academias: Academias[]) {
     this.modal.emit(academias);
     this.closed.emit();
+    alert('Filtros aplicados');
   }
 
   onGetFiltersLocal(academias: Academias[]) {
@@ -48,7 +50,6 @@ export class ModalComponent {
   }
 
   close() {
-    this.isVisible = false;
     this.closed.emit();
   }
 }

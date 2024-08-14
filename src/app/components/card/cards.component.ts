@@ -11,8 +11,4 @@ import { Academias } from '../../Interfaces/Ilocation.interface';
 })
 export class CardsComponent {
   @Input() card!: Academias;
-  alertMethod() {
-    alert(
-      `Você clicou na academia: ${this.card.title}`);
-  }
 }

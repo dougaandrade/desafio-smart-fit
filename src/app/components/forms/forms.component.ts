@@ -33,7 +33,7 @@ export class FormsComponent implements OnInit {
 
   isModalVisible = false;
   resultadosCount = 0;
-  
+
   ngOnInit() {
     this.methods.filtersmethods.subscribe((academias) => {
       this.academias.emit(academias);
