@@ -1,7 +1,7 @@
 import { IunitsResponse } from './../Interfaces/IunitsResponse.interfaces';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { firstValueFrom, shareReplay } from 'rxjs';
+import { firstValueFrom} from 'rxjs';
 import { Academia } from '../Interfaces/Iacademia.interface';
 import { Ihour_index } from '../types/Ihour_index.types';
 
