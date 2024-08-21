@@ -1,7 +1,7 @@
 import { IunitsResponse } from './../Interfaces/IunitsResponse.interfaces';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, shareReplay } from 'rxjs';
 import { Academia } from '../Interfaces/Iacademia.interface';
 import { Ihour_index } from '../types/Ihour_index.types';
 
@@ -79,10 +79,10 @@ export class GetUnitsService {
     showClosed?: boolean,
     hour?: string
   ): Academia[] {
-    let filteredAcademias = academias;
+    let filteredAcademias = academias ?? [];
 
     if (showClosed) {
-      filteredAcademias = filteredAcademias.filter((acad) => !acad.opened);
+      filteredAcademias = filteredAcademias.filter((acad) => !acad?.opened);
     }
 
     if (hour) {

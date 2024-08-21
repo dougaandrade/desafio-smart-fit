@@ -13,11 +13,13 @@ import { Academias } from '../../../Interfaces/Ilocation.interface';
   styleUrl: '../forms.component.scss',
 })
 export class EstruturaComponent {
+
   @Output() estrutura = new EventEmitter<Academias[]>();
   private methods$ = inject(MethodsFilter);
   private unitService$ = inject(GetUnitsService);
   formGroup = this.methods$.formGroup;
   updateResultadosCount = this.methods$.updateResultadosCount;
+
   async onFilterMask() {
     const academias = await this.unitService$.obterAcademias();
 

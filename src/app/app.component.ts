@@ -11,7 +11,23 @@ import { LoaderComponent } from './components/loader/loader.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  templateUrl: './app.component.html',
+  template: `
+  @defer(on timer(1s)){
+    <div class="app-container">
+      <header-component />
+      <div class="card-separator">
+        <forms (academias)="unitsList.set($event)" />
+        <cards-list [unitsList]="unitsList()" />
+      </div>
+      <footer-component />
+    </div>
+
+    }@placeholder {
+    <div class="app-load">
+      <loader />
+    </div>
+    }
+    `,
   styleUrl: './app.component.scss',
   imports: [
     RouterOutlet,
