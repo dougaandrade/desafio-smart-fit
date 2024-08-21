@@ -1,7 +1,7 @@
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, UntypedFormBuilder } from '@angular/forms';
 import { GetUnitsService } from './get-units.service';
 import { Academias } from '../Interfaces/Ilocation.interface';
-import { EventEmitter, inject, Injectable, Output } from '@angular/core';
+import { EventEmitter, Inject, inject, Injectable, Output } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +19,8 @@ export class MethodsFilter {
     showClosed: false,
     uf: '',
   });
+
+
 
   updateResultadosCount(academias: Academias[]) {
     this.resultadosCount = academias.length;
