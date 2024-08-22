@@ -1,6 +1,6 @@
 import { Academias } from './../../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, inject, output, Output } from '@angular/core';
+import { Component, inject, output} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MethodsFilter } from '../../../services/methods-filter.service';
 import { GetUnitsService } from '../../../services/get-units.service';
@@ -13,7 +13,7 @@ import { GetUnitsService } from '../../../services/get-units.service';
   styleUrl: '../forms.component.scss',
 })
 export class UndFechadasComponent {
-  
+
   undFechada = output<Academias[]>();
   private methods$ = inject(MethodsFilter);
   private unitService$ = inject(GetUnitsService);

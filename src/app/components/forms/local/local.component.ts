@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, output, Output } from '@angular/core';
+import { Component, inject, output} from '@angular/core';
 import { Academias } from '../../../Interfaces/Ilocation.interface';
 import { GetUnitsService } from '../../../services/get-units.service';
 import { MethodsFilter } from '../../../services/methods-filter.service';

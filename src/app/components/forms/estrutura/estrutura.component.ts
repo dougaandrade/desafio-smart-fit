@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, inject, output, Output } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GetUnitsService } from '../../../services/get-units.service';
 import { MethodsFilter } from '../../../services/methods-filter.service';

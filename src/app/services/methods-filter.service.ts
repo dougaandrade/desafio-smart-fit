@@ -21,7 +21,6 @@ export class MethodsFilter {
   });
 
 
-
   updateResultadosCount(academias: Academias[]) {
     this.resultadosCount = academias.length;
   }

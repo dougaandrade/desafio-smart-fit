@@ -1,13 +1,8 @@
-import { Ischedules } from './../../../Interfaces/Ischedules.interface';
 import {
   Component,
-  EventEmitter,
   Input,
   output,
-  Output,
   inject,
-  input,
-  model,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
