@@ -1,3 +1,4 @@
+import { Ischedules } from './../../../Interfaces/Ischedules.interface';
 import {
   Component,
   EventEmitter,
@@ -5,6 +6,8 @@ import {
   output,
   Output,
   inject,
+  input,
+  model,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -32,7 +35,8 @@ import { LocalComponent } from '../local/local.component';
 })
 export class ModalComponent {
   @Input() isVisible = false;
-  @Output() closed = new EventEmitter<void>();
+  // valor vazio pois estou usando para retirar o valor do input
+  closed = output();
 
   localUF = Object.values(UF);
   modal = output<Academias[]>();

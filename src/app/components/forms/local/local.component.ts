@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, EventEmitter, inject, output, Output } from '@angular/core';
 import { Academias } from '../../../Interfaces/Ilocation.interface';
 import { GetUnitsService } from '../../../services/get-units.service';
 import { MethodsFilter } from '../../../services/methods-filter.service';
@@ -14,9 +14,12 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrl: '../forms.component.scss',
 })
 export class LocalComponent {
-  @Output() local = new EventEmitter<Academias[]>();
+
+  local = output<Academias[]>();
+
   private methods$ = inject(MethodsFilter);
   private unitService$ = inject(GetUnitsService);
+
   formGroup = this.methods$.formGroup;
   updateResultadosCount = this.methods$.updateResultadosCount;
   localUF = Object.values(UF);
