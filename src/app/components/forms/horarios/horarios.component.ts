@@ -25,10 +25,7 @@ export class HorariosComponent {
   async onMorning() {
     const { hour } = this.formGroup.value;
 
-    const academias = await this.unitService$.obterAcademias(
-      '',
-      typeof hour === 'string' ? hour : undefined
-    );
+    const academias = await this.unitService$.obterAcademias( typeof hour === 'string' ? hour : undefined);
 
     const filteredAcademias = academias.filter(({ schedules }) =>
       schedules?.some(({ hour }) => hour === '06h às 12h')
@@ -41,10 +38,7 @@ export class HorariosComponent {
   async onAfternoon() {
     const { hour } = this.formGroup.value;
 
-    const academias = await this.unitService$.obterAcademias(
-      '',
-      typeof hour === 'string' ? hour : undefined
-    );
+    const academias = await this.unitService$.obterAcademias(typeof hour === 'string' ? hour : undefined);
 
     const filteredAcademias = academias.filter(({ schedules }) =>
       schedules?.some(({ hour }) => hour === '12h às 18h')
@@ -57,10 +51,7 @@ export class HorariosComponent {
   async onNight() {
     const { hour } = this.formGroup.value;
 
-    const academias = await this.unitService$.obterAcademias(
-      '',
-      typeof hour === 'string' ? hour : undefined
-    );
+    const academias = await this.unitService$.obterAcademias(typeof hour === 'string' ? hour : undefined);
 
     const filteredAcademias = academias.filter(({ schedules }) =>
       schedules?.some(({ hour }) => hour === '18h às 21h')
