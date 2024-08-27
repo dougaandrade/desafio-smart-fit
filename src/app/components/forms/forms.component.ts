@@ -1,20 +1,20 @@
+import { CommonModule } from '@angular/common';
 import { MethodsFilter } from '../../services/methods-filter.service';
 import { Academias } from './../../Interfaces/Ilocation.interface';
-import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, output } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './modal/modal.component';
 import { UndFechadasComponent } from './und-fechadas/und-fechadas.component';
 import { HorariosComponent } from './horarios/horarios.component';
 import { EstruturaComponent } from './estrutura/estrutura.component';
 import { LocalComponent } from './local/local.component';
+import { Component, inject, OnInit, output } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'forms',
   standalone: true,
   imports: [
-    CommonModule,
     ReactiveFormsModule,
+    CommonModule,
     ModalComponent,
     UndFechadasComponent,
     HorariosComponent,
@@ -35,7 +35,7 @@ export class FormsComponent implements OnInit {
   resultadosCount = 0;
 
   ngOnInit() {
-    this.methods.filtersmethods.subscribe((academias) => {
+    this.methods.filtersmethods.subscribe((academias: Academias[]) => {
       this.academias.emit(academias);
       this.updateResultadosCount(academias);
     });

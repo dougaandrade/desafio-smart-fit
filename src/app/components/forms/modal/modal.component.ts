@@ -1,10 +1,3 @@
-import {
-  Component,
-  Input,
-  output,
-  inject,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UF } from '../../../enum/locaisUf.enum';
 import { MethodsFilter } from '../../../services/methods-filter.service';
@@ -13,6 +6,8 @@ import { UndFechadasComponent } from '../und-fechadas/und-fechadas.component';
 import { HorariosComponent } from '../horarios/horarios.component';
 import { Academias } from '../../../Interfaces/Ilocation.interface';
 import { LocalComponent } from '../local/local.component';
+import { Component, inject, Input, output } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'modal',

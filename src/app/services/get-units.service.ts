@@ -1,9 +1,9 @@
 import { IunitsResponse } from './../Interfaces/IunitsResponse.interfaces';
-import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { firstValueFrom} from 'rxjs';
 import { Academia } from '../Interfaces/Iacademia.interface';
 import { Ihour_index } from '../types/Ihour_index.types';
+import { inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs/internal/firstValueFrom';
 
 const API_URL =
   'https://test-frontend-developer.s3.amazonaws.com/data/locations.json';
