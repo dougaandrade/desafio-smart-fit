@@ -41,7 +41,7 @@ export class ModalComponent {
   onGetFilters(academias: Academias[]) {
     this.modal.emit(academias);
     this.closed.emit();
-    alert('Filtros aplicados');
+    alert('Filtro aplicado com sucesso!');
   }
 
   onGetFiltersLocal(academias: Academias[]) {
