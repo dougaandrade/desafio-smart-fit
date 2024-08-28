@@ -25,7 +25,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./forms.component.scss'],
 })
 export class FormsComponent implements OnInit {
-
   academias = output<Academias[]>();
   private methods = inject(MethodsFilter);
 
@@ -35,7 +34,7 @@ export class FormsComponent implements OnInit {
   resultadosCount = 0;
 
   ngOnInit() {
-    this.methods.filtersmethods.subscribe((academias: Academias[]) => {
+    this.methods.filtersmethods.subscribe((academias) => {
       this.academias.emit(academias);
       this.updateResultadosCount(academias);
     });

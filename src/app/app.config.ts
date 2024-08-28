@@ -1,7 +1,4 @@
-import {
-  ApplicationConfig,
-  provideZoneChangeDetection,
-} from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 
@@ -15,11 +12,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     provideClientHydration(),
     provideAnimationsAsync(),
-    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideZoneChangeDetection(),
   ],
 };
-
-
-
-
-
