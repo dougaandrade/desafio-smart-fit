@@ -79,15 +79,13 @@ export class GetUnitsService {
     showClosed?: boolean,
     hour?: string
   ): Academia[] {
-    let filteredAcademias = academias ?? [];
+    let filteredAcademias = academias || [];
 
     if (showClosed) {
-      filteredAcademias = filteredAcademias.filter((acad) => !acad?.opened);
-    }
-
-    if (hour) {
-      const openHour = OPENING_HOURS[hour as Ihour_index]?.first;
-      const closeHour = OPENING_HOURS[hour as Ihour_index]?.last;
+      filteredAcademias = filteredAcademias.filter((acad) => !acad.opened);
+    } else if (hour) {
+      const openHour = OPENING_HOURS[hour as Ihour_index].first;
+      const closeHour = OPENING_HOURS[hour as Ihour_index].last;
       if (openHour && closeHour) {
         filteredAcademias = this.filterAcademias(
           filteredAcademias,

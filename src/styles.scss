@@ -31,24 +31,28 @@
   src: url('./assets/fonts/Gotham/gotham-light.woff2') format('truetype');
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family:Gotham ;
   src: url('./assets/fonts/Gotham/gotham-book.woff2') format('truetype');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family:Gotham ;
   src: url('./assets/fonts/Gotham/gotham-bold.woff2') format('truetype');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family:Gotham ;
   src: url('./assets/fonts/Gotham/gotham-black.woff2') format('truetype');
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
 }
 .mat-h1, .mat-headline-5, .mat-typography .mat-h1, .mat-typography .mat-headline-5, .mat-typography h1{
   margin: 0 !important;
