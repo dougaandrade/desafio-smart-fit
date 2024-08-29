@@ -3,7 +3,7 @@
     <h1 class="h1-title-filter">Localidade</h1>
     <div class="radio-wrapper">
       <select id="uf" formControlName="uf" class="selectbox" (change)="onSearchLocal()">
-        <option for="uf" value="">Selecionar UF</option>
+        <option aria-label="uf" value="">Selecionar UF</option>
         @for (uf of localUF; track $index) {
         <option [value]="uf">{{uf}}</option>
         }

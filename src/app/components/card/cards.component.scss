@@ -43,7 +43,7 @@
 
 .card h3 {
   color: var(--dark-grey);
-  font-size: 25px;
+  font-size: 27px;
   margin: 3px 0;
   font-weight: bold;
 }
@@ -77,7 +77,8 @@
 }
 
 .card img {
-  height: 50px;
+  height: 45px;
+  width: 45px;
 }
 
 @media (max-width: 768px) {
