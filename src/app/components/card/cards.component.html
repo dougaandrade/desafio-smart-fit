@@ -1,7 +1,7 @@
 <div class="card">
 
   <span [ngClass]="{opened: card.opened}">{{ card.opened ? 'Aberto' : 'Fechado'}}</span>
-  <h1>{{ card.title }}</h1>
+  <h3>{{ card.title }}</h3>
   <p [innerHTML]="card.content"></p>
 
   <div class="divider"></div>
