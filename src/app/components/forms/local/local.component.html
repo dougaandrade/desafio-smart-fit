@@ -1,9 +1,9 @@
 <form [formGroup]="formGroup">
   <div class="content-filters">
-    <h1 class="h1-title-filter">Localidade</h1>
+    <label class="label-title-filter">Localidade</label>
     <div class="radio-wrapper">
       <select id="uf" formControlName="uf" class="selectbox" (change)="onSearchLocal()">
-        <option aria-label="uf" value="">Selecionar UF</option>
+        <option aria-label="uf" value="">UF</option>
         @for (uf of localUF; track $index) {
         <option [value]="uf">{{uf}}</option>
         }
