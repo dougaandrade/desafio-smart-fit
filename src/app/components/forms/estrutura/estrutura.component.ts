@@ -12,9 +12,9 @@ import { Academias } from '../../../Interfaces/Ilocation.interface';
   templateUrl: './estrutura.component.html',
   styleUrl: '../forms.component.scss',
 })
+// regex para validar o conteudo
+// /Obs./.exec(value.content)
 export class EstruturaComponent {
-
-
   estrutura = output<Academias[]>();
 
   private methods$ = inject(MethodsFilter);

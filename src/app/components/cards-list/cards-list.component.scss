@@ -1,11 +1,12 @@
 .card-list {
   display: flex;
-  width:auto;
+  width:100%;
   flex-wrap: wrap;
   gap: 20px;
   overflow-y: scroll;
   height: 46rem;
   justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 768px) {
