@@ -57,7 +57,7 @@ export class GetUnitsService {
     if (!startHour || !endHour) return academias;
     const openHourFilter = parseInt(startHour, 10);
     const closeHourFilter = parseInt(endHour, 10);
-    const todayWeekday = this.transformWeekday(new Date().getDay());
+    const todayWeekday: string = this.transformWeekday(new Date().getDay());
 
     return academias.filter((unit) => {
       if (!unit.schedules) {

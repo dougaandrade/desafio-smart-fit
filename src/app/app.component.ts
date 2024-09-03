@@ -10,7 +10,7 @@ import { Component, inject, signal } from '@angular/core';
   selector: 'app-root',
   standalone: true,
   template: `
-  @defer(on timer(1s)){
+    @defer(on timer(1s)){
     <div class="app-container">
       <header-component />
       <div class="card-separator">
@@ -25,7 +25,7 @@ import { Component, inject, signal } from '@angular/core';
       <loader />
     </div>
     }
-    `,
+  `,
   styleUrl: './app.component.scss',
   imports: [
     HeaderComponent,
