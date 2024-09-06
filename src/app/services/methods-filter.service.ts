@@ -7,7 +7,6 @@ import { FormBuilder } from '@angular/forms';
   providedIn: 'root',
 })
 export class MethodsFilter {
-
   // esse decorator so funciona em services
   @Output() filtersmethods = new EventEmitter<Academias[]>();
 
@@ -17,9 +16,9 @@ export class MethodsFilter {
   unitService$ = inject(GetUnitsService);
 
   formGroup = this.formBuilder$.group({
-    hour: '',
-    showClosed: false,
-    uf: '',
+    hour: [''],
+    showClosed: [false],
+    uf: [''],
   });
 
   updateResultadosCount(academias: Academias[]) {

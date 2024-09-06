@@ -76,12 +76,12 @@ export class GetUnitsService {
 
   private filterBySchedule(
     academias: Academia[],
-    showClosed?: boolean,
+    endClosed?: boolean,
     hour?: string
   ): Academia[] {
     let filteredAcademias = academias || [];
 
-    if (showClosed) {
+    if (endClosed) {
       filteredAcademias = filteredAcademias.filter((acad) => !acad.opened);
     } else if (hour) {
       const openHour = OPENING_HOURS[hour as Ihour_index].first;
