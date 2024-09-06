@@ -103,26 +103,31 @@ export class GetUnitsService {
     showClosed?: boolean,
     hour?: string
   ): Promise<Academia[]> {
-    const academias = await firstValueFrom(this.source$);
+    try {
+      const academias = await firstValueFrom(this.source$);
 
-    const ufPattern = /, (\w{2})<\/p>/;
-    const academiasComUF: Academia[] = academias.locations.map((item) => {
-      const match = ufPattern.exec(item.content);
-      const uf = match ? match[1] : '';
-      return { ...item, uf };
-    });
+      const ufPattern = /, (\w{2})<\/p>/;
+      const academiasComUF: Academia[] = academias.locations.map((item) => {
+        const match = ufPattern.exec(item.content);
+        const uf = match ? match[1] : '';
+        return { ...item, uf };
+      });
 
-    let filteredAcademias = this.filterAcademias(
-      academiasComUF,
-      openHour,
-      closeHour
-    );
-    filteredAcademias = this.filterBySchedule(
-      filteredAcademias,
-      showClosed,
-      hour
-    );
+      let filteredAcademias = this.filterAcademias(
+        academiasComUF,
+        openHour,
+        closeHour
+      );
+      filteredAcademias = this.filterBySchedule(
+        filteredAcademias,
+        showClosed,
+        hour
+      );
 
-    return filteredAcademias;
+      return filteredAcademias;
+    } catch (error) {
+      alert(`Erro ao buscar academias, ${error}`);
+      return [];
+    }
   }
 }

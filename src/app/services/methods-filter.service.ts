@@ -26,8 +26,12 @@ export class MethodsFilter {
   }
 
   async loadAllAcademias() {
-    const academias = await this.unitService$.obterAcademias();
-    this.updateResultadosCount(academias);
-    this.filtersmethods.emit(academias);
+    try {
+      const academias = await this.unitService$.obterAcademias();
+      this.updateResultadosCount(academias);
+      this.filtersmethods.emit(academias);
+    } catch (error) {
+      alert(`erro em obter academias: ${error}`);
+    }
   }
 }
