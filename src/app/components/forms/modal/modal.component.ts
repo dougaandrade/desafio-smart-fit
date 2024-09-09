@@ -40,8 +40,9 @@ export class ModalComponent {
       toast: true,
       position: 'center',
       showConfirmButton: false,
-      timer: 2000,
+      timer: 1000,
       timerProgressBar: false,
+      animation: false,
       width: '150px',
       padding: '0.2rem',
       didOpen: (toast) => {
