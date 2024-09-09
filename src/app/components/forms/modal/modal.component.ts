@@ -38,7 +38,7 @@ export class ModalComponent {
     this.modal.emit(academias);
     const Toast = Swal.mixin({
       toast: true,
-      position: 'bottom-end',
+      position: 'center',
       showConfirmButton: false,
       timer: 2000,
       timerProgressBar: false,
