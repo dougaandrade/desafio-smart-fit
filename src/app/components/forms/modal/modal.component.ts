@@ -8,6 +8,7 @@ import { Academias } from '../../../Interfaces/Ilocation.interface';
 import { LocalComponent } from '../local/local.component';
 import { Component, inject, Input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'modal',
@@ -35,10 +36,23 @@ export class ModalComponent {
 
   onGetFilters(academias: Academias[]) {
     this.modal.emit(academias);
-    const msg = window.alert('Filtro aplicado com sucesso!');
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: 'success',
+      title: 'Filtro aplicado;',
+    });
     this.closed.emit();
-
-    return msg;
+    return Toast;
   }
 
   onGetFiltersLocal(academias: Academias[]) {
