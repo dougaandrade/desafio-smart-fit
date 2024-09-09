@@ -1,5 +1,5 @@
 <ul class="card-list">
-  @for (item of unitsList(); track item) {
+  @for (item of unitsList(); track item.id) {
   <app-cards [card]="item" />
   }
 </ul>
