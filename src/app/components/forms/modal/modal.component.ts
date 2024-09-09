@@ -38,18 +38,19 @@ export class ModalComponent {
     this.modal.emit(academias);
     const Toast = Swal.mixin({
       toast: true,
-      position: 'top-end',
+      position: 'top-start',
       showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
+      timer: 2000,
+      timerProgressBar: false,
+      width: '150px',
+      padding: '0.2rem',
       didOpen: (toast) => {
         toast.onmouseenter = Swal.stopTimer;
         toast.onmouseleave = Swal.resumeTimer;
       },
     });
     Toast.fire({
-      icon: 'success',
-      title: 'Filtro aplicado;',
+      title: 'Filtro aplicado',
     });
     this.closed.emit();
     return Toast;
