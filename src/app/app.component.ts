@@ -1,11 +1,11 @@
 import { Academias } from './Interfaces/Ilocation.interface';
 import { HeaderComponent } from './components/header/header.component';
-import { FormsComponent } from './components/forms/forms.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CardsListComponent } from './components/cards-list/cards-list.component';
 import { GetUnitsService } from './services/get-units.service';
 import { LoaderComponent } from './components/loader/loader.component';
 import { Component, inject, signal } from '@angular/core';
+import { FormsComponent } from './components/forms/forms.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -29,10 +29,10 @@ import { Component, inject, signal } from '@angular/core';
   styleUrl: './app.component.scss',
   imports: [
     HeaderComponent,
-    FormsComponent,
     FooterComponent,
     CardsListComponent,
     LoaderComponent,
+    FormsComponent,
   ],
 })
 export class AppComponent {

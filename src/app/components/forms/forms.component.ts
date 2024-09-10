@@ -22,7 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LocalComponent,
   ],
   templateUrl: './forms.component.html',
-  styleUrls: ['./forms.component.scss'],
+  styleUrl: '/src/app/scss/forms.component.scss',
 })
 export class FormsComponent implements OnInit {
   academias = output<Academias[]>();
