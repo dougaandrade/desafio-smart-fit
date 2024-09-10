@@ -1,4 +1,4 @@
-import { Component, inject, output} from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { Academias } from '../../../Interfaces/Ilocation.interface';
 import { GetUnitsService } from '../../../services/get-units.service';
 import { MethodsFilter } from '../../../services/methods-filter.service';
@@ -11,10 +11,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './local.component.html',
-  styleUrl: '../forms.component.scss',
+  styleUrl: '/src/app/scss/forms.component.scss',
 })
 export class LocalComponent {
-
   local = output<Academias[]>();
 
   private methods$ = inject(MethodsFilter);
