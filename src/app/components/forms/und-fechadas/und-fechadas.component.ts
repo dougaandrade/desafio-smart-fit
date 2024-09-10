@@ -10,7 +10,7 @@ import { GetUnitsService } from '../../../services/get-units.service';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './und-fechadas.component.html',
-  styleUrl: '../forms.component.scss',
+  styleUrl: '/src/app/scss/forms.component.scss',
 })
 export class UndFechadasComponent {
   undFechada = output<Academias[]>();

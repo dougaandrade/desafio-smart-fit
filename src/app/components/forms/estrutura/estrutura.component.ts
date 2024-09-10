@@ -10,7 +10,7 @@ import { Academias } from '../../../Interfaces/Ilocation.interface';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './estrutura.component.html',
-  styleUrl: '../forms.component.scss',
+  styleUrl: '/src/app/scss/forms.component.scss',
 })
 // regex para validar o conteudo
 // /Obs./.exec(value.content)

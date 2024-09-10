@@ -49,11 +49,6 @@ export class ModalComponent {
     this.closed.emit();
     return Swal.fire;
   }
-
-  onGetFiltersLocal(academias: Academias[]) {
-    this.modal.emit(academias);
-  }
-
   close() {
     this.closed.emit();
   }
