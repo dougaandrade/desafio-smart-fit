@@ -36,25 +36,18 @@ export class ModalComponent {
 
   onGetFilters(academias: Academias[]) {
     this.modal.emit(academias);
-    const Toast = Swal.mixin({
-      toast: true,
+    Swal.fire({
       position: 'center',
+      title: 'Filtro aplicado com sucesso',
+      heightAuto: true,
+      timerProgressBar: true,
+      padding: '0.3rem',
+      width: '300px',
       showConfirmButton: false,
-      timer: 1000,
-      timerProgressBar: false,
-      animation: false,
-      width: '150px',
-      padding: '0.2rem',
-      didOpen: (toast) => {
-        toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
-      },
-    });
-    Toast.fire({
-      title: 'Filtro aplicado',
+      timer: 1500,
     });
     this.closed.emit();
-    return Toast;
+    return Swal.fire;
   }
 
   onGetFiltersLocal(academias: Academias[]) {
