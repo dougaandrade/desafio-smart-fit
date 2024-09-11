@@ -6,6 +6,7 @@ import { GetUnitsService } from './services/get-units.service';
 import { LoaderComponent } from './components/loader/loader.component';
 import { Component, inject, signal } from '@angular/core';
 import { FormsComponent } from './components/forms/forms.component';
+import { environment } from '../environments/environment';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -21,6 +22,7 @@ import { FormsComponent } from './components/forms/forms.component';
     </div>
 
     }@placeholder {
+    <span class="envinronment">{{ currentEnvironment }}</span>
     <div class="app-load">
       <loader />
     </div>
@@ -36,6 +38,7 @@ import { FormsComponent } from './components/forms/forms.component';
   ],
 })
 export class AppComponent {
+  currentEnvironment = environment.currentEnvironment;
   private readonly unitService = inject(GetUnitsService);
   protected readonly unitsList = signal<Academias[]>([]);
 
