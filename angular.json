@@ -49,7 +49,8 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "Keys": ["html2"]
             },
             "development": {
               "optimization": false,
