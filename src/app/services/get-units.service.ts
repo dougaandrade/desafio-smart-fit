@@ -4,6 +4,7 @@ import { Ihour_index } from '../types/Ihour_index.types';
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs/internal/firstValueFrom';
+import { bufferCount, shareReplay } from 'rxjs';
 
 const API_URL =
   'https://test-frontend-developer.s3.amazonaws.com/data/locations.json';
@@ -27,7 +28,9 @@ const OPENING_HOURS = {
   providedIn: 'root',
 })
 export class GetUnitsService {
-  private readonly source$ = inject(HttpClient).get<IunitsResponse>(API_URL);
+  private readonly source$ = inject(HttpClient)
+    .get<IunitsResponse>(API_URL)
+    .pipe(shareReplay(1));
 
   private transformWeekday(weekday: number): string {
     const weekdays = [
