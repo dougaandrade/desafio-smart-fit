@@ -2,6 +2,7 @@ import { GetUnitsService } from './get-units.service';
 import { Academias } from '../Interfaces/Ilocation.interface';
 import { EventEmitter, inject, Injectable, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -31,7 +32,16 @@ export class MethodsFilter {
       this.updateResultadosCount(academias);
       this.filtersmethods.emit(academias);
     } catch (error) {
-      alert(`erro em obter academias: ${error}`);
+      Swal.fire({
+        position: 'center',
+        title: `erro em obter academias: ${error}`,
+        heightAuto: true,
+        timerProgressBar: true,
+        padding: '0.3rem',
+        width: '300px',
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
   }
 }

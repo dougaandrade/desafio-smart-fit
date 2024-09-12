@@ -1,16 +1,19 @@
-import { Academias } from './Interfaces/Ilocation.interface';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { CardsListComponent } from './components/cards-list/cards-list.component';
+import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './components/pages/formulario/header/header.component';
+import { FooterComponent } from './components/pages/formulario/footer/footer.component';
+import { CardsListComponent } from './components/pages/formulario/cards-list/cards-list.component';
+import { LoaderComponent } from './components/pages/formulario/loader/loader.component';
+import { FormsComponent } from './components/pages/formulario/forms/forms.component';
+import { environment } from 'baseUrl';
 import { GetUnitsService } from './services/get-units.service';
-import { LoaderComponent } from './components/loader/loader.component';
+import { Academias } from './Interfaces/Ilocation.interface';
 import { Component, inject, signal } from '@angular/core';
-import { FormsComponent } from './components/forms/forms.component';
-import { environment } from '../environments/environment';
+
 @Component({
   selector: 'app-root',
   standalone: true,
   template: `
+    <router-outlet />
     @defer(on timer(1s)){
     <div class="app-container">
       <header-component />
@@ -30,6 +33,7 @@ import { environment } from '../environments/environment';
   `,
   styleUrl: './app.component.scss',
   imports: [
+    RouterOutlet,
     HeaderComponent,
     FooterComponent,
     CardsListComponent,

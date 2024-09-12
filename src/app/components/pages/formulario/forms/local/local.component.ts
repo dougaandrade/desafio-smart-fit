@@ -1,10 +1,10 @@
 import { Component, inject, output } from '@angular/core';
-import { Academias } from '../../../Interfaces/Ilocation.interface';
-import { GetUnitsService } from '../../../services/get-units.service';
-import { MethodsFilter } from '../../../services/methods-filter.service';
-import { UF } from '../../../enum/locaisUf.enum';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MethodsFilter } from '../../../../../services/methods-filter.service';
+import { GetUnitsService } from '../../../../../services/get-units.service';
+import { Academias } from '../../../../../Interfaces/Ilocation.interface';
+import { UF } from '../../../../../enum/locaisUf.enum';
 
 @Component({
   selector: 'local',

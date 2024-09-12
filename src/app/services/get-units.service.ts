@@ -4,7 +4,7 @@ import { Ihour_index } from '../types/Ihour_index.types';
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs/internal/firstValueFrom';
-import { bufferCount, shareReplay } from 'rxjs';
+import { shareReplay } from 'rxjs';
 
 const API_URL =
   'https://test-frontend-developer.s3.amazonaws.com/data/locations.json';

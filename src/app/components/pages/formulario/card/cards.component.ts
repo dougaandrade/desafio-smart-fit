@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { Academias } from '../../Interfaces/Ilocation.interface';
+import { Academias } from '../../../../Interfaces/Ilocation.interface';
 
 @Component({
   selector: 'app-cards',

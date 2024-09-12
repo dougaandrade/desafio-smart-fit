@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { Academias } from '../../Interfaces/Ilocation.interface';
+import { Academias } from '../../../../Interfaces/Ilocation.interface';
 import { CommonModule } from '@angular/common';
 import { CardsComponent } from '../card/cards.component';
 
@@ -12,5 +12,4 @@ import { CardsComponent } from '../card/cards.component';
 })
 export class CardsListComponent {
   readonly unitsList = input.required<Academias[]>();
-
 }
