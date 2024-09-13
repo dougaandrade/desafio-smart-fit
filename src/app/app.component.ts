@@ -9,9 +9,11 @@ import { FooterComponent } from './components/pages/footer/footer.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  template: ` <header-component />
+  template: `
+    <header-component />
     <router-outlet />
-    <footer-component />`,
+    <footer-component />
+  `,
   styleUrl: './app.component.scss',
   imports: [
     RouterOutlet,
