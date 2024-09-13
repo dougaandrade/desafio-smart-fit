@@ -1,3 +1,11 @@
 {
-  "editor.fontFamily": "Fira Code"
+  "editor.fontFamily": "Fira Code",
+  "editor.defaultFormatter": "YoavBls.pretty-ts-errors",
+  "editor.formatOnType": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  }
 }
