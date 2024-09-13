@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/pages/home/home.component';
 import { FormIndexComponent } from './components/pages/formulario/form.component';
+import { NotFoundPageComponent } from './components/pages/not-found-page/not-found-page.component';
 
 export const routes: Routes = [
   {
@@ -13,9 +14,14 @@ export const routes: Routes = [
     title: 'Formulário',
     component: FormIndexComponent,
   },
-  // {
-  //   path: '',
-  //   title: '404',
-  //   // component: HomeComponent,
-  // },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+  },
+  {
+    path: '**',
+    title: '404',
+    component: NotFoundPageComponent,
+  },
 ];
