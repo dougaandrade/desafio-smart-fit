@@ -29,20 +29,6 @@
   gap: 32px;
 }
 
-.envinronment{
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: auto ;
-  height: 25px;
-  right: 0;
-  padding: 10px;
-  background: green;
-border-bottom-right-radius: 20px;
-border-bottom-left-radius: 20px;
-  color: white;
-}
 @media (max-width: 768px) {
   .card-separator {
     width: 100%;

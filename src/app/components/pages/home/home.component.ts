@@ -1,15 +1,11 @@
 import { Component } from '@angular/core';
-import { HeaderComponentHome } from './header/header.component';
-import { FooterComponentHome } from './footer/footer.component';
+import { ContentComponent } from './content/content.component';
 
 @Component({
   selector: 'homeComponent',
   standalone: true,
-  imports: [HeaderComponentHome, FooterComponentHome],
-  template: `
-    <headerHome />
-    <footerHome />
-  `,
+  imports: [ContentComponent],
+  template: ` <contentComponent /> `,
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {}

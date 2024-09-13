@@ -10,7 +10,7 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'form',
+    path: 'forms',
     title: 'Formulário',
     component: FormIndexComponent,
   },

@@ -5,14 +5,12 @@ header {
   align-content: center;
   width: 100%;
   min-width: 100%;
-
-  gap: 30px;
-  padding-bottom: 10px;
+  box-shadow: 0 6px 9px -4px rgba(0, 0, 0, .1);
 }
 
 header .logo-container {
-  background-color: #252525;
-  padding: 15px 40px;
+  background-color: #ffff;
+  padding: 10px 40px;
   width: 100%;
 
   display: flex;
