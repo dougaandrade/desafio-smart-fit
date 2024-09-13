@@ -1,0 +1,16 @@
+@defer(on timer(1s)){
+<div class="app-container">
+  <header-component />
+  <div class="card-separator">
+    <forms (academias)="unitsList.set($event)" />
+    <cards-list [unitsList]="unitsList()" />
+  </div>
+  <footer-component />
+</div>
+
+}@placeholder {
+<span class="envinronment">{{ currentEnvironment }}</span>
+<div class="app-load">
+  <loader />
+</div>
+}
