@@ -6,6 +6,7 @@ import { MethodsFilter } from '../../../../../services/methods-filter.service';
 import { GetUnitsService } from '../../../../../services/get-units.service';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'horarios',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
