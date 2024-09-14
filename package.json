@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "'": "file:angular-devkit/build-angular:dev-server",
     "@angular/animations": "^18.2.1",
     "@angular/cdk": "^18.2.4",
     "@angular/common": "^18.2.1",

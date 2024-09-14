@@ -12,7 +12,7 @@ header .header-container {
   background-color: #ffff;
   padding: 0px 40px;
   width: 100%;
-
+  gap: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -53,6 +53,7 @@ header .text-container .heading {
   margin: 15px 0px;
   gap: 12px;
 }
+
 header .text-container .heading-tracy {
   height: 5px;
   width: 45%;
@@ -68,6 +69,7 @@ header img {
   display: flex;
   flex-direction: row;
 }
+
 .nav-container ul {
   display: flex;
   list-style: none;
@@ -100,6 +102,7 @@ header img {
     text-align: center;
     min-width: 65%;
   }
+
   header .text-container h1 {
     min-width: 80%;
     font-size: 40px;
