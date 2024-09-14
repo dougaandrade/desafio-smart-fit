@@ -1,7 +1,7 @@
 header {
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   align-content: center;
   width: 100%;
   min-width: 100%;
@@ -73,7 +73,11 @@ header img {
 .nav-container ul {
   display: flex;
   list-style: none;
-  gap: 10px;
+}
+.nav-container li a {
+  display: flex;
+  list-style: none;
+  padding: 5px;
   text-decoration: none;
 }
 
