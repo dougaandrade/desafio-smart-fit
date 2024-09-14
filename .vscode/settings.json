@@ -1,3 +1,6 @@
 {
   "editor.fontFamily": "Fira Code",
+  "editor.formatOnType": true,
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true
 }
