@@ -1,21 +1,25 @@
 header {
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   align-content: center;
   width: 100%;
   min-width: 100%;
-  box-shadow: 0 6px 9px -4px rgba(0, 0, 0, .1);
+  box-shadow: 0 6px 9px -4px rgba(0, 0, 0, 0.1);
 }
 
 header .header-container {
   background-color: #ffff;
   padding: 0px 40px;
   width: 100%;
-
+  gap: 20px;
   display: flex;
   align-items: center;
+<<<<<<< HEAD
   justify-content: center;
+=======
+  justify-content: space-between;
+>>>>>>> 079497372da87bb5fa533e23f4f1469dd026e85f
 }
 
 .logo-icon {
@@ -23,7 +27,7 @@ header .header-container {
   height: 110px;
 }
 
-  header .text-container {
+header .text-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -34,17 +38,17 @@ header .header-container {
   gap: 10px;
 }
 
-  header .text-container h1 {
+header .text-container h1 {
   font-size: 50px;
   color: var(--dark-grey);
 }
 
-  header .text-container p {
+header .text-container p {
   font-size: 20px;
   color: var(--light-grey);
 }
 
-  header .text-container .heading {
+header .text-container .heading {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -53,16 +57,18 @@ header .header-container {
   margin: 15px 0px;
   gap: 12px;
 }
-  header .text-container .heading-tracy {
+
+header .text-container .heading-tracy {
   height: 5px;
   width: 45%;
   background-color: var(--dark-grey);
 }
 
-  header img {
+header img {
   width: 11%;
 }
 
+<<<<<<< HEAD
 .nav-container{
   width: 100%;
   display: flex;
@@ -72,6 +78,22 @@ header .header-container {
   display: flex;
   list-style: none;
   gap: 10px;
+=======
+.nav-container {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-container ul {
+  display: flex;
+  list-style: none;
+}
+.nav-container li a {
+  display: flex;
+  list-style: none;
+  padding: 5px;
+>>>>>>> 079497372da87bb5fa533e23f4f1469dd026e85f
   text-decoration: none;
 }
 
@@ -88,7 +110,7 @@ header .header-container {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+  }
 
   header .text-container {
     justify-content: center;
@@ -96,10 +118,11 @@ header .header-container {
     text-align: center;
     min-width: 65%;
   }
+
   header .text-container h1 {
     min-width: 80%;
     font-size: 40px;
-     font-weight: 500;
+    font-weight: 500;
   }
 
   header .text-container p {
