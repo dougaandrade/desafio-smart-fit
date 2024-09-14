@@ -6,6 +6,7 @@ import { MethodsFilter } from '../../../../../services/methods-filter.service';
 import { Academias } from '../../../../../Interfaces/Ilocation.interface';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'fechadas',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],

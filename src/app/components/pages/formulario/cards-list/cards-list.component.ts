@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CardsComponent } from '../card/cards.component';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'cards-list',
   standalone: true,
   imports: [CommonModule, CardsComponent],
@@ -11,5 +12,5 @@ import { CardsComponent } from '../card/cards.component';
   styleUrl: './cards-list.component.scss',
 })
 export class CardsListComponent {
-  readonly unitsList = input.required<Academias[]>();
+  readonly unitsList = input<Academias[]>();
 }

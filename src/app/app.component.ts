@@ -16,11 +16,11 @@ import { FooterComponent } from './components/pages/footer/footer.component';
   `,
   styleUrl: './app.component.scss',
   imports: [
+    HeaderComponent,
     RouterOutlet,
     FormIndexComponent,
     HomeComponent,
     NotFoundPageComponent,
-    HeaderComponent,
     FooterComponent,
   ],
 })

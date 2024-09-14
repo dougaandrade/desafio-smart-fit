@@ -1,13 +1,6 @@
-@defer(on timer(1s)){
 <div class="app-container">
   <div class="card-separator">
-    <forms (academias)="unitsList.set($event)" />
-    <cards-list [unitsList]="unitsList()" />
+    <forms (academias)="unitsList.set($event)" ngSkipHydration />
+    <cards-list [unitsList]="unitsList()" ngSkipHydration />
   </div>
 </div>
-
-}@placeholder {
-<div class="app-load">
-  <loader />
-</div>
-}

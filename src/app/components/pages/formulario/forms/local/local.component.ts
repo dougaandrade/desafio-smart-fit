@@ -7,6 +7,7 @@ import { Academias } from '../../../../../Interfaces/Ilocation.interface';
 import { UF } from '../../../../../enum/locaisUf.enum';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'local',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],

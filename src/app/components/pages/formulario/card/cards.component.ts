@@ -5,7 +5,7 @@ import { Academias } from '../../../../Interfaces/Ilocation.interface';
 @Component({
   selector: 'app-cards',
   standalone: true,
-  imports: [CommonModule, CardsComponent],
+  imports: [CommonModule],
   templateUrl: './cards.component.html',
   styleUrl: './cards.component.scss',
 })
