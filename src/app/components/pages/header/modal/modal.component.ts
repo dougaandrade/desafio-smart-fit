@@ -1,5 +1,4 @@
 import { CommonModule } from '@angular/common';
-import { ButtonIconComponent } from '../button-icon/button-icon.component';
 import { Component, Input, output } from '@angular/core';
 
 @Component({
