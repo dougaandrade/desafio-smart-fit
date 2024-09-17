@@ -21,7 +21,7 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    title: '404',
+    title: `error`,
     component: NotFoundPageComponent,
   },
 ];
