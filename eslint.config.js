@@ -1,6 +1,9 @@
 // @ts-check
+// @ts-ignore
 const eslint = require("@eslint/js");
+// @ts-ignore
 const tseslint = require("typescript-eslint");
+// @ts-ignore
 const angular = require("angular-eslint");
 
 module.exports = tseslint.config(

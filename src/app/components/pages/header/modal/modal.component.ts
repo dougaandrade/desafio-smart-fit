@@ -10,7 +10,6 @@ import { Component, Input, output } from '@angular/core';
 })
 export class ModalComponent {
   @Input() isVisible = false;
-  // valor vazio pois estou usando para retirar o valor do input
   closed = output();
 
   close() {
