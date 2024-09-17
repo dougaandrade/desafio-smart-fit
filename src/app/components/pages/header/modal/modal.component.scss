@@ -1,0 +1,145 @@
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: 0;
+}
+
+.logo-icon{
+  width: 5rem;
+
+}
+.modal-body {
+  display: flex;
+  padding: 0 10px;
+}
+
+.modal.show {
+  display: block;
+  animation: opct 0.3s linear;
+}
+
+.modal-dialog {
+  position: relative;
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+.nav-container {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-container ul {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+}
+.nav-container li a {
+  display: flex;
+  list-style: none;
+  padding: 10px;
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--dark-grey);
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  outline: 0;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  border-bottom: 1px solid #dee2e6;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+
+.close {
+  font-size: 2.9rem;
+  font-weight: 500;
+  border: none;
+  background-color: transparent;
+  color: #252525;
+  cursor: pointer;
+}
+
+.content-filters {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 0.9rem;
+  gap: 10px;
+  padding: 18px 0;
+}
+
+.title-filter {
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 15px 0;
+}
+
+.text-check {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.label-title-filter {
+  font-size: 1.4rem;
+  color: #252525;
+  font-weight: 600;
+}
+
+.container-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 auto;
+  padding: 5px 0;
+  position: relative;
+  gap: 10px;
+}
+
+.container-form .radio-wrapper span {
+  position: absolute;
+  right: 0;
+  color: var(--light-grey-010);
+}
+
+.container-form .btn-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  justify-content: center;
+}
+
+@keyframes opct {
+  0% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
