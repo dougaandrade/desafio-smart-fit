@@ -41,7 +41,7 @@ export class ModalComponent {
       position: 'center',
       title: 'Filtro aplicado com sucesso',
       heightAuto: true,
-      timerProgressBar: true,
+      timerProgressBar: false,
       padding: '0.3rem',
       width: '300px',
       showConfirmButton: false,

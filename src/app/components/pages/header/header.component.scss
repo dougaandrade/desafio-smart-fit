@@ -79,39 +79,39 @@ header img {
   list-style: none;
   padding: 5px;
   text-decoration: none;
+  color: var(--dark-grey);
+}
+.modal{
+  display:none;
 }
 
 @media (max-width: 768px) {
   header img {
+    display: flex;
     width: 30%;
   }
 
-  header .logo-container {
-    background-color: #252525;
-    padding: 15px 40px;
-    width: 100%;
+  header .header-container {
+    background-color: #ffff;
+  width: 100%;
+    gap: 65%;
+  display: flex;
+  align-items: center;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+}
 
-  header .text-container {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-width: 65%;
-  }
+.modal {
+  position: relative;
+  width: auto;
+  display: flex;
+  cursor: pointer;
+  transition: all 0.1s;
+  justify-content: center;
+  align-items: center;
 
-  header .text-container h1 {
-    min-width: 80%;
-    font-size: 40px;
-    font-weight: 500;
-  }
+}
+  .nav-container {
+  display: none;
 
-  header .text-container p {
-    font-size: 17px;
-    color: var(--dark-grey);
-    font-weight: 300;
-  }
+}
 }
