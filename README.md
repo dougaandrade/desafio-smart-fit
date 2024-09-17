@@ -41,6 +41,7 @@
 
 ### Organizações
 
+- Principios de SOLID
 - Aplicação do design patern FACADE
 - Componente Service(Requisições API)
 - Fragmentação dos Componentes(Manutenibilidade do Código)
@@ -90,6 +91,7 @@ Para executar a aplicação localmente, siga os passos abaixo:
 
 ### Organizations
 
+- SOLID Principles
 - Application of the FACADE patern design
 - Service component (API Requests)
 - Fragmentation of Components (Code Maintainability)
