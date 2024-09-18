@@ -129,4 +129,17 @@
     // opacity: 100%;
  margin-left: 0%;
   }
+}@media (max-width: 768px) {
+.modal-content{
+      position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100vh;
+    justify-content: right;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    outline: 0;
+}
 }
