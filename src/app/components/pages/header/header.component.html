@@ -1,17 +1,7 @@
 <header>
   <div class="header-container">
     <img src="./assets/img/svg/logoDark.svg" alt="Logo Smart-Fit -1" class="logo-icon">
-    <nav class="nav-container">
-      <ul>
-        <li>
-          <a href="/home">Home</a>
-        </li>
-        <li>
-          <a href="/forms">Academias</a>
-        </li>
-      </ul>
-    </nav>
     <app-button-icon (click)="openModal()" class="modal" />
-    <app-modal [isVisible]="isModalVisible" (closed)="onModalClosed()" class="modal" />
+    <app-modal [isVisible]="isModalVisible" (closed)="onModalClosed()" />
   </div>
 </header>
