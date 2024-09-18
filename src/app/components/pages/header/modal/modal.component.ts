@@ -10,6 +10,7 @@ import { Component, Input, output } from '@angular/core';
 })
 export class ModalComponent {
   @Input() isVisible = false;
+
   closed = output();
 
   close() {

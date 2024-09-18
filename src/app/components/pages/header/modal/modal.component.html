@@ -1,14 +1,14 @@
-<div class="modal" tabindex="-1" [ngClass]="{'show': isVisible}">
+<div class="modal" tabindex="-1" [ngClass]="{'show': isVisible}" (click)="close()">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <img src="./assets/img/svg/logoDark.svg" alt="Logo Smart-Fit -1" class="logo-icon">
-        <h1 class="title-filter">Menu</h1>
         <button type="button" class="close" aria-label="close" (click)="close()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+        <div class="btn-acad"><a href="/forms">Buscar Academia</a></div>
         <nav class="nav-container">
           <ul>
             <li>
