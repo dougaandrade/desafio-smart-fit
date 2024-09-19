@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, output } from '@angular/core';
+import { Component, inject, Input, output } from '@angular/core';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-modal',
@@ -10,10 +11,14 @@ import { Component, Input, output } from '@angular/core';
 })
 export class ModalComponent {
   @Input() isVisible = false;
+  logoutServ = inject(AuthService);
 
   closed = output();
 
   close() {
     this.closed.emit();
+  }
+  logout() {
+    this.logoutServ.logout();
   }
 }

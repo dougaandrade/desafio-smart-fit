@@ -107,6 +107,18 @@
   cursor: pointer;
 }
 
+.btn-logout{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #ff0000dd;
+  color: #252525;
+  margin: 38rem 10px;
+}
+
 .content-filters {
   display: flex;
   align-items: flex-start;
