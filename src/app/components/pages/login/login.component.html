@@ -1,13 +1,14 @@
+@if (islogin) {
 <form [formGroup]="formGroup" class="container-login" (ngSubmit)="onLogin()">
   <div class="card-login">
     <img src="./assets/img/svg/logoDark.svg" alt="Logo Smart-Fit -1" class="logo-icon">
     <div class="content-card">
-      <label for="user">Usuario</label>
-      <input type="text" name="user" formControlName="user">
+      <label for="username ">Usuario</label>
+      <input type="text" name="user" formControlName="username" autocomplete="country-name">
     </div>
     <div class="content-card">
       <label for="password">Senha</label>
-      <input type="password" name="password" formControlName="password">
+      <input type="password" name="password" formControlName="password" autocomplete="current-password">
     </div>
     <div class="text-erro">
       {{error}}
@@ -15,3 +16,8 @@
     <button type="submit" class="btn-login">Login</button>
   </div>
 </form>
+}@else {
+<div class="text-error">
+  <p>Verificando autenticação...</p>
+</div>
+}
