@@ -5,9 +5,6 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService implements OnInit {
-  getname() {
-    throw new Error('Method not implemented.');
-  }
   isLoginAuthenticated = false;
   router = inject(Router);
   user: any;
