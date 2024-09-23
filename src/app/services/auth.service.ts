@@ -1,3 +1,4 @@
+import { Iuser } from './../Interfaces/Iuser.interface';
 import { inject, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,8 +8,6 @@ import { Router } from '@angular/router';
 export class AuthService implements OnInit {
   isLoginAuthenticated = false;
   router = inject(Router);
-  user: any;
-
   ngOnInit(): void {
     if (localStorage.getItem('isLoginAuthenticated')) {
       this.isLoginAuthenticated =
@@ -16,8 +15,8 @@ export class AuthService implements OnInit {
     }
   }
 
-  login(username: string, password: string): boolean {
-    if (username === 'admin' && password === '123') {
+  login(Iuser: Iuser): boolean {
+    if (Iuser.username === 'admin' && Iuser.password === '1234') {
       this.isLoginAuthenticated = true;
       localStorage.setItem('isLoginAuthenticated', 'true');
       return true;

@@ -1,8 +1,9 @@
 import { AuthService } from './../../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Iuser } from '../../../Interfaces/Iuser.interface';
 
 @Component({
   selector: 'app-login',
@@ -27,17 +28,12 @@ export class LoginComponent implements OnInit {
   }
 
   formGroup = this.login.group({
-    username: [''],
-    password: [''],
+    username: ['', Validators.required, Validators.minLength(3)],
+    password: ['', Validators.required],
   });
 
   onLogin() {
-    if (
-      this.AuthService.login(
-        this.formGroup.value.username ?? '',
-        this.formGroup.value.password ?? ''
-      )
-    ) {
+    if (this.AuthService.login((this.formGroup.value as Iuser))) {
       this.router.navigate(['home']);
     } else {
       this.error = ['Usuário ou senha inválidos'];
