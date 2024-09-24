@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
   }
 
   formGroup = this.login.group({
-    username: ['', Validators.required, Validators.minLength(3)],
-    password: ['', Validators.required],
+    username: ['',[ Validators.required, Validators.minLength(3)]],
+    password: ['', [Validators.required]],
   });
 
   onLogin() {
