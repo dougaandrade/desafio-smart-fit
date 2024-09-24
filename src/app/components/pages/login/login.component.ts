@@ -13,7 +13,6 @@ import { Iuser } from '../../../Interfaces/Iuser.interface';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit {
-  islogin = true;
   login = inject(FormBuilder);
   private router = inject(Router);
   private AuthService = inject(AuthService);
