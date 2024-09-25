@@ -1,4 +1,4 @@
-@if (islogin) {
+
 <form [formGroup]="formGroup" class="container-login" (ngSubmit)="onLogin()">
   <div class="card-login">
     <img src="./assets/img/svg/logoDark.svg" alt="Logo Smart-Fit -1" class="logo-icon">
@@ -13,11 +13,6 @@
     <div class="text-erro">
       {{error}}
     </div>
-    <button type="submit" class="btn-login">Login</button>
+    <button type="submit" class="btn-login">Entrar</button>
   </div>
 </form>
-}@else {
-<div class="text-error">
-  <p>Verificando autenticação...</p>
-</div>
-}

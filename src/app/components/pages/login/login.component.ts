@@ -13,7 +13,6 @@ import { Iuser } from '../../../Interfaces/Iuser.interface';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit {
-  islogin = true;
   login = inject(FormBuilder);
   private router = inject(Router);
   private AuthService = inject(AuthService);
@@ -21,19 +20,21 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.AuthService.isAuthenticated()) {
+      console.log('Auth Login');
       this.router.navigate(['login']);
     } else {
       this.router.navigate(['home']);
+      console.log('Auth Home');
     }
   }
 
   formGroup = this.login.group({
-    username: ['',[ Validators.required, Validators.minLength(3)]],
+    username: ['', [Validators.required]],
     password: ['', [Validators.required]],
   });
 
   onLogin() {
-    if (this.AuthService.login((this.formGroup.value as Iuser))) {
+    if (this.AuthService.login(this.formGroup.value as Iuser)) {
       this.router.navigate(['home']);
     } else {
       this.error = ['Usuário ou senha inválidos'];

@@ -11,7 +11,7 @@ import { AuthService } from './services/auth.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  template: ` @if (auth.isAuthenticated()) {
+  template: ` @if(auth.isAuthenticated()) {
     <header-component />
     }
     <router-outlet />
