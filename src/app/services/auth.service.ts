@@ -25,7 +25,6 @@ export class AuthService implements OnInit {
   }
 
   logout(): void {
-    this.isLoginAuthenticated = false;
     localStorage.removeItem('isLoginAuthenticated');
     this.router.navigate(['/login']);
   }
