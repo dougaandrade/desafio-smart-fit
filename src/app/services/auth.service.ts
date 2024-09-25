@@ -13,6 +13,7 @@ export class AuthService {
       localStorage.setItem('isLoginAuthenticated', 'true');
       return true;
     }
+    localStorage.removeItem('isLoginAuthenticated');
     return false;
   }
 
