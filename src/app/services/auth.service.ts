@@ -1,7 +1,6 @@
 import { Iuser } from './../Interfaces/Iuser.interface';
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginComponent } from '../components/pages/login/login.component';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +25,7 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
+    //verifica se existe o item no local storage
     //retorna um get do local storage se for true ele vai retornar true
     return !!localStorage.getItem('isLoginAuthenticated');
   }
