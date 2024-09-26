@@ -8,7 +8,6 @@ import { LoginComponent } from '../components/pages/login/login.component';
 })
 export class AuthService {
   router = inject(Router);
-  formGroup = inject(LoginComponent);
   error = '';
 
   login(Iuser: Iuser): boolean {
