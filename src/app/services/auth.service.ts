@@ -1,7 +1,6 @@
 import { Iuser } from './../Interfaces/Iuser.interface';
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginComponent } from '../components/pages/login/login.component';
 
 @Injectable({
   providedIn: 'root',
