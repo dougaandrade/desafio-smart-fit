@@ -5,7 +5,7 @@ import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'not-found-page',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent],
+  imports: [],
   templateUrl: './not-found-page.component.html',
   styleUrl: './not-found-page.component.scss',
 })

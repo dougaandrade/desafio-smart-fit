@@ -1,9 +1,9 @@
+import { Iuser } from './../../../Interfaces/Iuser.interface';
 import { AuthService } from './../../../services/auth.service';
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Iuser } from '../../../Interfaces/Iuser.interface';
 
 @Component({
   selector: 'app-login',
@@ -12,32 +12,25 @@ import { Iuser } from '../../../Interfaces/Iuser.interface';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   login = inject(FormBuilder);
-  private router = inject(Router);
-  private AuthService = inject(AuthService);
-  error = [''];
+  router = inject(Router);
+  error = '';
+  private loginAuth = inject(AuthService);
 
-  ngOnInit(): void {
-    if (this.AuthService.isAuthenticated()) {
-      console.log('Auth Login');
-      this.router.navigate(['login']);
-    } else {
-      this.router.navigate(['home']);
-      console.log('Auth Home');
-    }
-  }
-
-  formGroup = this.login.group({
+  formGroup = inject(FormBuilder).group({
     username: ['', [Validators.required]],
     password: ['', [Validators.required]],
   });
 
-  onLogin() {
-    if (this.AuthService.login(this.formGroup.value as Iuser)) {
+  onLogin(): void {
+    if (
+      this.formGroup.valid &&
+      this.loginAuth.login(this.formGroup.value as Iuser)
+    ) {
       this.router.navigate(['home']);
     } else {
-      this.error = ['Usuário ou senha inválidos'];
+      this.error = 'Usuário ou senha inválidos';
     }
   }
 }
