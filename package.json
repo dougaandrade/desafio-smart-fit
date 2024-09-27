@@ -7,8 +7,7 @@
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "develop": "ng serve -c development",
-    "serve:ssr:desafio-smart-fit": "node dist/desafio-smart-fit/server/server.mjs"
+    "develop": "ng serve -c development"
   },
   "private": true,
   "dependencies": {
