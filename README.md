@@ -2,7 +2,7 @@
 
 ### Frontend Challenge - Smart Fit
 
-![Smart Fit](./src/assets/img/svg/logo.svg){: width="50%"}
+![Smart Fit](./src/assets/img/svg/logo.svg){: width="20%"}
 
 > Esse é um pequeno projeto criado no framework Angular como base para a avaliação de habilidades técnicas para o papel de Front-end.
 >
