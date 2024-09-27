@@ -18,7 +18,9 @@
 
 ### Prototype Created
 
-![preview](preview.png)
+![preview](Login-Page.png)
+![preview](Home-Page.png)
+![preview](Forms-Page.png)
 
 # Proposta de Teste
 
