@@ -58,16 +58,17 @@ Para executar a aplicação localmente, siga os passos abaixo:
 
 ```
 
-> 2. Instale as dependências
+> 2. Instale as dependências do projeto
 
 ```bash
-  npm install
+  npm install -g @angular/cli
+
 ```
 
 > 3. Inicie a aplicação
 
 ```bash
-  npm start
+  npm serve
 ```
 
 # Test Proposal
