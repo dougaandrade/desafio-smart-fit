@@ -1,6 +1,5 @@
-import { timeout } from 'rxjs';
 import { Iuser } from './../Interfaces/Iuser.interface';
-import { DestroyRef, inject, Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Injectable({
