@@ -38,13 +38,14 @@
 - Filtrar unidades por período de funcionamento
 - Filtrar unidades por Estrutura (Máscara, Banheiros, Vestiário, Bebedouro)
 - Validar para mostrar ícones corretos de acordo com o status
+- Validação de Login do usuário com base no local storage
 
 ### Organizações
 
 - Principios de SOLID
-- Aplicação do design patern FACADE
-- Componente Service(Requisições API)
-- Fragmentação dos Componentes(Manutenibilidade do Código)
+- Aplicação baseada em design paterns
+- Fragmentação em Componentes(Manutenibilidade do Código)
+- Código limpo
 
 ### ⚙️ Como Executar
 
@@ -58,16 +59,25 @@ Para executar a aplicação localmente, siga os passos abaixo:
 
 ```
 
-> 2. Instale as dependências
+> 2. Instale as dependências do projeto
 
 ```bash
-  npm install
+  npm install -g @angular/cli
+
 ```
 
 > 3. Inicie a aplicação
 
 ```bash
-  npm start
+  ng serve
+
+```
+
+> 4. Usuario e senha
+
+```bash
+  http://localhost:4200/login admin 1234
+
 ```
 
 # Test Proposal
@@ -88,13 +98,14 @@ Para executar a aplicação localmente, siga os passos abaixo:
 - Filter units by operating period
 - Filter units by Structure (Mask, Bathrooms, Changing Room, Drinking Fountain)
 - Validate to show correct icons according to status
+- Validation of login with local storage
 
 ### Organizations
 
 - SOLID Principles
-- Application of the FACADE patern design
-- Service component (API Requests)
+- Application based on design patterns
 - Fragmentation of Components (Code Maintainability)
+- Code clean
 
 ### ⚙️ How to Execute
 
@@ -111,11 +122,20 @@ To run the application locally, follow the steps below:
 > 2. Install dependencies
 
 ```bash
-  npm install
+  npm install -g @angular/cli
+
 ```
 
 > 3. Start the application
 
 ```bash
-  npm start
+  ng serve
+
+```
+
+> 4. User and password
+
+```bash
+  http://localhost:4200/login admin 1234
+
 ```
