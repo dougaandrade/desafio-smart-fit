@@ -1,6 +1,7 @@
 import { Iuser } from './../Interfaces/Iuser.interface';
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,22 @@ export class AuthService {
 
   login(Iuser: Iuser) {
     if (Iuser.username === 'admin' && Iuser.password === '1234') {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        width: '300px',
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: 'success',
+        title: 'Autenticado com sucesso!',
+      });
       localStorage.setItem('isLoginAuthenticated', 'true');
 
       return true;
