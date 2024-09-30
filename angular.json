@@ -74,14 +74,11 @@
             "production": {
               "buildTarget": "desafio-smart-fit:build:production"
             },
-            "development": {
-              "buildTarget": "desafio-smart-fit:build:development"
-            },
             "staging": {
               "buildTarget": "desafio-smart-fit:build:staging"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "Staging"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
