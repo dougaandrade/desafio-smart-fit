@@ -32,7 +32,7 @@ export class ModalComponent {
 
   localUF = Object.values(UF);
   modal = output<Academias[]>();
-  private methods$ = inject(MethodsFilter);
+  private readonly methods$ = inject(MethodsFilter);
   formGroup = this.methods$.formGroup;
 
   onGetFilters(academias: Academias[]) {

@@ -15,8 +15,8 @@ import { Academias } from '../../../../../Interfaces/Ilocation.interface';
 })
 export class UndFechadasComponent {
   undFechada = output<Academias[]>();
-  private methods$ = inject(MethodsFilter);
-  private unitService$ = inject(GetUnitsService);
+  private readonly methods$ = inject(MethodsFilter);
+  private readonly unitService$ = inject(GetUnitsService);
   formGroup = this.methods$.formGroup;
 
   updateResultadosCount = this.methods$.updateResultadosCount;

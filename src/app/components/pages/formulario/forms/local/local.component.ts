@@ -17,8 +17,8 @@ import { UF } from '../../../../../enum/locaisUf.enum';
 export class LocalComponent {
   local = output<Academias[]>();
 
-  private methods$ = inject(MethodsFilter);
-  private unitService$ = inject(GetUnitsService);
+  private readonly methods$ = inject(MethodsFilter);
+  private readonly unitService$ = inject(GetUnitsService);
 
   formGroup = this.methods$.formGroup;
   updateResultadosCount = this.methods$.updateResultadosCount;

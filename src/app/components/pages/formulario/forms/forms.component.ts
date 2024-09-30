@@ -27,7 +27,7 @@ import { Academias } from '../../../../Interfaces/Ilocation.interface';
 })
 export class FormsComponent implements OnInit {
   academias = output<Academias[]>();
-  private methods = inject(MethodsFilter);
+  private readonly methods = inject(MethodsFilter);
 
   formGroup = this.methods.formGroup;
 

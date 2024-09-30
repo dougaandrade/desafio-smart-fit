@@ -18,8 +18,8 @@ import { MethodsFilter } from '../../../../../services/methods-filter.service';
 export class EstruturaComponent {
   estrutura = output<Academias[]>();
 
-  private methods$ = inject(MethodsFilter);
-  private unitService$ = inject(GetUnitsService);
+  private readonly methods$ = inject(MethodsFilter);
+  private readonly unitService$ = inject(GetUnitsService);
   formGroup = this.methods$.formGroup;
   updateResultadosCount = this.methods$.updateResultadosCount;
 

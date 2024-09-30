@@ -16,8 +16,8 @@ import { GetUnitsService } from '../../../../../services/get-units.service';
 export class HorariosComponent {
   filterhorarios = output<Academias[]>();
 
-  private methods$ = inject(MethodsFilter);
-  private unitService$ = inject(GetUnitsService);
+  private readonly methods$ = inject(MethodsFilter);
+  private readonly unitService$ = inject(GetUnitsService);
 
   formGroup = this.methods$.formGroup;
   updateResultadosCount = this.methods$.updateResultadosCount;

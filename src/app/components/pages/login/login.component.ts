@@ -16,14 +16,14 @@ export class LoginComponent {
   login = inject(FormBuilder);
   router = inject(Router);
   error = '';
-  private loginAuth = inject(AuthService);
+  private readonly loginAuth = inject(AuthService);
 
   formGroup = inject(FormBuilder).group({
     username: ['', [Validators.required]],
     password: ['', [Validators.required]],
   });
 
-  onLogin(): void {
+  onLogin() {
     if (
       this.formGroup.valid &&
       this.loginAuth.login(this.formGroup.value as Iuser)

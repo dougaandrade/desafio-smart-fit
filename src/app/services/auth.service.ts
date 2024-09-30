@@ -18,7 +18,7 @@ export class AuthService {
     return false;
   }
 
-  logout(): void {
+  logout() {
     localStorage.removeItem('isLoginAuthenticated');
     this.router.navigate(['/login']);
     console.log('logout');
