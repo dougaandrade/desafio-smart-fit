@@ -1,6 +1,9 @@
 <div class="modal" tabindex="-99" [ngClass]="{'show': isVisible}" (click)="close()">
   <div class="modal-dialog">
     <div class="modal-content">
+      <div class="usercontent">
+        <h1><span>{{username}}</span></h1>
+      </div>
       <div class="modal-header">
         <img src="./assets/img/svg/logoDark.svg" alt="Logo Smart-Fit -1" class="logo-icon">
         <button type="button" class="close" aria-label="close" (click)="close()">
@@ -21,7 +24,6 @@
           <div class="btn">
             <button type="button" (click)="logout()" class="btn-logout">Sair</button>
           </div>
-          <h1> Bem vindo {{username}}</h1>
         </nav>
       </div>
     </div>

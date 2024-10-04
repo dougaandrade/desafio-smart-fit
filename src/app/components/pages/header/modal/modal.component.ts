@@ -18,7 +18,6 @@ export class ModalComponent {
   close() {
     this.closed.emit();
   }
-
   logout() {
     this.logoutServ.logout();
   }
