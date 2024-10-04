@@ -20,17 +20,13 @@ export class AuthService {
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
+        timer: 4000,
+        timerProgressBar: false,
         width: '300px',
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        },
       });
       Toast.fire({
         icon: 'success',
-        title: 'Autenticado com sucesso!',
+        title: `Bem vindo ${Iuser.username}`,
       });
       localStorage.setItem('isLoginAuthenticated', 'true');
       localStorage.setItem('username', Iuser.username);
@@ -50,7 +46,7 @@ export class AuthService {
 
   getuser() {
     const user = localStorage.getItem('username');
-    console.log(user?.valueOf());
+    console.log(user);
     return user;
   }
   isAuthenticated() {
