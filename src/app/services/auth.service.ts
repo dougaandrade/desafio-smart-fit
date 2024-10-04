@@ -20,9 +20,9 @@ export class AuthService {
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 4000,
+        timer: 3000,
         timerProgressBar: false,
-        width: '300px',
+        width: 'auto',
       });
       Toast.fire({
         icon: 'success',
