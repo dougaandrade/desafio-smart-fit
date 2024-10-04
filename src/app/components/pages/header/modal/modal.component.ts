@@ -12,13 +12,13 @@ import { RouterLink } from '@angular/router';
 })
 export class ModalComponent {
   @Input() isVisible = false;
-  logoutServ = inject(AuthService);
-
+  private readonly logoutServ = inject(AuthService);
   closed = output();
-
+  username = this.logoutServ.getuser();
   close() {
     this.closed.emit();
   }
+
   logout() {
     this.logoutServ.logout();
   }
