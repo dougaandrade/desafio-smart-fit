@@ -12,7 +12,6 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   isModalVisible = false;
-
   openModal() {
     this.isModalVisible = true;
   }
