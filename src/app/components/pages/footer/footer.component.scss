@@ -12,25 +12,38 @@ footer {
 
 footer .logo-footer {
   width: 100%;
-  padding: 30px 0;
+  padding: 80px 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 
 footer .text-footer h3 {
   font-size: 14px;
   font-family: Gotham;
-  padding: 10px;
   color: var(--light-grey-010);
   font-weight: 300;
+  margin: 0;
 }
 
-footer .logo-footer img {
+footer .logo-footer .img-prin {
   height: 50px;
 }
+.name{
+  color: var(--light-grey-010);
+  font-size: 14px;
+  font-family: Gotham;
+  font-weight: 600;
+}
+
+.icon {
+  display: flex;
+  height: 30px;
+  gap: 5px;
+}
+
 
 @media (max-width: 768px) {
   footer .text-footer h3 {
