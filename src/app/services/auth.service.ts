@@ -12,9 +12,9 @@ export class AuthService {
 
   login(Iuser: Iuser): string | boolean {
     if (
-      Iuser.username === 'admin' ||
-      (Iuser.username === 'doug' && Iuser.password === '1234') ||
-      Iuser.password === '2424'
+      (Iuser.username === 'admin',
+      Iuser.username === 'doug' && Iuser.password === '1234',
+      Iuser.password === '2424')
     ) {
       const Toast = Swal.mixin({
         toast: true,
