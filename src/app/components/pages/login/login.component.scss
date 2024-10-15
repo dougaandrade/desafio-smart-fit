@@ -33,7 +33,7 @@
 .logo-icon {
   display: flex;
   width: 55%;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 }
 .content-card{
   display: flex;
@@ -56,9 +56,8 @@
 .content-card ::placeholder{
   font-size: 1rem;
   font-family: Gotham;
-  font-weight: 500;
+  font-weight: 600;
   color:var(--light-grey-010);
-  padding:5px;
 }
 
 .btn-login{
@@ -83,4 +82,3 @@
   font-weight: 500;
   margin: 10px;
 }
-

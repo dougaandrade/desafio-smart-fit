@@ -1,5 +1,4 @@
 
-
 :root{
   --dark-grey: #333333;
   --light-grey: #808080;
@@ -10,7 +9,9 @@
   --red: #b3131d;
   --green: #006613;
 
-
+  .mat-theme-loaded-marker {
+  display: none;
+}
 
   *{
     padding: 0;
@@ -54,9 +55,7 @@
   font-style: normal;
   font-display: swap;
 }
-.mat-h1, .mat-headline-5, .mat-typography .mat-h1, .mat-typography .mat-headline-5, .mat-typography h1{
-  margin: 0 !important;
-}
+
 html, body { height: 100%; }
 body { margin: 0; }
 

@@ -21,7 +21,6 @@ import { Iuser } from '../../../Interfaces/Iuser.interface';
 export class LoginComponent {
   private readonly loginAuth = inject(AuthService);
   login = inject(FormBuilder);
-  router = inject(Router);
 
   formLogin = new FormGroup({
     username: new FormControl<string>('', Validators.nullValidator),
