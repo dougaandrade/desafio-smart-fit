@@ -19,7 +19,7 @@ export class AuthService {
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 3000,
+        timer: 2000,
         timerProgressBar: false,
         width: 'auto',
       });
@@ -28,19 +28,19 @@ export class AuthService {
         title: `Bem vindo ${Iuser.username}`,
       });
       localStorage.setItem('isLoginAuthenticated', 'true');
+      this.router.navigate(['/home']);
       return true;
     } else {
       const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 3000,
+        timer: 2000,
         timerProgressBar: false,
-        width: 'auto',
       });
       Toast.fire({
         icon: 'error',
-        title: `Login ou senha inválidos`,
+        title: `usuario ou senha inválidos`,
       });
       return false;
     }
@@ -51,6 +51,7 @@ export class AuthService {
     console.log(user);
     return user;
   }
+
   logout(): void {
     localStorage.removeItem('isLoginAuthenticated');
     this.router.navigate(['/login']);
