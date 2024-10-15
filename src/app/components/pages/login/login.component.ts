@@ -1,7 +1,13 @@
 import { AuthService } from './../../../services/auth.service';
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Iuser } from '../../../Interfaces/Iuser.interface';
 
@@ -12,32 +18,17 @@ import { Iuser } from '../../../Interfaces/Iuser.interface';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+  private readonly loginAuth = inject(AuthService);
   login = inject(FormBuilder);
-  private router = inject(Router);
-  private AuthService = inject(AuthService);
-  error = [''];
+  router = inject(Router);
 
-  ngOnInit(): void {
-    if (this.AuthService.isAuthenticated()) {
-      console.log('Auth Login');
-      this.router.navigate(['login']);
-    } else {
-      this.router.navigate(['home']);
-      console.log('Auth Home');
-    }
-  }
-
-  formGroup = this.login.group({
-    username: ['', [Validators.required]],
-    password: ['', [Validators.required]],
+  formLogin = new FormGroup({
+    username: new FormControl<string>('', Validators.nullValidator),
+    password: new FormControl<string>('', Validators.nullValidator),
   });
 
   onLogin() {
-    if (this.AuthService.login(this.formGroup.value as Iuser)) {
-      this.router.navigate(['home']);
-    } else {
-      this.error = ['Usuário ou senha inválidos'];
-    }
+    this.loginAuth.login(this.formLogin.value as Iuser);
   }
 }

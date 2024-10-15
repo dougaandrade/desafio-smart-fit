@@ -8,12 +8,41 @@ import { Router } from '@angular/router';
 export class AuthService {
   router = inject(Router);
 
-  login(Iuser: Iuser): boolean {
-    if (Iuser.username === 'admin' && Iuser.password === '1234') {
+  login(Iuser: Iuser): string | boolean {
+    if (
+      (Iuser.username === 'admin',
+      Iuser.username === 'doug',
+      Iuser.password === '1234')
+    ) {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: false,
+        width: 'auto',
+      });
+      Toast.fire({
+        icon: 'success',
+        title: `Bem vindo ${Iuser.username}`,
+      });
       localStorage.setItem('isLoginAuthenticated', 'true');
       return true;
+    } else {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: false,
+        width: 'auto',
+      });
+      Toast.fire({
+        icon: 'error',
+        title: `Login ou senha inválidos`,
+      });
+      return false;
     }
-    return false;
   }
 
   logout(): void {
@@ -21,9 +50,9 @@ export class AuthService {
     this.router.navigate(['/login']);
     console.log('logout');
   }
-
-  isAuthenticated(): boolean {
-    //retorna um get do local storage se for true ele vai retornar true
+  isAuthenticated() {
+    //verifica se existe o item no local storage
+    //retorna um get do local storage se for true ele vai retornar home
     return !!localStorage.getItem('isLoginAuthenticated');
   }
 }
