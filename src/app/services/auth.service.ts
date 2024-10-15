@@ -8,13 +8,12 @@ import Swal from 'sweetalert2';
 })
 export class AuthService {
   router = inject(Router);
-  error = '';
 
   login(Iuser: Iuser): string | boolean {
     if (
       (Iuser.username === 'admin',
-      Iuser.username === 'doug' && Iuser.password === '1234',
-      Iuser.password === '2424')
+      Iuser.username === 'doug',
+      Iuser.password === '1234')
     ) {
       const Toast = Swal.mixin({
         toast: true,
@@ -29,19 +28,22 @@ export class AuthService {
         title: `Bem vindo ${Iuser.username}`,
       });
       localStorage.setItem('isLoginAuthenticated', 'true');
-      localStorage.setItem('username', Iuser.username);
-
-      this.router.navigate(['/home']);
       return true;
+    } else {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: false,
+        width: 'auto',
+      });
+      Toast.fire({
+        icon: 'error',
+        title: `Login ou senha inválidos`,
+      });
+      return false;
     }
-    localStorage.removeItem('isLoginAuthenticated');
-
-    return false;
-  }
-
-  logout() {
-    localStorage.removeItem('isLoginAuthenticated');
-    this.router.navigate(['/login']);
   }
 
   getuser() {
@@ -49,9 +51,14 @@ export class AuthService {
     console.log(user);
     return user;
   }
+  logout(): void {
+    localStorage.removeItem('isLoginAuthenticated');
+    this.router.navigate(['/login']);
+    console.log('logout');
+  }
   isAuthenticated() {
     //verifica se existe o item no local storage
-    //retorna um get do local storage se for true ele vai retornar true
+    //retorna um get do local storage se for true ele vai retornar home
     return !!localStorage.getItem('isLoginAuthenticated');
   }
 }
