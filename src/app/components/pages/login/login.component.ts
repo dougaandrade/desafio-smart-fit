@@ -1,9 +1,15 @@
-import { Iuser } from './../../../Interfaces/Iuser.interface';
 import { AuthService } from './../../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
+import { Iuser } from '../../../Interfaces/Iuser.interface';
 
 @Component({
   selector: 'app-login',
@@ -13,24 +19,16 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
+  private readonly loginAuth = inject(AuthService);
   login = inject(FormBuilder);
   router = inject(Router);
-  error = '';
-  private readonly loginAuth = inject(AuthService);
 
-  formGroup = inject(FormBuilder).group({
-    username: ['', [Validators.required]],
-    password: ['', [Validators.required]],
+  formLogin = new FormGroup({
+    username: new FormControl<string>('', Validators.nullValidator),
+    password: new FormControl<string>('', Validators.nullValidator),
   });
 
   onLogin() {
-    if (
-      this.formGroup.valid &&
-      this.loginAuth.login(this.formGroup.value as Iuser)
-    ) {
-      this.router.navigate(['home']);
-    } else {
-      this.error = 'Usuário ou senha inválidos';
-    }
+    this.loginAuth.login(this.formLogin.value as Iuser);
   }
 }
