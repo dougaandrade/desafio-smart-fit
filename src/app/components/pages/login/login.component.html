@@ -8,8 +8,16 @@
       <input type="password" id="password" formControlName="password" placeholder="password"
         autocomplete="current-password">
     </div>
+    @if (error) {
     <div class="text-erro">
+      {{error}}
     </div>
-    <button type="submit" class="btn-login">Entrar</button>
+    }
+    <div class="btncontainer">
+      <button type="submit" [disabled]="!formLogin.controls.username.valid || !formLogin.controls.password.valid"
+        class="btn-login">
+        Entrar
+      </button>
+    </div>
   </div>
 </form>
