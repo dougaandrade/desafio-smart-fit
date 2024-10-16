@@ -59,6 +59,12 @@
   font-weight: 600;
   color:var(--light-grey-010);
 }
+.btncontainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
 
 .btn-login{
   display: flex;
@@ -78,7 +84,10 @@
 .text-erro{
   display: flex;
   font-size: 0.8rem;
-  color:#f40404;
+  color: #252525;
+  padding: 5px;
   font-weight: 500;
-  margin: 10px;
+  margin: 20px;
+   box-shadow: 4px 4px #252525c9;
+  border: 2px solid #252525c9;
 }

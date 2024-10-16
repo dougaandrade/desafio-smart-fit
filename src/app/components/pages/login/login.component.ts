@@ -8,7 +8,6 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Iuser } from '../../../Interfaces/Iuser.interface';
 
 @Component({
@@ -21,13 +20,44 @@ import { Iuser } from '../../../Interfaces/Iuser.interface';
 export class LoginComponent {
   private readonly loginAuth = inject(AuthService);
   login = inject(FormBuilder);
+  error = '';
 
   formLogin = new FormGroup({
-    username: new FormControl<string>('', Validators.nullValidator),
-    password: new FormControl<string>('', Validators.nullValidator),
+    username: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.required, Validators.minLength(3)],
+    }),
+    password: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.required, Validators.minLength(3)],
+    }),
   });
 
   onLogin() {
-    this.loginAuth.login(this.formLogin.value as Iuser);
+    if (!this.formLogin.valid) {
+      this.checkedForm();
+      return;
+    }
+
+    const formSucess = this.loginAuth.login(this.formLogin.value as Iuser);
+
+    if (!formSucess) {
+      this.checkedForm();
+      // this.error = 'Usuário ou senha inválidos';
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    }
+  }
+
+  checkedForm() {
+    const { username, password } = this.formLogin.value;
+
+    if (username) {
+      this.error = 'Usuário inválido';
+    }
+    if (password) {
+      this.error = 'Senha inválida';
+    }
   }
 }
