@@ -9,6 +9,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Iuser } from '../../../Interfaces/Iuser.interface';
+import e from 'express';
 
 @Component({
   selector: 'app-login',
@@ -43,7 +44,6 @@ export class LoginComponent {
 
     if (!formSucess) {
       this.checkedForm();
-      // this.error = 'Usuário ou senha inválidos';
       setTimeout(() => {
         window.location.reload();
       }, 2000);
@@ -53,11 +53,10 @@ export class LoginComponent {
   checkedForm() {
     const { username, password } = this.formLogin.value;
 
-    if (username) {
-      this.error = 'Usuário inválido';
-    }
-    if (password) {
-      this.error = 'Senha inválida';
+    if (!username) {
+      this.error = 'Preencha o campo usuário';
+    } else if (!password) {
+      this.error = 'Preencha o campo senha';
     }
   }
 }
