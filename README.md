@@ -90,6 +90,8 @@ Para executar a aplicação localmente, siga os passos abaixo:
 
 ```
 
+### ⚙️ Créditos
+
 ![preview](License.png)
 
 # Test Proposal
@@ -151,5 +153,3 @@ To run the application locally, follow the steps below:
   http://localhost:4200/login admin 1234
 
 ```
-
-![preview](License.png)
