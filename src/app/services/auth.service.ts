@@ -20,22 +20,12 @@ export class AuthService {
         password: '2425',
       },
     ];
+
     if (
       Iuser.username === UsersLog[0].username &&
       Iuser.password === UsersLog[0].password
     ) {
-      const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 2000,
-        timerProgressBar: false,
-        width: 'auto',
-      });
-      Toast.fire({
-        icon: 'success',
-        title: `Bem vindo ${Iuser.username}`,
-      });
+      this.notify(Iuser);
       localStorage.setItem('isLoginAuthenticated', 'true');
       this.router.navigate(['/home']);
       return true;
@@ -43,7 +33,20 @@ export class AuthService {
       return false;
     }
   }
-
+  notify(Iuser: Iuser) {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: false,
+      width: 'auto',
+    });
+    Toast.fire({
+      icon: 'success',
+      title: `Bem vindo ${Iuser.username}`,
+    });
+  }
   getuser() {
     const user = localStorage.getItem('username');
     return user;
