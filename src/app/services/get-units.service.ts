@@ -9,95 +9,79 @@ import { shareReplay } from 'rxjs';
 const API_URL =
   'https://test-frontend-developer.s3.amazonaws.com/data/locations.json';
 
-const OPENING_HOURS = {
-  morning: {
-    first: '06h',
-    last: '12h',
-  },
-  afternoon: {
-    first: '12h',
-    last: '18h',
-  },
-  night: {
-    first: '18h',
-    last: '23h',
-  },
+const OPENING_HOURS: Readonly<
+  Record<Ihour_index, { first: string; last: string }>
+> = {
+  morning: { first: '06h', last: '12h' },
+  afternoon: { first: '12h', last: '18h' },
+  night: { first: '18h', last: '23h' },
 };
 
 @Injectable({
   providedIn: 'root',
 })
 export class GetUnitsService {
-  private readonly source$ = inject(HttpClient)
+  private readonly http = inject(HttpClient);
+  private readonly source$ = this.http
     .get<IunitsResponse>(API_URL)
     .pipe(shareReplay(1));
-
   private transformWeekday(weekday: number): string {
-    const weekdays = [
-      'Dom.',
-      'Seg. à Sex.',
-      'Seg. à Sex.',
-      'Seg. à Sex.',
-      'Seg. à Sex.',
-      'Seg. à Sex.',
-      'Sáb.',
-    ];
+    const weekdays = ['Dom.', 'Seg. à Sex.', 'Sáb.'];
     return weekdays[weekday] || 'Seg. à Sex.';
   }
 
   private parseHours(hourStr: string): { open: number; close: number } {
     const [openHour, closeHour] = hourStr
       .split(' às ')
-      .map((h) => parseInt(h.replace('h', ''), 10));
+      .map((h) => +h.replace('h', ''));
     return { open: openHour, close: closeHour };
   }
 
-  private filterAcademias(
+  private filterAcademiasByHours(
     academias: Academia[],
-    startHour?: string,
-    endHour?: string
+    openHourFilter?: number,
+    closeHourFilter?: number
   ): Academia[] {
-    if (!startHour || !endHour) return academias;
-    const openHourFilter = parseInt(startHour, 10);
-    const closeHourFilter = parseInt(endHour, 10);
     const todayWeekday: string = this.transformWeekday(new Date().getDay());
 
-    return academias.filter((unit) => {
-      if (!unit.schedules) {
-        return true;
-      }
-
-      return unit.schedules.some((schedule) => {
-        if (schedule.weekdays === todayWeekday && schedule.hour !== 'Fechada') {
-          const { open, close } = this.parseHours(schedule.hour);
-          return open <= openHourFilter && close >= closeHourFilter;
-        }
-        return false;
-      });
-    });
+    return academias.filter(
+      (unit) =>
+        !unit.schedules ||
+        unit.schedules.some((schedule) => {
+          if (
+            schedule.weekdays === todayWeekday &&
+            schedule.hour !== 'Fechada'
+          ) {
+            const { open, close } = this.parseHours(schedule.hour);
+            return (
+              open <= (openHourFilter ?? open) &&
+              close >= (closeHourFilter ?? close)
+            );
+          }
+          return false;
+        })
+    );
   }
 
   private filterBySchedule(
     academias: Academia[],
-    endClosed?: boolean,
-    hour?: string
+    showClosed?: boolean,
+    hourRange?: string
   ): Academia[] {
-    let filteredAcademias = academias || [];
+    if (showClosed) return academias.filter((acad) => !acad.opened);
 
-    if (endClosed) {
-      filteredAcademias = filteredAcademias.filter((acad) => !acad.opened);
-    } else if (hour) {
-      const openHour = OPENING_HOURS[hour as Ihour_index].first;
-      const closeHour = OPENING_HOURS[hour as Ihour_index].last;
+    if (hourRange) {
+      const { first: openHour, last: closeHour } =
+        OPENING_HOURS[hourRange as Ihour_index] || {};
       if (openHour && closeHour) {
-        filteredAcademias = this.filterAcademias(
-          filteredAcademias,
-          openHour,
-          closeHour
+        return this.filterAcademiasByHours(
+          academias,
+          parseInt(openHour, 10),
+          parseInt(closeHour, 10)
         );
       }
     }
-    return filteredAcademias;
+    return academias;
   }
 
   async obterAcademias(
@@ -116,10 +100,10 @@ export class GetUnitsService {
         return { ...item, uf };
       });
 
-      let filteredAcademias = this.filterAcademias(
+      let filteredAcademias = this.filterAcademiasByHours(
         academiasComUF,
-        openHour,
-        closeHour
+        openHour ? parseInt(openHour, 10) : undefined,
+        closeHour ? parseInt(closeHour, 10) : undefined
       );
       filteredAcademias = this.filterBySchedule(
         filteredAcademias,
