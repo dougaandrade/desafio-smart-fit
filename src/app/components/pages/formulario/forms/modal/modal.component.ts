@@ -1,3 +1,4 @@
+import { ToastService } from './../../../../../services/toast.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EstruturaComponent } from '../estrutura/estrutura.component';
 import { UndFechadasComponent } from '../und-fechadas/und-fechadas.component';
@@ -5,7 +6,6 @@ import { HorariosComponent } from '../horarios/horarios.component';
 import { LocalComponent } from '../local/local.component';
 import { Component, inject, Input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import Swal from 'sweetalert2';
 import { MethodsFilter } from '../../../../../services/methods-filter.service';
 import { Academias } from '../../../../../Interfaces/Ilocation.interface';
 import { UF } from '../../../../../enum/locaisUf.enum';
@@ -34,21 +34,13 @@ export class ModalComponent {
   modal = output<Academias[]>();
   private readonly methods$ = inject(MethodsFilter);
   formGroup = this.methods$.formGroup;
+  notify = inject(ToastService);
 
   onGetFilters(academias: Academias[]) {
     this.modal.emit(academias);
-    Swal.fire({
-      position: 'center',
-      title: 'Filtro aplicado com sucesso',
-      heightAuto: true,
-      timerProgressBar: false,
-      padding: '0.3rem',
-      width: '300px',
-      showConfirmButton: false,
-      timer: 1500,
-    });
+    this.notify.toastNotification('Filtros aplicados');
     this.closed.emit();
-    return Swal.fire;
+    return this.notify;
   }
   close() {
     this.closed.emit();
