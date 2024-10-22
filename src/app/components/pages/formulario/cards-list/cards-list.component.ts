@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { CardsComponent } from '../card/cards.component';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'cards-list',
   standalone: true,
   imports: [CommonModule, CardsComponent],
