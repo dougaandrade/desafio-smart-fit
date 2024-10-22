@@ -3,16 +3,6 @@ import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
-const UsersLog = [
-  {
-    username: 'admin',
-    password: '1234',
-  },
-  {
-    username: 'doug',
-    password: '2425',
-  },
-];
 @Injectable({
   providedIn: 'root',
 })
@@ -20,6 +10,17 @@ export class AuthService {
   router = inject(Router);
 
   login(Iuser: Iuser): string | boolean {
+    const UsersLog = [
+      {
+        username: 'admin',
+        password: '1234',
+      },
+      {
+        username: 'doug',
+        password: '2425',
+      },
+    ];
+
     if (
       Iuser.username === UsersLog[0].username &&
       Iuser.password === UsersLog[0].password
@@ -46,7 +47,6 @@ export class AuthService {
       title: `Bem vindo ${Iuser.username}`,
     });
   }
-
   getuser() {
     const user = localStorage.getItem('username');
     return user;
