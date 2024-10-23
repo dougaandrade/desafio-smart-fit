@@ -35,8 +35,7 @@ export class ModalComponent {
   private readonly methods$ = inject(MethodsFilter);
   formGroup = this.methods$.formGroup;
 
-  onGetFilters(academias: Academias[]) {
-    this.modal.emit(academias);
+  notify() {
     Swal.fire({
       position: 'center',
       title: 'Filtro aplicado com sucesso',
@@ -47,8 +46,13 @@ export class ModalComponent {
       showConfirmButton: false,
       timer: 1500,
     });
+  }
+
+  onGetFilters(academias: Academias[]) {
+    this.modal.emit(academias);
+    this.notify();
     this.closed.emit();
-    return Swal.fire;
+    return this.notify();
   }
   close() {
     this.closed.emit();
