@@ -1,4 +1,3 @@
-import { error } from 'console';
 import { GetUnitsService } from './get-units.service';
 import { Academias } from '../Interfaces/Ilocation.interface';
 import { EventEmitter, inject, Injectable, Output } from '@angular/core';
