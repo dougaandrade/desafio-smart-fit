@@ -35,7 +35,7 @@ export class MethodsFilter {
       padding: '0.3rem',
       width: '300px',
       showConfirmButton: false,
-      timer: 199500,
+      timer: 1500,
     });
   }
 
