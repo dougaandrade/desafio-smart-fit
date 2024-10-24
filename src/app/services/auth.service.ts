@@ -20,10 +20,11 @@ export class AuthService {
   router = inject(Router);
 
   login(Iuser: Iuser): string | boolean {
-    if (
-      Iuser.username === UsersLog[0].username &&
-      Iuser.password === UsersLog[0].password
-    ) {
+    const userfind = UsersLog.find(
+      (user) =>
+        user.username === Iuser.username && user.password === Iuser.password
+    );
+    if (userfind) {
       this.notify(Iuser);
       localStorage.setItem('isLoginAuthenticated', 'true');
       this.router.navigate(['/home']);
