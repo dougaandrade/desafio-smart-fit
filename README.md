@@ -18,15 +18,15 @@
 
 ### Prototype Created
 
-### Login
+# Login 🔐
 
 ![preview](Login-Page.png)
 
-### Home
+# Home 🏠
 
 ![preview](Home-Page.png)
 
-### Forms
+# Forms 📋
 
 ![preview](Forms-Page.png)
 
