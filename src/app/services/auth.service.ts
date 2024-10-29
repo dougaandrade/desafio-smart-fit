@@ -27,6 +27,7 @@ export class AuthService {
     if (userfind) {
       this.notify(Iuser);
       localStorage.setItem('isLoginAuthenticated', 'true');
+      localStorage.setItem('username', Iuser.username);
       this.router.navigate(['/home']);
       return true;
     } else {
