@@ -10,7 +10,7 @@ footer {
   position: relative;
 }
 
-footer .logo-footer {
+ .logo-footer {
   width: 100%;
   padding: 80px 0;
   display: flex;
@@ -48,5 +48,22 @@ footer .logo-footer .img-prin {
 @media (max-width: 768px) {
   footer .text-footer h3 {
     font-size: 14px;
+    text-align: center;
   }
+   .logo-footer {
+  width: 100%;
+  padding: 80px 0;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.icon{
+  display: flex;
+  height: 30px;
+  gap: 5px;
+  justify-content: center;
+}
 }
