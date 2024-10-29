@@ -21,7 +21,11 @@
   padding: 0 10px;
   align-items: center;
 }
-
+.username{
+  display: flex;
+  text-transform: uppercase;
+  padding: 10px;
+}
 .modal.show {
   display: block;
 }
