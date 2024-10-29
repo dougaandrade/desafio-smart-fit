@@ -1,9 +1,11 @@
 header {
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: center;
   box-shadow: 0 6px 9px -4px rgba(0, 0, 0, 0.1);
+  position: fixed;
 }
 
 header .header-container {
