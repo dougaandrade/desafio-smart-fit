@@ -26,8 +26,8 @@ export class AuthService {
     );
     if (userfind) {
       this.notify(Iuser);
-      localStorage.setItem('isLoginAuthenticated', 'true');
-      localStorage.setItem('username', Iuser.username);
+      sessionStorage.setItem('isLoginAuthenticated', 'true');
+      sessionStorage.setItem('username', Iuser.username);
       this.router.navigate(['/home']);
       return true;
     } else {
@@ -50,16 +50,16 @@ export class AuthService {
   }
 
   getuser() {
-    const user = localStorage.getItem('username');
+    const user = sessionStorage.getItem('username');
     return user;
   }
 
   logout(): void {
     this.router.navigate(['/login']);
     alert('Logout efetuado com sucesso');
-    localStorage.removeItem('isLoginAuthenticated');
+    sessionStorage.removeItem('isLoginAuthenticated');
   }
   isAuthenticated() {
-    return !!localStorage.getItem('isLoginAuthenticated');
+    return !!sessionStorage.getItem('isLoginAuthenticated');
   }
 }
