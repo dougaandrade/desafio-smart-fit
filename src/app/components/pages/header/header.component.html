@@ -1,6 +1,6 @@
 <header>
   <div class="header-container">
-    <img src="./assets/img/svg/logoDark.svg" alt="Logo Smart-Fit -1" class="logo-icon">
+    <a routerLink="/home"><img src="./assets/img/svg/logoDark.svg" alt="Logo Smart-Fit -1" class="logo-icon"></a>
     <app-button-icon (click)="openModal()" class="modal" />
     <app-modal [isVisible]="isModalVisible" (closed)="onModalClosed()" />
   </div>

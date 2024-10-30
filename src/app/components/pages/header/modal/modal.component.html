@@ -11,17 +11,18 @@
           </mat-menu>
         </div>
         <div class="modal-header">
-          <a routerLink="/home"><img src="./assets/img/svg/logoDark.svg" alt="Logo Smart-Fit -1" class="logo-icon"></a>
+          <a routerLink="/home" (click)="close()"><img src="./assets/img/svg/logoDark.svg" alt="Logo Smart-Fit -1"
+              class="logo-icon"></a>
           <button type="button" class="close" aria-label="close" (click)="close()">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          <div class="btn-acad"><a routerLink="/forms">Buscar Academia</a></div>
+        <div class="modal-body" (click)="close()">
+          <div class="btn-acad" (click)="close()"><a routerLink="/forms">Buscar Academia</a></div>
           <nav class="nav-container">
             <ul>
               <li>
-                <a routerLink="/home">Home</a>
+                <a routerLink="/home" (click)="close()">Home</a>
               </li>
             </ul>
           </nav>
