@@ -48,7 +48,8 @@
 - Filtrar unidades por período de funcionamento
 - Filtrar unidades por Estrutura (Máscara, Banheiros, Vestiário, Bebedouro)
 - Validar para mostrar ícones corretos de acordo com o status
-- Validação de Login do usuário com base no local storage
+- Validação de Login do usuário
+- Seção de Logout do usuário caso saia do sistema
 
 ### Organizações
 
@@ -73,6 +74,7 @@ Para executar a aplicação localmente, siga os passos abaixo:
 
 ```bash
   npm install -g @angular/cli
+  npm install package.json
 
 ```
 
@@ -112,7 +114,8 @@ Para executar a aplicação localmente, siga os passos abaixo:
 - Filter units by operating period
 - Filter units by Structure (Mask, Bathrooms, Changing Room, Drinking Fountain)
 - Validate to show correct icons according to status
-- Validation of login with local storage
+- Validation of login
+- Logout section when logging out
 
 ### Organizations
 
@@ -137,6 +140,7 @@ To run the application locally, follow the steps below:
 
 ```bash
   npm install -g @angular/cli
+  npm install package.json
 
 ```
 
