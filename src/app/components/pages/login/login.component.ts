@@ -43,6 +43,7 @@ export class LoginComponent {
 
     if (!formSucess) {
       this.checkedForm();
+      this.error = 'Usuário ou senha inválidos';
       setTimeout(() => {
         window.location.reload();
       }, 2000);

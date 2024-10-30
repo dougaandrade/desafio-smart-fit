@@ -1,29 +1,31 @@
 <div class="modal" tabindex="-99" [ngClass]="{'show': isVisible}">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="usercontent">
-        <h1 mat-button [matMenuTriggerFor]="aboveMenu"><span class="username">{{username}}</span></h1>
-        <mat-menu #aboveMenu="matMenu">
-          <div class="btn">
-            <button type="button" (click)="logout()" class="btn-logout">logout</button>
-          </div>
-        </mat-menu>
-      </div>
-      <div class="modal-header">
-        <a routerLink="/home"><img src="./assets/img/svg/logoDark.svg" alt="Logo Smart-Fit -1" class="logo-icon"></a>
-        <button type="button" class="close" aria-label="close" (click)="close()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="btn-acad"><a routerLink="/forms">Buscar Academia</a></div>
-        <nav class="nav-container">
-          <ul>
-            <li>
-              <a routerLink="/home">Home</a>
-            </li>
-          </ul>
-        </nav>
+  <div class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="usercontent">
+          <h1 mat-button [matMenuTriggerFor]="aboveMenu"><span class="username">{{username}}</span></h1>
+          <mat-menu #aboveMenu="matMenu">
+            <div class="btn">
+              <button type="button" (click)="logout()" class="btn-logout">logout</button>
+            </div>
+          </mat-menu>
+        </div>
+        <div class="modal-header">
+          <a routerLink="/home"><img src="./assets/img/svg/logoDark.svg" alt="Logo Smart-Fit -1" class="logo-icon"></a>
+          <button type="button" class="close" aria-label="close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="btn-acad"><a routerLink="/forms">Buscar Academia</a></div>
+          <nav class="nav-container">
+            <ul>
+              <li>
+                <a routerLink="/home">Home</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   </div>
