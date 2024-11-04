@@ -1,4 +1,3 @@
-
 export enum UF {
   AL = 'AL',
   AP = 'AP',
