@@ -1,5 +1,5 @@
 <ul class="card-list">
-  @for (item of unitsList(); track item.id) {
+  @for (item of unitsList(); track $index) {
   <app-cards [card]="item" />
   }
 </ul>
