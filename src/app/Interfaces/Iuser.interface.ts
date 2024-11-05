@@ -1,4 +1,4 @@
 export interface Iuser {
-  username: string;
-  password: string;
+  readonly username: string;
+  readonly password: string;
 }

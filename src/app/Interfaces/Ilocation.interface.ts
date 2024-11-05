@@ -1,8 +1,8 @@
 import { Ischedules } from './Ischedules.interface';
 
 export interface Academias {
-  id: number;
-  title: string;
+  readonly id: number;
+  readonly title: string;
   content: string;
   opened: boolean;
   mask: string;
