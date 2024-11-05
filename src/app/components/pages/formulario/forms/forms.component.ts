@@ -50,12 +50,12 @@ export class FormsComponent implements OnInit {
     this.isModalVisible = false;
   }
 
-  onGetFilters(academias: Academias[]) {
+  protected onGetFilters(academias: Academias[]) {
     this.academias.emit(academias);
     this.resultadosCount = academias.length;
   }
 
-  updateResultadosCount(academias: Academias[]) {
+  protected updateResultadosCount(academias: Academias[]) {
     this.resultadosCount = academias.length;
   }
 }

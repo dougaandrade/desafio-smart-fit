@@ -22,7 +22,7 @@ export class LoginComponent {
   login = inject(FormBuilder);
   error = '';
 
-  formLogin = new FormGroup({
+  protected formLogin = new FormGroup({
     username: new FormControl<string>('', {
       nonNullable: true,
       validators: [Validators.required, Validators.minLength(3)],
@@ -33,7 +33,7 @@ export class LoginComponent {
     }),
   });
 
-  onLogin() {
+  protected onLogin() {
     if (!this.formLogin.valid) {
       this.checkedForm();
       return;
@@ -50,7 +50,7 @@ export class LoginComponent {
     }
   }
 
-  checkedForm() {
+  protected checkedForm() {
     const { username, password } = this.formLogin.value;
 
     if (!username) {
