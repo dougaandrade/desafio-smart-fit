@@ -92,10 +92,6 @@ Para executar a aplicação localmente, siga os passos abaixo:
 
 ```
 
-### ⚙️ Créditos
-
-![preview](License.png)
-
 # Test Proposal
 
 > Smart Fit, as it operates in the fitness segment, went through several changes during the pandemic. It was necessary to develop a page to search for **closed** or **open** units for consultation and reservation.
