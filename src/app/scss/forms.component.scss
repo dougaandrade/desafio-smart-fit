@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-    padding: 97px 0px;
+    padding: 107px 0px;
   border-radius: 4px;
 
 
@@ -16,14 +16,13 @@
   justify-content: center;
   flex-direction: column;
   font-size: 0.9rem;
-  gap: 8px;
 }
 
 .content-filters {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   padding: 10px 0;
 }
 
@@ -35,7 +34,6 @@ input[type="radio"] {
   font-size: 1.9rem;
   font-weight: 700;
   font-family:Gotham ;
-  padding: 15px 0;
 }
 .title-filter-resultados {
   font-size: 0.9rem;

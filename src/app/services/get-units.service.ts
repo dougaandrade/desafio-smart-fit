@@ -84,11 +84,16 @@ export class GetUnitsService {
     return academias;
   }
 
+  private filterbyTitle(academias: Academia[], title: string): Academia[] {
+    return academias.filter((unit) => unit.title.toLowerCase() === title);
+  }
+
   async obterAcademias(
     openHour?: string,
     closeHour?: string,
     showClosed?: boolean,
-    hour?: string
+    hour?: string,
+    title?: string // Adicionado parâmetro para o título
   ): Promise<Academia[]> {
     try {
       const academias = await firstValueFrom(this.source$);
@@ -105,11 +110,19 @@ export class GetUnitsService {
         openHour ? parseInt(openHour, 10) : undefined,
         closeHour ? parseInt(closeHour, 10) : undefined
       );
+
       filteredAcademias = this.filterBySchedule(
         filteredAcademias,
         showClosed,
         hour
       );
+
+      if (title) {
+        filteredAcademias = this.filterbyTitle(
+          filteredAcademias,
+          title.toLowerCase()
+        );
+      }
 
       return filteredAcademias;
     } catch (error) {

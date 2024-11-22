@@ -14,7 +14,7 @@ import { Academias } from '../../../../../Interfaces/Ilocation.interface';
   styleUrl: '/src/app/scss/forms.component.scss',
 })
 export class UndFechadasComponent {
-  undFechada = output<Academias[]>();
+  undfechada = output<Academias[]>();
   private readonly methods$ = inject(MethodsFilter);
   private readonly unitService$ = inject(GetUnitsService);
   formGroup = this.methods$.formGroup;
@@ -32,6 +32,6 @@ export class UndFechadasComponent {
     const filteredAcademias = academias.filter((value) => !value.opened);
 
     this.updateResultadosCount(filteredAcademias);
-    this.undFechada.emit(filteredAcademias);
+    this.undfechada.emit(filteredAcademias);
   }
 }

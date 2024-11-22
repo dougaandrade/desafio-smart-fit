@@ -1,28 +1,28 @@
 <div class="card">
 
-  <span [ngClass]="{opened: card.opened}">{{ card.opened ? 'Aberto' : 'Fechado'}}</span>
-  <h1>{{ card.title }} </h1>
-  <p [innerHTML]="card.content"></p>
+  <span [ngClass]="{opened: card().opened}">{{ card().opened ? 'Aberto' : 'Fechado'}}</span>
+  <h1>{{ card().title }} </h1>
+  <p [innerHTML]="card().content"></p>
 
   <div class="divider"></div>
 
   <ul>
-    @if(card.mask){
-    <li><img [src]="'./assets/img/' + card.mask + '-mask.png'" alt="masks" title="Mascáras" /></li>
+    @if(card().mask){
+    <li><img [src]="'./assets/img/' + card().mask + '-mask.png'" alt="masks" title="Mascáras" /></li>
     }
-    @if (card.towel){
-    <li><img [src]="'./assets/img/' + card.towel + '-towel.png'" alt="towel" title="Banheiro" /></li>
+    @if (card().towel){
+    <li><img [src]="'./assets/img/' + card().towel + '-towel.png'" alt="towel" title="Banheiro" /></li>
     }
-    @if (card.fountain) {
-    <li><img [src]="'./assets/img/' + card.fountain + '-fountain.png'" alt="fountain" title="Bebedouro" /></li>
+    @if (card().fountain) {
+    <li><img [src]="'./assets/img/' + card().fountain + '-fountain.png'" alt="fountain" title="Bebedouro" /></li>
     }
-    @if (card.locker_room) {
-    <li><img [src]="'./assets/img/' + card.locker_room + '-lockerroom.png'" alt="locker" title="Vestiário" /></li>
+    @if (card().locker_room) {
+    <li><img [src]="'./assets/img/' + card().locker_room + '-lockerroom.png'" alt="locker" title="Vestiário" /></li>
     }
   </ul>
 
   <ul>
-    @for (item of card.schedules ; track item) {
+    @for (item of card().schedules ; track item) {
     <li>
       <b>{{ item.weekdays }}</b>
       {{ item.hour }}

@@ -1,12 +1,13 @@
-<form class="container-form" [formGroup]="formGroup">
+<form class="container-form" [formGroup]="formgroup">
   <div class="content-filters">
     <h1 class="title-filter">Aplicar<br>Filtros</h1>
     <h1 class="title-filter-resultados">{{resultadosCount}} Unidades<br>Encontradas</h1>
   </div>
+  <search-list (searchcomponent)="onGetFilters($event)" />
   <horarios (filterhorarios)="onGetFilters($event)" />
   <estrutura (estrutura)="onGetFilters($event)" />
   <local (local)="onGetFilters($event)" />
-  <fechadas (undFechada)="onGetFilters($event)" />
+  <fechadas (undfechada)="onGetFilters($event)" />
 </form>
 <button (click)="openModal()" class="modal">Filtro</button>
-<modal [isVisible]="isModalVisible" (closed)="onModalClosed()" (modal)="onGetFilters($event)" />
+<modal [isvisible]="isModalVisible" (closed)="onModalClosed()" (modal)="onGetFilters($event)" />

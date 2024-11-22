@@ -8,9 +8,9 @@ import { Component, inject, OnInit, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MethodsFilter } from '../../../../services/methods-filter.service';
 import { Academias } from '../../../../Interfaces/Ilocation.interface';
+import { SearchListComponent } from './search-list/search-list.component';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'forms',
   standalone: true,
   imports: [
@@ -21,6 +21,7 @@ import { Academias } from '../../../../Interfaces/Ilocation.interface';
     HorariosComponent,
     EstruturaComponent,
     LocalComponent,
+    SearchListComponent,
   ],
   templateUrl: './forms.component.html',
   styleUrl: '/src/app/scss/forms.component.scss',
@@ -29,9 +30,9 @@ export class FormsComponent implements OnInit {
   academias = output<Academias[]>();
   private readonly methods = inject(MethodsFilter);
 
-  formGroup = this.methods.formGroup;
+  formgroup = this.methods.formGroup;
 
-  isModalVisible = false;
+  isModalVisible: boolean = false;
   resultadosCount = 0;
 
   ngOnInit() {

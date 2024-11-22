@@ -8,7 +8,7 @@ import { CardsComponent } from './card/cards.component';
 @Component({
   selector: 'formComponent',
   standalone: true,
-  imports: [FormsComponent, CardsListComponent, CardsComponent],
+  imports: [FormsComponent, CardsListComponent],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss',
 })

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Academias } from '../../../../Interfaces/Ilocation.interface';
 
 @Component({
@@ -10,5 +10,5 @@ import { Academias } from '../../../../Interfaces/Ilocation.interface';
   styleUrl: './cards.component.scss',
 })
 export class CardsComponent {
-  @Input() card!: Academias;
+  readonly card = input.required<Academias>();
 }

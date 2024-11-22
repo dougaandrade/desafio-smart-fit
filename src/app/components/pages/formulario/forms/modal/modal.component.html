@@ -1,4 +1,4 @@
-<div class="modal" tabindex="-1" [ngClass]="{'show': isVisible}">
+<div class="modal" tabindex="-1" [ngClass]="{'show': isvisible()}">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -12,7 +12,7 @@
           <horarios (filterhorarios)="onGetFilters($event)" />
           <estrutura (estrutura)="onGetFilters($event)" />
           <local (local)="onGetFilters($event)" />
-          <fechadas (undFechada)="onGetFilters($event)" />
+          <fechadas (undfechada)="onGetFilters($event)" />
         </form>
       </div>
     </div>
