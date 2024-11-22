@@ -85,7 +85,7 @@ export class GetUnitsService {
   }
 
   private filterbyTitle(academias: Academia[], title: string): Academia[] {
-    return academias.filter((unit) => unit.title.toLowerCase() === title);
+    return academias.filter((value) => value.title.toLowerCase() === title);
   }
 
   async obterAcademias(
@@ -94,7 +94,7 @@ export class GetUnitsService {
     showClosed?: boolean,
     hour?: string,
     title?: string // Adicionado parâmetro para o título
-  ): Promise<Academia[]> {
+  ) {
     try {
       const academias = await firstValueFrom(this.source$);
 
