@@ -1,9 +1,9 @@
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EstruturaComponent } from '../estrutura/estrutura.component';
 import { UndFechadasComponent } from '../und-fechadas/und-fechadas.component';
 import { HorariosComponent } from '../horarios/horarios.component';
 import { LocalComponent } from '../local/local.component';
-import { Component, inject, Input, output } from '@angular/core';
+import { Component, inject, output, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { MethodsFilter } from '../../../../../services/methods-filter.service';
@@ -11,7 +11,6 @@ import { Academias } from '../../../../../Interfaces/Ilocation.interface';
 import { UF } from '../../../../../enum/locaisUf.enum';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'modal',
   standalone: true,
   imports: [
@@ -21,12 +20,13 @@ import { UF } from '../../../../../enum/locaisUf.enum';
     UndFechadasComponent,
     HorariosComponent,
     LocalComponent,
+    FormsModule,
   ],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss',
 })
 export class ModalComponent {
-  @Input() isVisible = false;
+  readonly isvisible = input(false);
   // valor vazio pois estou usando para retirar o valor do input
   closed = output();
 

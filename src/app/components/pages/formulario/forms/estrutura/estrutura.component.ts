@@ -6,7 +6,6 @@ import { Academias } from '../../../../../Interfaces/Ilocation.interface';
 import { MethodsFilter } from '../../../../../services/methods-filter.service';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'estrutura',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
