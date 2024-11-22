@@ -8,7 +8,7 @@
  display: block;
  width: 200px;
  border: none;
- border-bottom: 1px solid #515151;
+ border-bottom: 1px solid #252525;
  background: transparent;
 }
 
@@ -17,7 +17,7 @@
 }
 
 label {
- color: #999;
+ color: #252525;
  font-size: 18px;
  font-weight: normal;
  position: absolute;
@@ -32,7 +32,7 @@ label {
 .input:focus ~ label, .input:valid ~ label {
  top: -20px;
  font-size: 14px;
- color: #5264AE;
+ color: var(--yellow);
 }
 
 .label-title-filter {
@@ -53,7 +53,7 @@ label {
  width: 0;
  bottom: 1px;
  position: absolute;
- background: #5264AE;
+ background: var(--yellow);
  transition: 0.2s ease all;
  -moz-transition: 0.2s ease all;
  -webkit-transition: 0.2s ease all;
@@ -87,7 +87,7 @@ label {
 
 @keyframes inputHighlighter {
  from {
-  background: #5264AE;
+  background: var(--yellow-010);
  }
 
  to {
