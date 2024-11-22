@@ -3,7 +3,6 @@ import { GetUnitsService } from '../../../services/get-units.service';
 import { Academias } from '../../../Interfaces/Ilocation.interface';
 import { FormsComponent } from './forms/forms.component';
 import { CardsListComponent } from './cards-list/cards-list.component';
-import { CardsComponent } from './card/cards.component';
 
 @Component({
   selector: 'formComponent',
