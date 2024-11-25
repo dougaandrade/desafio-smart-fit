@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
-import { ContentMainComponent } from './content-main/content-main.component';
 import { CardImgComponent } from './card-img/card-img.component';
+import { CardQRCodeComponent } from './card-qrcode/card-qrcode.component';
+import { CardBuscaAcadComponent } from './card-busca-acad/card-busca-acad.component';
 
 @Component({
   selector: 'homeComponent',
   standalone: true,
-  imports: [ContentMainComponent, CardImgComponent],
+  imports: [CardImgComponent, CardQRCodeComponent, CardBuscaAcadComponent],
   template: `
     <div class="container-content">
-      <!-- <content-main /> -->
       <cardImg />
+      <cardQrcode />
+      <cardBuscaAcad />
     </div>
   `,
   styleUrl: './home.component.scss',

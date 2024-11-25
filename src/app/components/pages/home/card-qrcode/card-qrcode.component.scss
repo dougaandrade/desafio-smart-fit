@@ -1,0 +1,135 @@
+.container {
+  width: 100%;
+  display: flex;
+  padding: 50px 0;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  background-color: var(--yellow-015);
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 80px;
+
+}
+.container-text {
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+
+.container-text h1 {
+     font-weight: 900;
+    font-size: 32px;
+    line-height: 38px;
+    color: #333;
+}
+.container-text p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #333;
+}
+
+.container-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+.cardRet{
+  position: relative;
+  display: flex;
+  width: 31rem;
+height:250px;
+  border-radius: 20px;
+  align-items: end;
+  justify-content: center;
+  background-color: #ffb612;
+}
+.img{
+   display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+.topics{
+    display: flex;
+    flex-direction: column;
+    grid-gap: 15px;
+    gap: 15px;
+}
+
+.topics ul{
+      padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 4px;
+    gap: 4px;
+    font-size: 15px;
+    line-height: 18px;
+    color: #333;
+}
+
+@media screen and (max-width: 768px) {
+
+.container-text {
+  width: 19rem;
+  text-align: center;
+  align-items: center;
+}
+
+.container-text h1 {
+    font-size: 36px;
+}
+
+.content {
+  flex-direction: column;
+  gap: 12rem;
+}
+
+.topics{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 15px;
+    gap: 15px;
+}
+
+.topics ul{
+  text-align: center;
+  font-size: 13px;
+  padding-left: 0;
+}
+
+.cardRet{
+  position: relative;
+  display: flex;
+  width: 24rem;
+height:120px;
+  border-radius: 20px;
+  align-items: end;
+  justify-content: center;
+  background-color: #ffb612;
+}
+.img{
+   display: block;
+  width: 80%;
+   max-width: 100%;
+    height: auto;
+}
+
+}
