@@ -1,6 +1,6 @@
 <div class="app-container">
   <div class="card-separator">
-    <forms (academias)="unitsList.set($event)" />
-    <cards-list [unitsList]="unitsList()" />
+    <forms class="container-form" (academias)="unitsList.set($event)" />
+    <cards-list class="card-list" [unitsList]="unitsList()" />
   </div>
 </div>

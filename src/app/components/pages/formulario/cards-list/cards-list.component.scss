@@ -2,13 +2,11 @@
   display: flex;
   width: 100%;
   flex-direction: row;
-  gap: 20px;
+  gap: 15px;
   overflow-y: scroll;
   height: 48rem;
   justify-content: flex-start;
   flex-wrap: wrap;
-  padding: 0px 30px;
-
 }
 
 @media (max-width: 768px) {
