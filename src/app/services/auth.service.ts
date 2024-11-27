@@ -1,6 +1,7 @@
 import { Iuser } from './../Interfaces/Iuser.interface';
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import Swal from 'sweetalert2';
 
 const UsersLog = [
@@ -13,13 +14,24 @@ const UsersLog = [
     password: '2425',
   },
 ];
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  private readonly currentUserSubject = new BehaviorSubject<string>('Guest');
+  public currentUser$: Observable<string> =
+    this.currentUserSubject.asObservable();
   router = inject(Router);
 
-  login(Iuser: Iuser): string | boolean {
+  constructor() {
+    const savedUser = sessionStorage.getItem('username');
+    if (savedUser) {
+      this.currentUserSubject.next(savedUser);
+    }
+  }
+
+  login(Iuser: Iuser): Observable<boolean> {
     const userfind = UsersLog.find(
       (user) =>
         user.username === Iuser.username && user.password === Iuser.password
@@ -28,10 +40,11 @@ export class AuthService {
       this.notify(Iuser);
       sessionStorage.setItem('isLoginAuthenticated', 'true');
       sessionStorage.setItem('username', Iuser.username);
+      this.currentUserSubject.next(Iuser.username);
       this.router.navigate(['/home']);
-      return true;
+      return of(true);
     } else {
-      return false;
+      return of(false);
     }
   }
   notify(Iuser: Iuser) {
@@ -49,15 +62,14 @@ export class AuthService {
     });
   }
 
-  getuser() {
-    const user = sessionStorage.getItem('username');
-    return user;
+  getUser() {
+    return this.currentUser$;
   }
-
   logout(): void {
-    this.router.navigate(['/login']);
-    alert('Logout efetuado com sucesso');
+    sessionStorage.removeItem('username');
     sessionStorage.removeItem('isLoginAuthenticated');
+    this.currentUserSubject.next('Guest');
+    alert('logout');
   }
   isAuthenticated() {
     return !!sessionStorage.getItem('isLoginAuthenticated');

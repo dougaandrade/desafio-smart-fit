@@ -1,11 +1,15 @@
-<div class="modal" tabindex="-99" [ngClass]="{'show': isVisible}">
+<div class="modal" tabindex="-99" [ngClass]="{'show': isVisible()}">
   <div class="modal-overlay">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="usercontent">
-          <h1 mat-button [matMenuTriggerFor]="aboveMenu"><span class="username">{{username}}</span></h1>
+          <h1 mat-button [matMenuTriggerFor]="aboveMenu"><span
+              class="username">{{authService.currentUser$| async}}</span>
+          </h1>
           <mat-menu #aboveMenu="matMenu">
             <div class="btn">
+              <button type="button" (click)="close()" [ngClass]="{'hidden': authService.isAuthenticated() === true }"
+                class="btn-login"><a routerLink="/login">login</a></button>
               <button type="button" (click)="logout()" class="btn-logout">logout</button>
             </div>
           </mat-menu>

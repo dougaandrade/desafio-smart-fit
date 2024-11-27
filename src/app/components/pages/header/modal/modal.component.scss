@@ -29,6 +29,47 @@
   display: block;
 }
 
+.hidden{
+  display: none;
+}
+
+
+.btn-login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 135px;
+  height: 35px;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 10px;
+  color: #252525;
+  background-color: #fff;
+  box-shadow: 4px 4px #252525c9;
+  border: 2px solid #252525c9;
+}
+
+.btn-login a{
+  text-decoration: none;
+  color: #252525;
+}
+
+.btn-logout{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 135px;
+  height: 35px;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 10px;
+  border-style: none;
+  color: #ffffff;
+  background-color: #f43b3bdd;
+  box-shadow: 4px 4px #252525c9;
+  border: 2px solid #252525c9;
+}
+
 .modal-dialog {
   position: relative;
   display: flex;
@@ -110,6 +151,8 @@
   display: flex;
   width: 100%;
   align-items: center;
+  flex-direction: column;
+  gap: 10px;
   justify-content: center;
   padding: 10px;
 }
@@ -132,17 +175,7 @@
   cursor: pointer;
 }
 
-.btn-logout{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 130px;
-  height: 35px;
-  border-radius: 5px;
-  background-color: #f43b3bdd;
-  color: #fff;
-  border: none;
-}
+
 
 .content-filters {
   display: flex;
