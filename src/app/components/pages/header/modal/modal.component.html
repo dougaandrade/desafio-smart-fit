@@ -2,21 +2,22 @@
   <div class="modal-overlay">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="usercontent">
-          <h1 mat-button [matMenuTriggerFor]="aboveMenu"><span
-              class="username">{{authService.currentUser$| async}}</span>
-          </h1>
-          <mat-menu #aboveMenu="matMenu">
-            <div class="btn">
-              <button type="button" (click)="close()" [ngClass]="{'hidden': authService.isAuthenticated() === true }"
-                class="btn-login"><a routerLink="/login">login</a></button>
-              <button type="button" (click)="logout()" class="btn-logout">logout</button>
-            </div>
-          </mat-menu>
-        </div>
-        <div class="modal-header">
+        <div class="content-img">
           <a routerLink="/home" (click)="close()"><img src="./assets/img/svg/logoDark.svg" alt="Logo Smart-Fit -1"
               class="logo-icon"></a>
+        </div>
+        <div class="modal-header">
+          <div class="usercontent">
+            <h1 mat-button [matMenuTriggerFor]="aboveMenu"><span
+                class="username">{{authService$.currentUser$| async}}</span>
+            </h1>
+            <mat-menu #aboveMenu="matMenu">
+              <div class="btn">
+                <button type="button" (click)="close()" class="btn-login"><a routerLink="/login">login</a></button>
+                <button type="button" (click)="logout()" class="btn-logout">logout</button>
+              </div>
+            </mat-menu>
+          </div>
           <button type="button" class="close" aria-label="close" (click)="close()">
             <span aria-hidden="true">&times;</span>
           </button>

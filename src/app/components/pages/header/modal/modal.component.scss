@@ -11,6 +11,12 @@
   background-color: rgba(0, 0, 0, 0.457) ;
 }
 
+.content-img{
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
 .logo-icon{
   width: 7rem;
 
@@ -161,7 +167,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.3rem 1rem;
+  padding: 0.3rem 1rem;
   border-top-left-radius: 0.3rem;
   border-top-right-radius: 0.3rem;
 }
@@ -192,9 +198,11 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 5rem;
   gap: 10px;
-  margin-top:15px;
   cursor: pointer;
+    box-shadow: 4px 4px #252525c9;
+  border: 2px solid #252525c9;
 }
 
 .usercontent span{

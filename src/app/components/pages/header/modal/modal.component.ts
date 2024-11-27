@@ -12,18 +12,18 @@ import { MatMenuModule } from '@angular/material/menu';
 })
 export class ModalComponent implements OnInit {
   readonly isVisible = input(false);
-  readonly authService = inject(AuthService);
+  readonly authService$ = inject(AuthService);
   closed = output();
 
   close() {
     this.closed.emit();
   }
   ngOnInit(): void {
-    this.authService.getUser().subscribe();
+    this.authService$.getUser().subscribe();
   }
 
   logout() {
-    this.authService.logout();
+    this.authService$.logout();
     this.closed.emit();
   }
 }
