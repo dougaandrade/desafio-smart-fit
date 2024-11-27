@@ -7,13 +7,11 @@ import { AuthService } from './services/auth.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  template: ` @if(auth.isAuthenticated()) {
+  template: `
     <header-component />
-    }
     <router-outlet />
-    @if (auth.isAuthenticated()) {
     <footer-component />
-    }`,
+  `,
   styleUrl: './app.component.scss',
   imports: [HeaderComponent, RouterOutlet, FooterComponent],
 })

@@ -34,20 +34,22 @@ export class LoginComponent {
   });
 
   protected onLogin() {
-    if (!this.formLogin.valid) {
-      this.checkedForm();
-      return;
-    }
+    this.loginAuth.login(this.formLogin.value as Iuser).subscribe(() => {
+      if (!this.formLogin.valid) {
+        this.checkedForm();
+        return;
+      }
 
-    const formSucess = this.loginAuth.login(this.formLogin.value as Iuser);
+      const formSucess = this.loginAuth.login(this.formLogin.value as Iuser);
 
-    if (!formSucess) {
-      this.checkedForm();
-      this.error = 'Usuário ou senha inválidos';
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
-    }
+      if (!formSucess) {
+        this.checkedForm();
+        this.error = 'Usuário ou senha inválidos';
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      }
+    });
   }
 
   protected checkedForm() {

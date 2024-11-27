@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input, output } from '@angular/core';
+import { Component, inject, output, input, OnInit } from '@angular/core';
 import { AuthService } from '../../../../services/auth.service';
 import { RouterLink } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
@@ -10,16 +10,20 @@ import { MatMenuModule } from '@angular/material/menu';
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss',
 })
-export class ModalComponent {
-  @Input() isVisible = false;
-  private readonly logoutServ = inject(AuthService);
+export class ModalComponent implements OnInit {
+  readonly isVisible = input(false);
+  readonly authService = inject(AuthService);
   closed = output();
-  username = this.logoutServ.getuser();
 
   close() {
     this.closed.emit();
   }
+  ngOnInit(): void {
+    this.authService.getUser().subscribe();
+  }
+
   logout() {
-    this.logoutServ.logout();
+    this.authService.logout();
+    this.closed.emit();
   }
 }
