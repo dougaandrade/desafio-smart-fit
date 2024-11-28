@@ -10,6 +10,7 @@
       <div class="modal-body">
         <form [formGroup]="formGroup">
           <horarios (filterhorarios)="onGetFilters($event)" />
+          <search-list (searchcomponent)="onGetFilters($event)" />
           <estrutura (estrutura)="onGetFilters($event)" />
           <local (local)="onGetFilters($event)" />
           <fechadas (undfechada)="onGetFilters($event)" />

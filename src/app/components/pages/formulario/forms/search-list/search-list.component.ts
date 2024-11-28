@@ -34,11 +34,14 @@ export class SearchListComponent {
     const academias = await this.unitService$.obterAcademias();
 
     let searchTitle$: Observable<Academias[]>;
-
     searchTitle$ = new Observable((observer) => {
-      const filteredAcademias = academias.filter((value) =>
-        value.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+      // Extrair a primeira letra do termo de pesquisa
+      const firstLetter = this.searchTerm.trim().charAt(0).toLowerCase();
+
+      const filteredAcademias = academias.filter(
+        (value) => value.title.toLowerCase().startsWith(firstLetter) // Verifica se começa com a primeira letra
       );
+
       observer.next(filteredAcademias);
     });
 

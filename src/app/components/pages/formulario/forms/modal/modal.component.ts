@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import { MethodsFilter } from '../../../../../services/methods-filter.service';
 import { Academias } from '../../../../../Interfaces/Ilocation.interface';
 import { UF } from '../../../../../enum/locaisUf.enum';
+import { SearchListComponent } from '../search-list/search-list.component';
 
 @Component({
   selector: 'modal',
@@ -20,6 +21,7 @@ import { UF } from '../../../../../enum/locaisUf.enum';
     UndFechadasComponent,
     HorariosComponent,
     LocalComponent,
+    SearchListComponent,
     FormsModule,
   ],
   templateUrl: './modal.component.html',
