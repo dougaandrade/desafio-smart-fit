@@ -19,7 +19,7 @@ const UsersLog = [
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly currentUserSubject = new BehaviorSubject<string>('Guest');
+  private readonly currentUserSubject = new BehaviorSubject<string>('Login');
   public currentUser$: Observable<string> =
     this.currentUserSubject.asObservable();
   router = inject(Router);
@@ -30,7 +30,6 @@ export class AuthService {
       this.currentUserSubject.next(savedUser);
     }
   }
-
   login(Iuser: Iuser): Observable<boolean> {
     const userfind = UsersLog.find(
       (user) =>
@@ -68,7 +67,7 @@ export class AuthService {
   logout(): void {
     sessionStorage.removeItem('username');
     sessionStorage.removeItem('isLoginAuthenticated');
-    this.currentUserSubject.next('Guest');
+    this.currentUserSubject.next('Login');
     alert('logout');
   }
   isAuthenticated() {
