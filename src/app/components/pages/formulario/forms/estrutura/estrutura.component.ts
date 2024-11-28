@@ -15,17 +15,17 @@ import { MethodsFilter } from '../../../../../services/methods-filter.service';
 // regex para validar o conteudo
 // /Obs./.exec(value.content)
 export class EstruturaComponent {
-  estrutura = output<Academias[]>();
+  protected estrutura = output<Academias[]>();
 
   private readonly methods$ = inject(MethodsFilter);
   private readonly unitService$ = inject(GetUnitsService);
+
   formGroup = this.methods$.formGroup;
+  academias = this.unitService$.obterAcademias();
   updateResultadosCount = this.methods$.updateResultadosCount;
 
   async onFilterMask() {
-    const academias = await this.unitService$.obterAcademias();
-
-    const filteredAcademias = academias.filter(
+    const filteredAcademias = (await this.academias).filter(
       (value) => value.mask === 'required'
     );
 
@@ -34,9 +34,7 @@ export class EstruturaComponent {
   }
 
   async onFilterTowel() {
-    const academias = await this.unitService$.obterAcademias();
-
-    const filteredAcademias = academias.filter(
+    const filteredAcademias = (await this.academias).filter(
       (value) => value.towel === 'required'
     );
 
@@ -45,9 +43,7 @@ export class EstruturaComponent {
   }
 
   async onFilterFountain() {
-    const academias = await this.unitService$.obterAcademias();
-
-    const filteredAcademias = academias.filter(
+    const filteredAcademias = (await this.academias).filter(
       (value) => value.fountain === 'partial'
     );
 
@@ -56,9 +52,7 @@ export class EstruturaComponent {
   }
 
   async onFilterLocker() {
-    const academias = await this.unitService$.obterAcademias();
-
-    const filteredAcademias = academias.filter(
+    const filteredAcademias = (await this.academias).filter(
       (value) => value.locker_room === 'allowed'
     );
 

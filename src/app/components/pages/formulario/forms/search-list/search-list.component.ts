@@ -17,11 +17,11 @@ import { debounceTime, Observable } from 'rxjs';
   ],
 })
 export class SearchListComponent {
-  searchcomponent = output<Academias[]>();
+  protected searchcomponent = output<Academias[]>();
 
   private readonly methods$ = inject(MethodsFilter);
   private readonly unitService$ = inject(GetUnitsService);
-  updateResultadosCount = this.methods$.updateResultadosCount;
+  private readonly updateResultadosCount = this.methods$.updateResultadosCount;
   searchTerm: string = '';
 
   // Função para filtrar a lista de academias

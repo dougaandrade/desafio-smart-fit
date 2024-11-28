@@ -15,7 +15,7 @@ import { UF } from '../../../../../enum/locaisUf.enum';
   styleUrl: '/src/app/scss/forms.component.scss',
 })
 export class LocalComponent {
-  local = output<Academias[]>();
+  protected local = output<Academias[]>();
 
   private readonly methods$ = inject(MethodsFilter);
   private readonly unitService$ = inject(GetUnitsService);

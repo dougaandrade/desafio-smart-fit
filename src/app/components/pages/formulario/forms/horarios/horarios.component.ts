@@ -14,7 +14,7 @@ import { GetUnitsService } from '../../../../../services/get-units.service';
   styleUrl: '/src/app/scss/forms.component.scss',
 })
 export class HorariosComponent {
-  filterhorarios = output<Academias[]>();
+  protected filterhorarios = output<Academias[]>();
 
   private readonly methods$ = inject(MethodsFilter);
   private readonly unitService$ = inject(GetUnitsService);

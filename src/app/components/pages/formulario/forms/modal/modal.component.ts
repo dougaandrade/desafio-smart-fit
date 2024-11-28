@@ -28,11 +28,10 @@ import { UF } from '../../../../../enum/locaisUf.enum';
 export class ModalComponent {
   readonly isvisible = input(false);
   // valor vazio pois estou usando para retirar o valor do input
-  closed = output();
-
-  localUF = Object.values(UF);
-  modal = output<Academias[]>();
+  protected modal = output<Academias[]>();
   private readonly methods$ = inject(MethodsFilter);
+
+  closed = output();
   formGroup = this.methods$.formGroup;
 
   notify() {

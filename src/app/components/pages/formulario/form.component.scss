@@ -19,8 +19,7 @@
 }
 
 .card-list{
-  width: 78%;
-  max-width:max-content;
+  width: 100%;
   display: flex;
   margin: 0 auto;
   flex-direction: row;
@@ -28,7 +27,7 @@
   align-items: center;
 }
 .container-form {
-  width:auto;
+  width:22%;
   display: flex;
   flex-direction: column;
   justify-content: center;

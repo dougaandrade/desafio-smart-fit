@@ -27,11 +27,10 @@ import { SearchListComponent } from './search-list/search-list.component';
   styleUrl: '/src/app/scss/forms.component.scss',
 })
 export class FormsComponent implements OnInit {
-  academias = output<Academias[]>();
+  protected academias = output<Academias[]>();
   private readonly methods = inject(MethodsFilter);
 
   formgroup = this.methods.formGroup;
-
   isModalVisible: boolean = false;
   resultadosCount = 0;
 

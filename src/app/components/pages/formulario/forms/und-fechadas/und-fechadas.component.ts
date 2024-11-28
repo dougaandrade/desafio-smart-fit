@@ -14,7 +14,7 @@ import { Academias } from '../../../../../Interfaces/Ilocation.interface';
   styleUrl: '/src/app/scss/forms.component.scss',
 })
 export class UndFechadasComponent {
-  undfechada = output<Academias[]>();
+  protected undfechada = output<Academias[]>();
   private readonly methods$ = inject(MethodsFilter);
   private readonly unitService$ = inject(GetUnitsService);
   formGroup = this.methods$.formGroup;
