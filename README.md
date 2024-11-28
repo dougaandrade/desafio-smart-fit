@@ -30,7 +30,7 @@
 
 ![preview](Forms-Page.png)
 
-# Proposta de Teste
+# Proposta do Teste
 
 > A Smart Fit, por atuar no segmento de fitness, passou por várias mudanças na pandemia. Foi necessário desenvolver uma página para buscar unidades **fechadas** ou **abertas** para consulta e reserva.
 
@@ -39,6 +39,7 @@
 - Carrega unidades através do arquivo json `https://test-frontend-developer.s3.amazonaws.com/data/locations.json` com method `GET`
 - Busca todas as unidades
 - Busca unidades com filtros
+- Busca pelo nome da academia
 - Mostra previsão de resultados encontrados
 - Mostra unidades ao buscar
 
@@ -46,6 +47,7 @@
 
 - Filtrar unidades abertas ou fechadas
 - Filtrar unidades por período de funcionamento
+- Filtrar unidades por nome
 - Filtrar unidades por Estrutura (Máscara, Banheiros, Vestiário, Bebedouro)
 - Validar para mostrar ícones corretos de acordo com o status
 - Validação de Login do usuário
@@ -55,8 +57,8 @@
 
 - Principios de SOLID
 - Aplicação baseada em design paterns
-- Fragmentação em Componentes(Manutenibilidade do Código)
-- Código limpo
+- Componetização
+- Código reutilizaável
 
 ### ⚙️ Como Executar
 
