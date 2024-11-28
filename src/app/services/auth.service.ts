@@ -40,6 +40,7 @@ export class AuthService {
       sessionStorage.setItem('isLoginAuthenticated', 'true');
       sessionStorage.setItem('username', Iuser.username);
       this.currentUserSubject.next(Iuser.username);
+      this.currentUserSubject.error('ERROR');
       this.router.navigate(['/home']);
       return of(true);
     } else {
@@ -68,6 +69,7 @@ export class AuthService {
     sessionStorage.removeItem('username');
     sessionStorage.removeItem('isLoginAuthenticated');
     this.currentUserSubject.next('Login');
+    this.currentUserSubject.error('Error');
     alert('logout');
   }
   isAuthenticated() {

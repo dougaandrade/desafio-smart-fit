@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { GetUnitsService } from '../../../../../services/get-units.service';
 import { MethodsFilter } from '../../../../../services/methods-filter.service';
 import { FormsModule } from '@angular/forms';
-import { debounceTime, Observable } from 'rxjs';
+import { debounceTime, interval, Observable, take, timeInterval } from 'rxjs';
 
 @Component({
   selector: 'search-list',
@@ -45,9 +45,11 @@ export class SearchListComponent {
       observer.next(filteredAcademias);
     });
 
-    searchTitle$.pipe(debounceTime(250)).subscribe((filteredAcademias) => {
-      this.updateResultadosCount(filteredAcademias);
-      this.searchcomponent.emit(filteredAcademias);
-    });
+    searchTitle$
+      .pipe(debounceTime(250), take(1))
+      .subscribe((filteredAcademias) => {
+        this.updateResultadosCount(filteredAcademias);
+        this.searchcomponent.emit(filteredAcademias);
+      });
   }
 }
