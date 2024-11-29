@@ -2,7 +2,6 @@ import { GetUnitsService } from './get-units.service';
 import { Academias } from '../Interfaces/Ilocation.interface';
 import { EventEmitter, inject, Injectable, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import Swal from 'sweetalert2';
 import { NotifyService } from './notify.service';
 
 @Injectable({
