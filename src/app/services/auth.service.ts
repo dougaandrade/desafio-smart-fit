@@ -2,7 +2,7 @@ import { Iuser } from './../Interfaces/Iuser.interface';
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import Swal from 'sweetalert2';
+import { NotifyService } from './notify.service';
 
 const UsersLog = [
   {
@@ -19,6 +19,7 @@ const UsersLog = [
   providedIn: 'root',
 })
 export class AuthService {
+  private readonly notify = inject(NotifyService);
   private readonly currentUserSubject = new BehaviorSubject<string>('Login');
   public currentUser$: Observable<string> =
     this.currentUserSubject.asObservable();
@@ -36,7 +37,7 @@ export class AuthService {
         user.username === Iuser.username && user.password === Iuser.password
     );
     if (userfind) {
-      this.notify(Iuser);
+      this.notify.notifyUserSucess(Iuser);
       sessionStorage.setItem('isLoginAuthenticated', 'true');
       sessionStorage.setItem('username', Iuser.username);
       this.currentUserSubject.next(Iuser.username);
@@ -44,22 +45,9 @@ export class AuthService {
       this.router.navigate(['/home']);
       return of(true);
     } else {
+      this.notify.notifyUserError('Usuário ou senha inválidos');
       return of(false);
     }
-  }
-  notify(Iuser: Iuser) {
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 2000,
-      timerProgressBar: false,
-      width: 'auto',
-    });
-    Toast.fire({
-      icon: 'success',
-      title: `Bem vindo ${Iuser.username}`,
-    });
   }
 
   getUser() {
@@ -70,7 +58,7 @@ export class AuthService {
     sessionStorage.removeItem('isLoginAuthenticated');
     this.currentUserSubject.next('Login');
     this.currentUserSubject.error('Error');
-    alert('logout');
+    this.notify.notifyLogout();
   }
   isAuthenticated() {
     return !!sessionStorage.getItem('isLoginAuthenticated');
