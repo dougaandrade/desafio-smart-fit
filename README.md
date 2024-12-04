@@ -90,7 +90,7 @@ Para executar a aplicação localmente, siga os passos abaixo:
 > 4. Usuario e senha
 
 ```bash
-  http://localhost:4200/login admin 1234
+  admin 1234
 
 ```
 
@@ -152,6 +152,6 @@ To run the application locally, follow the steps below:
 > 4. User and password
 
 ```bash
-  http://localhost:4200/login admin 1234
+  admin 1234
 
 ```
