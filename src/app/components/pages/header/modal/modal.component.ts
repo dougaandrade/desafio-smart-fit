@@ -19,7 +19,7 @@ export class ModalComponent implements OnInit {
     this.closed.emit();
   }
   ngOnInit(): void {
-    this.authService$.getUser().subscribe();
+    this.authService$.getUser();
   }
 
   logout() {

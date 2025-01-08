@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/pages/home/home.component';
-import { FormIndexComponent } from './components/pages/formulario/form.component';
+import { FormIndexComponent } from './components/pages/formulario/page-form.component';
 import { NotFoundPageComponent } from './components/pages/not-found-page/not-found-page.component';
 import { LoginComponent } from './components/pages/login/login.component';
 
