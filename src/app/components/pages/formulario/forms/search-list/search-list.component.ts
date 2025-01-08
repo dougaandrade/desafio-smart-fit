@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { GetUnitsService } from '../../../../../services/get-units.service';
 import { MethodsFilter } from '../../../../../services/methods-filter.service';
 import { FormsModule } from '@angular/forms';
-import { debounceTime, interval, Observable, take, timeInterval } from 'rxjs';
+import { debounceTime, Observable, take } from 'rxjs';
 
 @Component({
   selector: 'search-list',
@@ -39,7 +39,8 @@ export class SearchListComponent {
       const firstLetter = this.searchTerm.trim().charAt(0).toLowerCase();
 
       const filteredAcademias = academias.filter(
-        (value) => value.title.toLowerCase().startsWith(firstLetter) // Verifica se começa com a primeira letra
+        (value) => value.title.toLowerCase().startsWith(firstLetter)
+        // Verifica se começa com a primeira letra
       );
 
       observer.next(filteredAcademias);
