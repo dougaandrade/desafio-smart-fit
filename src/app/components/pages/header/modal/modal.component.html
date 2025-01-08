@@ -14,7 +14,8 @@
             <mat-menu #aboveMenu="matMenu">
               <div class="btn">
                 <button type="button" (click)="close()" class="btn-login"><a routerLink="/login">login</a></button>
-                <button type="button" (click)="logout()" class="btn-logout">logout</button>
+                <button type="button" (click)="logout()" [ngClass]="{'disabled': !authService$.isAuthenticated()}"
+                  class="btn-logout">logout</button>
               </div>
             </mat-menu>
           </div>
