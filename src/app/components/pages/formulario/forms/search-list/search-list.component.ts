@@ -36,7 +36,7 @@ export class SearchListComponent {
     let searchTitle$: Observable<Academias[]>;
     searchTitle$ = new Observable((observer) => {
       // Extrair a primeira letra do termo de pesquisa
-      const firstLetter = this.searchTerm.trim().charAt(0).toLowerCase();
+      const firstLetter = this.searchTerm.trim().split(/\s+/)[0].toLowerCase();
 
       const filteredAcademias = academias.filter(
         (value) => value.title.toLowerCase().startsWith(firstLetter)
