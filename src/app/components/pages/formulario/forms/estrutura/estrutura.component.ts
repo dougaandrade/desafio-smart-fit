@@ -10,7 +10,7 @@ import { MethodsFilter } from '../../../../../services/methods-filter.service';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './estrutura.component.html',
-  styleUrl: '/src/app/scss/forms.component.scss',
+  styleUrl: '../forms.component.scss',
 })
 // regex para validar o conteudo
 // /Obs./.exec(value.content)

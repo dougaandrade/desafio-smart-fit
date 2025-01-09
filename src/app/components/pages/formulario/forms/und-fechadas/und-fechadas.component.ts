@@ -11,7 +11,7 @@ import { Academias } from '../../../../../Interfaces/Ilocation.interface';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './und-fechadas.component.html',
-  styleUrl: '/src/app/scss/forms.component.scss',
+  styleUrl: '../forms.component.scss',
 })
 export class UndFechadasComponent {
   protected undfechada = output<Academias[]>();

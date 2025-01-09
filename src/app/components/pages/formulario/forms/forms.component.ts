@@ -24,7 +24,7 @@ import { SearchListComponent } from './search-list/search-list.component';
     SearchListComponent,
   ],
   templateUrl: './forms.component.html',
-  styleUrl: '/src/app/scss/forms.component.scss',
+  styleUrl: './forms.component.scss',
 })
 export class FormsComponent implements OnInit {
   protected academias = output<Academias[]>();

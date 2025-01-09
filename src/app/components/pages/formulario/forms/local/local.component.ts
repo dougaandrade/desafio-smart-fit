@@ -12,7 +12,7 @@ import { UF } from '../../../../../enum/locaisUf.enum';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './local.component.html',
-  styleUrl: '/src/app/scss/forms.component.scss',
+  styleUrl: '../forms.component.scss',
 })
 export class LocalComponent {
   protected local = output<Academias[]>();

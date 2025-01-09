@@ -11,10 +11,7 @@ import { debounceTime, Observable, take } from 'rxjs';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './search-list.component.html',
-  styleUrls: [
-    './search-list.component.scss',
-    '/src/app/scss/forms.component.scss',
-  ],
+  styleUrls: ['./search-list.component.scss', '../forms.component.scss'],
 })
 export class SearchListComponent {
   protected searchcomponent = output<Academias[]>();

@@ -11,7 +11,7 @@ import { GetUnitsService } from '../../../../../services/get-units.service';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './horarios.component.html',
-  styleUrl: '/src/app/scss/forms.component.scss',
+  styleUrl: '../forms.component.scss',
 })
 export class HorariosComponent {
   protected filterhorarios = output<Academias[]>();
