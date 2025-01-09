@@ -8,7 +8,6 @@ import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { MethodsFilter } from '../../../../../services/methods-filter.service';
 import { Academias } from '../../../../../Interfaces/Ilocation.interface';
-import { UF } from '../../../../../enum/locaisUf.enum';
 import { SearchListComponent } from '../search-list/search-list.component';
 
 @Component({
