@@ -5,6 +5,7 @@ import { GetUnitsService } from '../../../../../services/get-units.service';
 import { MethodsFilter } from '../../../../../services/methods-filter.service';
 import { FormsModule } from '@angular/forms';
 import { debounceTime, Observable, take } from 'rxjs';
+import e from 'express';
 
 @Component({
   selector: 'search-list',
@@ -39,6 +40,11 @@ export class SearchListComponent {
         (value) => value.title.toLowerCase().startsWith(firstLetter)
         // Verifica se começa com a primeira letra
       );
+
+      if (filteredAcademias.length === 0) {
+        this.methods$.loadAllAcademias();
+        return;
+      }
 
       observer.next(filteredAcademias);
     });
