@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  padding: 107px 0px;
+  padding: 136px 0px;
   border-radius: 4px;
 }
 
@@ -49,6 +49,16 @@ input[type="radio"] {
 
 .modal {
   display: none;
+}
+
+.progress {
+  width: 10rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
 }
 
 .label-title-filter {

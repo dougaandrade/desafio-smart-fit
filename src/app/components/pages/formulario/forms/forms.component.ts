@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MethodsFilter } from '../../../../services/methods-filter.service';
 import { Academias } from '../../../../Interfaces/Ilocation.interface';
 import { SearchListComponent } from './search-list/search-list.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'forms',
@@ -22,6 +23,7 @@ import { SearchListComponent } from './search-list/search-list.component';
     EstruturaComponent,
     LocalComponent,
     SearchListComponent,
+    MatProgressBarModule,
   ],
   templateUrl: './forms.component.html',
   styleUrl: './forms.component.scss',
