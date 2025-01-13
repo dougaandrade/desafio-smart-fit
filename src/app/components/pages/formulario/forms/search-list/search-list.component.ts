@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { GetUnitsService } from '../../../../../services/get-units.service';
 import { MethodsFilter } from '../../../../../services/methods-filter.service';
 import { FormsModule } from '@angular/forms';
-import { debounceTime, empty, Observable, take } from 'rxjs';
+import { debounceTime, Observable, take } from 'rxjs';
 
 @Component({
   selector: 'search-list',
