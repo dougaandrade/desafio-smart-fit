@@ -54,6 +54,11 @@ export class ModalComponent {
     this.closed.emit();
     return this.notify();
   }
+
+  onSearch(academias: Academias[]) {
+    this.modal.emit(academias);
+  }
+
   close() {
     this.closed.emit();
   }

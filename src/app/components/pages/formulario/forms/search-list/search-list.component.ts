@@ -5,7 +5,6 @@ import { GetUnitsService } from '../../../../../services/get-units.service';
 import { MethodsFilter } from '../../../../../services/methods-filter.service';
 import { FormsModule } from '@angular/forms';
 import { debounceTime, Observable, take } from 'rxjs';
-import e from 'express';
 
 @Component({
   selector: 'search-list',
