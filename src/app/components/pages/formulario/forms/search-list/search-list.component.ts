@@ -23,7 +23,7 @@ export class SearchListComponent {
 
   // Função para filtrar a lista de academias
   async onSearch() {
-    if (this.searchTerm.trim() === '' || this.searchTerm === undefined) {
+    if (this.searchTerm.trim() === '' || this.searchTerm.trim().length === 0) {
       this.methods$.loadAllAcademias();
       return;
     }
