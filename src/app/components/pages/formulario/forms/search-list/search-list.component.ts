@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { GetUnitsService } from '../../../../../services/get-units.service';
 import { MethodsFilter } from '../../../../../services/methods-filter.service';
 import { FormsModule } from '@angular/forms';
-import { debounceTime, Observable, take } from 'rxjs';
+import { debounceTime, empty, Observable, take } from 'rxjs';
 
 @Component({
   selector: 'search-list',
@@ -23,7 +23,7 @@ export class SearchListComponent {
 
   // Função para filtrar a lista de academias
   async onSearch() {
-    if (this.searchTerm.trim() === '') {
+    if (this.searchTerm.trim() === '' || this.searchTerm === undefined) {
       this.methods$.loadAllAcademias();
       return;
     }
