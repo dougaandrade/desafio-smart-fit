@@ -80,16 +80,15 @@ export class HorariosComponent {
     );
 
     const startHour = 18;
-    const endHour = 23;
 
     const filteredAcademias = academias.filter(({ schedules }) =>
       schedules?.some(({ hour }) => {
-        const [start, end] = hour
+        const [start] = hour
           .replace(/\s/g, '')
           .split('às')
           .map((h) => parseInt(h.replace('h', ''), 10));
 
-        return start >= startHour && end <= endHour;
+        return start <= startHour;
       })
     );
 
