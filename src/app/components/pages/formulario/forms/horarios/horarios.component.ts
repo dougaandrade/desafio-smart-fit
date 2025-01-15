@@ -29,8 +29,18 @@ export class HorariosComponent {
       typeof hour === 'string' ? hour : undefined
     );
 
+    const startHour = 5;
+    const endHour = 12;
+
     const filteredAcademias = academias.filter(({ schedules }) =>
-      schedules?.some(({ hour }) => hour === '06h às 12h')
+      schedules?.some(({ hour }) => {
+        const [start, end] = hour
+          .replace(/\s/g, '')
+          .split('às')
+          .map((h) => parseInt(h.replace('h', ''), 10));
+
+        return start >= startHour && end <= endHour;
+      })
     );
 
     this.updateResultadosCount(filteredAcademias);
@@ -44,8 +54,18 @@ export class HorariosComponent {
       typeof hour === 'string' ? hour : undefined
     );
 
+    const startHour = 12;
+    const endHour = 18;
+
     const filteredAcademias = academias.filter(({ schedules }) =>
-      schedules?.some(({ hour }) => hour === '12h às 18h')
+      schedules?.some(({ hour }) => {
+        const [start, end] = hour
+          .replace(/\s/g, '')
+          .split('às')
+          .map((h) => parseInt(h.replace('h', ''), 10));
+
+        return start >= startHour && end <= endHour;
+      })
     );
 
     this.updateResultadosCount(filteredAcademias);
@@ -59,8 +79,18 @@ export class HorariosComponent {
       typeof hour === 'string' ? hour : undefined
     );
 
+    const startHour = 18;
+    const endHour = 23;
+
     const filteredAcademias = academias.filter(({ schedules }) =>
-      schedules?.some(({ hour }) => hour === '18h às 21h')
+      schedules?.some(({ hour }) => {
+        const [start, end] = hour
+          .replace(/\s/g, '')
+          .split('às')
+          .map((h) => parseInt(h.replace('h', ''), 10));
+
+        return start >= startHour && end <= endHour;
+      })
     );
 
     this.updateResultadosCount(filteredAcademias);
