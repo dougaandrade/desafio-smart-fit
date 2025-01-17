@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2';
-import { Iuser } from './../Interfaces/Iuser.interface';
+import { Iuser } from './../Interfaces/Iusers.interface';
 
 @Injectable({
   providedIn: 'root',

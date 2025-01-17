@@ -13,7 +13,7 @@
             </h1>
             <mat-menu #aboveMenu="matMenu">
               <div class="btn">
-                <button type="button" (click)="close()" class="btn-login"><a routerLink="/login">login</a></button>
+                <a routerLink="/login"><button type="button" (click)="close()" class="btn-login">Login</button></a>
                 <button type="button" (click)="logout()" [ngClass]="{'disabled': !authService$.isAuthenticated()}"
                   class="btn-logout">logout</button>
               </div>
