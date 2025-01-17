@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Iuser } from '../Interfaces/Iusers.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -13,5 +14,10 @@ export class StorageService {
 
   removeItem(key: string) {
     localStorage.removeItem(key);
+  }
+
+  saveUser(user: Iuser) {
+    this.setItem('username', user.username);
+    this.setItem('password', user.password);
   }
 }

@@ -8,7 +8,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Iuser } from '../../../Interfaces/Iuser.interface';
+import { Iuser } from '../../../Interfaces/Iusers.interface';
 
 @Component({
   selector: 'app-login',
@@ -50,6 +50,10 @@ export class LoginComponent {
         }, 2000);
       }
     });
+  }
+
+  protected onAddUser() {
+    this.loginAuth.addNewUser(this.formLogin.value as Iuser);
   }
 
   protected checkedForm() {

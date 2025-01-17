@@ -1,20 +1,10 @@
-import { Iuser } from './../Interfaces/Iuser.interface';
+import { Iuser } from './../Interfaces/Iusers.interface';
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { NotifyService } from './notify.service';
 import { StorageService } from './storage.service';
-
-const UsersLog = [
-  {
-    username: 'admin',
-    password: '1234',
-  },
-  {
-    username: 'doug',
-    password: '2425',
-  },
-];
+import { UsersService } from './users.service';
 
 @Injectable({
   providedIn: 'root',
@@ -22,13 +12,14 @@ const UsersLog = [
 export class AuthService {
   private readonly notify = inject(NotifyService);
   private readonly storage = inject(StorageService);
+  private readonly UsersLog = inject(UsersService);
   private readonly currentUserSubject = new BehaviorSubject<string>('Login');
   public currentUser$: Observable<string> =
     this.currentUserSubject.asObservable();
   router = inject(Router);
 
   login(Iuser: Iuser): Observable<boolean> {
-    const userfind = UsersLog.find(
+    const userfind = this.UsersLog.getUsers().find(
       (user) =>
         user.username === Iuser.username && user.password === Iuser.password
     );
@@ -54,6 +45,18 @@ export class AuthService {
       this.currentUserSubject.next(savedUser);
     }
   }
+
+  addNewUser(Iuser: Iuser): void {
+    const userfind = this.UsersLog.getUsers().find(
+      (user) => user.username === Iuser.username
+    );
+    if (userfind) {
+      this.notify.notifyUserError('Usuário já cadastrado');
+      return;
+    }
+    this.UsersLog.addUser(Iuser);
+  }
+
   logout(): void {
     this.storage.removeItem('username');
     this.storage.removeItem('isLoginAuthenticated');

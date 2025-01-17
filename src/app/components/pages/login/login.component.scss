@@ -61,8 +61,10 @@
 }
 .btncontainer{
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   padding: 10px;
 }
 
@@ -70,7 +72,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
+  width: 180px;
+  height: 35px;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 10px;
+  border-style: none;
+  color: #252525;
+  background-color: #fff;
+  box-shadow: 4px 4px #252525c9;
+  border: 2px solid #252525c9;
+}
+.btn-add{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
   height: 35px;
   font-weight: 700;
   font-size: 1rem;
