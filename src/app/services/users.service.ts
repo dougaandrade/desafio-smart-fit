@@ -1,6 +1,5 @@
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Iuser } from '../Interfaces/Iusers.interface';
-import { NotifyService } from './notify.service';
 
 @Injectable({
   providedIn: 'root',
