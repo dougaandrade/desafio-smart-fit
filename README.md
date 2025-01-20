@@ -75,6 +75,7 @@ Para executar a aplicação localmente, siga os passos abaixo:
 > 2. Instale as dependências do projeto
 
 ```bash
+  npm install -g @angular/cli
   npm install 
 
 ```
@@ -136,6 +137,7 @@ To run the application locally, follow the steps below:
 > 2. Install dependencies
 
 ```bash
+  npm install -g @angular/cli
   npm install 
 
 ```
