@@ -1,3 +1,4 @@
 {
-  "editor.fontFamily": "Fira Code"
+  "editor.fontFamily": "Fira Code",
+  "json.validate.enable": false
 }

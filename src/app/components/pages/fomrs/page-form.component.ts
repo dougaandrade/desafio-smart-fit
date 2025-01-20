@@ -1,8 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
 import { GetUnitsService } from '../../../services/get-units.service';
 import { Academias } from '../../../Interfaces/Ilocation.interface';
-import { FormsComponent } from './forms/forms.component';
-import { CardsListComponent } from './cards-list/cards-list.component';
+import { FormsComponent } from './formulario/forms.component';
+import { CardsListComponent } from './formulario/cards-list/cards-list.component';
 
 @Component({
   selector: 'formComponent',
