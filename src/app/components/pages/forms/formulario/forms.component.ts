@@ -4,7 +4,13 @@ import { UndFechadasComponent } from './und-fechadas/und-fechadas.component';
 import { HorariosComponent } from './horarios/horarios.component';
 import { EstruturaComponent } from './estrutura/estrutura.component';
 import { LocalComponent } from './local/local.component';
-import { Component, inject, OnInit, output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+  output,
+} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MethodsFilter } from '../../../../services/methods-filter.service';
 import { Academias } from '../../../../Interfaces/Ilocation.interface';
@@ -25,6 +31,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     SearchListComponent,
     MatProgressBarModule,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './forms.component.html',
   styleUrl: './forms.component.scss',
 })
