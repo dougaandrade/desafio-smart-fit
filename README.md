@@ -76,7 +76,7 @@ Para executar a aplicação localmente, siga os passos abaixo:
 
 ```bash
   npm install -g @angular/cli
-  npm install 
+  npm install
 
 ```
 
@@ -91,6 +91,17 @@ Para executar a aplicação localmente, siga os passos abaixo:
 
 ```bash
   admin 1234
+
+```
+
+### ⚙️ Como Executar Docker🐋
+
+Para executar a aplicação localmente, siga os passos abaixo:
+
+> 1. Build in Dockerfile:
+
+```bash
+ docker-compose up --build
 
 ```
 
@@ -138,7 +149,7 @@ To run the application locally, follow the steps below:
 
 ```bash
   npm install -g @angular/cli
-  npm install 
+  npm install
 
 ```
 
@@ -153,5 +164,16 @@ To run the application locally, follow the steps below:
 
 ```bash
   admin 1234
+
+```
+
+### ⚙️ How to Execute Docker🐋
+
+To run the application locally, follow the steps below:
+
+> 1. Build in Dockerfile:
+
+```bash
+ docker-compose up --build
 
 ```
