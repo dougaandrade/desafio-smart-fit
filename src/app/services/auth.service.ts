@@ -51,7 +51,7 @@ export class AuthService {
       (user) => user.username === Iuser.username
     );
     if (userfind) {
-      this.notify.notifyUserError('Usuário já cadastrado');
+      this.notify.notifyUserError('Usuário existente, tente novamente');
       return;
     }
     this.UsersLog.addUser(Iuser);
