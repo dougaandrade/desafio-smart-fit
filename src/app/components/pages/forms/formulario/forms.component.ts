@@ -42,7 +42,7 @@ export class FormsComponent implements OnInit {
   resultadosCount = 0;
 
   ngOnInit() {
-    this.methods.filtersmethods.subscribe((academias) => {
+    this.methods.filtersmethods$.subscribe((academias) => {
       this.academias.emit(academias);
       this.updateResultadosCount(academias);
     });
