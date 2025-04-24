@@ -11,20 +11,19 @@ import { Academias } from '../../../../../Interfaces/Ilocation.interface';
 import { SearchListComponent } from '../search-list/search-list.component';
 
 @Component({
-  selector: 'modal',
-  standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    EstruturaComponent,
-    UndFechadasComponent,
-    HorariosComponent,
-    LocalComponent,
-    SearchListComponent,
-    FormsModule,
-  ],
-  templateUrl: './modal.component.html',
-  styleUrl: './modal.component.scss',
+    selector: 'modal',
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        EstruturaComponent,
+        UndFechadasComponent,
+        HorariosComponent,
+        LocalComponent,
+        SearchListComponent,
+        FormsModule,
+    ],
+    templateUrl: './modal.component.html',
+    styleUrl: './modal.component.scss'
 })
 export class ModalComponent {
   readonly isvisible = input(false);

@@ -7,11 +7,10 @@ import { FormsModule } from '@angular/forms';
 import { debounceTime, Observable, take } from 'rxjs';
 
 @Component({
-  selector: 'search-list',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './search-list.component.html',
-  styleUrls: ['./search-list.component.scss', '../forms.component.scss'],
+    selector: 'search-list',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './search-list.component.html',
+    styleUrls: ['./search-list.component.scss', '../forms.component.scss']
 })
 export class SearchListComponent {
   protected searchcomponent = output<Academias[]>();

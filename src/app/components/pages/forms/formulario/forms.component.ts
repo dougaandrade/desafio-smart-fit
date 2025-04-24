@@ -18,22 +18,21 @@ import { SearchListComponent } from './search-list/search-list.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
-  selector: 'forms',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    CommonModule,
-    ModalComponent,
-    UndFechadasComponent,
-    HorariosComponent,
-    EstruturaComponent,
-    LocalComponent,
-    SearchListComponent,
-    MatProgressBarModule,
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './forms.component.html',
-  styleUrl: './forms.component.scss',
+    selector: 'forms',
+    imports: [
+        ReactiveFormsModule,
+        CommonModule,
+        ModalComponent,
+        UndFechadasComponent,
+        HorariosComponent,
+        EstruturaComponent,
+        LocalComponent,
+        SearchListComponent,
+        MatProgressBarModule,
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: './forms.component.html',
+    styleUrl: './forms.component.scss'
 })
 export class FormsComponent implements OnInit {
   protected academias = output<Academias[]>();

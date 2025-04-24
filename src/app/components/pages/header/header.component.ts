@@ -5,11 +5,10 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'header-component',
-  standalone: true,
-  imports: [ModalComponent, ButtonIconComponent, CommonModule, RouterLink],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
+    selector: 'header-component',
+    imports: [ModalComponent, ButtonIconComponent, CommonModule, RouterLink],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
   isModalVisible = false;

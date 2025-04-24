@@ -4,11 +4,10 @@ import { AuthService } from '../../../../services/auth.service';
 import { RouterLink } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 @Component({
-  selector: 'app-modal',
-  standalone: true,
-  imports: [CommonModule, RouterLink, MatMenuModule],
-  templateUrl: './modal.component.html',
-  styleUrl: './modal.component.scss',
+    selector: 'app-modal',
+    imports: [CommonModule, RouterLink, MatMenuModule],
+    templateUrl: './modal.component.html',
+    styleUrl: './modal.component.scss'
 })
 export class ModalComponent implements OnInit {
   readonly isVisible = input(false);

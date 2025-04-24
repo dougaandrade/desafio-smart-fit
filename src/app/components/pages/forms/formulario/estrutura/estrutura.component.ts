@@ -6,11 +6,10 @@ import { Academias } from '../../../../../Interfaces/Ilocation.interface';
 import { MethodsFilter } from '../../../../../services/methods-filter.service';
 
 @Component({
-  selector: 'estrutura',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './estrutura.component.html',
-  styleUrl: '../forms.component.scss',
+    selector: 'estrutura',
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './estrutura.component.html',
+    styleUrl: '../forms.component.scss'
 })
 // regex para validar o conteudo
 // /Obs./.exec(value.content)

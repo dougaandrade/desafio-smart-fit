@@ -6,12 +6,11 @@ import { MethodsFilter } from '../../../../../services/methods-filter.service';
 import { GetUnitsService } from '../../../../../services/get-units.service';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'horarios',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './horarios.component.html',
-  styleUrl: '../forms.component.scss',
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: 'horarios',
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './horarios.component.html',
+    styleUrl: '../forms.component.scss'
 })
 export class HorariosComponent {
   protected filterhorarios = output<Academias[]>();
