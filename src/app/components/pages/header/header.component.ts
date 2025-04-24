@@ -5,10 +5,10 @@ import { ButtonIconComponent } from './button-icon/button-icon.component';
 import { RouterLink } from '@angular/router';
 
 @Component({
-    selector: 'header-component',
-    imports: [ModalComponent, ButtonIconComponent, RouterLink],
-    templateUrl: './header.component.html',
-    styleUrl: './header.component.scss'
+  selector: 'header-component',
+  imports: [ModalComponent, ButtonIconComponent, RouterLink],
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
   isModalVisible = false;

@@ -1,4 +1,3 @@
-
 import { Component, inject, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Academias } from '../../../../../Interfaces/Ilocation.interface';
@@ -6,11 +5,10 @@ import { MethodsFilter } from '../../../../../services/methods-filter.service';
 import { GetUnitsService } from '../../../../../services/get-units.service';
 
 @Component({
-    // eslint-disable-next-line @angular-eslint/component-selector
-    selector: 'horarios',
-    imports: [ReactiveFormsModule],
-    templateUrl: './horarios.component.html',
-    styleUrl: '../forms.component.scss'
+  selector: 'horarios',
+  imports: [ReactiveFormsModule],
+  templateUrl: './horarios.component.html',
+  styleUrl: '../forms.component.scss',
 })
 export class HorariosComponent {
   protected filterhorarios = output<Academias[]>();

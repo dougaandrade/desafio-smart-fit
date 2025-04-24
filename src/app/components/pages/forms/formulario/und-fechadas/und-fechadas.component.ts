@@ -1,4 +1,3 @@
-
 import { Component, inject, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GetUnitsService } from '../../../../../services/get-units.service';
@@ -6,11 +5,10 @@ import { MethodsFilter } from '../../../../../services/methods-filter.service';
 import { Academias } from '../../../../../Interfaces/Ilocation.interface';
 
 @Component({
-    // eslint-disable-next-line @angular-eslint/component-selector
-    selector: 'fechadas',
-    imports: [ReactiveFormsModule],
-    templateUrl: './und-fechadas.component.html',
-    styleUrl: '../forms.component.scss'
+  selector: 'fechadas',
+  imports: [ReactiveFormsModule],
+  templateUrl: './und-fechadas.component.html',
+  styleUrl: '../forms.component.scss',
 })
 export class UndFechadasComponent {
   protected undfechada = output<Academias[]>();

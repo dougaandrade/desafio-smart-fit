@@ -7,11 +7,10 @@ import { Academias } from '../../../../../Interfaces/Ilocation.interface';
 import { UF } from '../../../../../enum/locaisUf.enum';
 
 @Component({
-    // eslint-disable-next-line @angular-eslint/component-selector
-    selector: 'local',
-    imports: [ReactiveFormsModule],
-    templateUrl: './local.component.html',
-    styleUrl: '../forms.component.scss'
+  selector: 'local',
+  imports: [ReactiveFormsModule],
+  templateUrl: './local.component.html',
+  styleUrl: '../forms.component.scss',
 })
 export class LocalComponent {
   protected local = output<Academias[]>();

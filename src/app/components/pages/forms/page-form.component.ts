@@ -6,6 +6,7 @@ import { CardsListComponent } from './cards-list/cards-list.component';
 
 @Component({
   selector: 'formComponent',
+  imports: [FormsComponent, CardsListComponent],
   templateUrl: './page-form.component.html',
   styleUrl: './page-form.component.scss',
 })
