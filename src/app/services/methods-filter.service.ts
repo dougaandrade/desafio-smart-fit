@@ -1,6 +1,6 @@
 import { GetUnitsService } from './get-units.service';
 import { Academias } from '../Interfaces/Ilocation.interface';
-import { EventEmitter, inject, Injectable, Output } from '@angular/core';
+import { inject, Injectable, output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { NotifyService } from './notify.service';
 
@@ -9,7 +9,7 @@ import { NotifyService } from './notify.service';
 })
 export class MethodsFilter {
   // esse decorator so funciona em services
-  @Output() filtersmethods = new EventEmitter<Academias[]>();
+  readonly filtersmethods = output<Academias[]>();
   private readonly notify = inject(NotifyService);
 
   resultadosCount = 0;

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, inject, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GetUnitsService } from '../../../../../services/get-units.service';
@@ -8,7 +8,7 @@ import { Academias } from '../../../../../Interfaces/Ilocation.interface';
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'fechadas',
-    imports: [CommonModule, ReactiveFormsModule],
+    imports: [ReactiveFormsModule],
     templateUrl: './und-fechadas.component.html',
     styleUrl: '../forms.component.scss'
 })

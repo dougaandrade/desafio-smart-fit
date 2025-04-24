@@ -5,10 +5,9 @@ import { FormsComponent } from './formulario/forms.component';
 import { CardsListComponent } from './cards-list/cards-list.component';
 
 @Component({
-    selector: 'formComponent',
-    imports: [FormsComponent, CardsListComponent],
-    templateUrl: './page-form.component.html',
-    styleUrl: './page-form.component.scss'
+  selector: 'formComponent',
+  templateUrl: './page-form.component.html',
+  styleUrl: './page-form.component.scss',
 })
 export class FormIndexComponent {
   private readonly unitService = inject(GetUnitsService);

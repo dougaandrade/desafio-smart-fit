@@ -8,9 +8,9 @@ describe('CardsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      schemas: [NO_ERRORS_SCHEMA],
-      declarations: [CardsComponent],
-    });
+    imports: [CardsComponent],
+    schemas: [NO_ERRORS_SCHEMA],
+});
     fixture = TestBed.createComponent(CardsComponent);
     component = fixture.componentInstance;
   });

@@ -1,9 +1,3 @@
-import { CommonModule } from '@angular/common';
-import { ModalComponent } from './modal/modal.component';
-import { UndFechadasComponent } from './und-fechadas/und-fechadas.component';
-import { HorariosComponent } from './horarios/horarios.component';
-import { EstruturaComponent } from './estrutura/estrutura.component';
-import { LocalComponent } from './local/local.component';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -11,28 +5,14 @@ import {
   OnInit,
   output,
 } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { MethodsFilter } from '../../../../services/methods-filter.service';
 import { Academias } from '../../../../Interfaces/Ilocation.interface';
-import { SearchListComponent } from './search-list/search-list.component';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
-    selector: 'forms',
-    imports: [
-        ReactiveFormsModule,
-        CommonModule,
-        ModalComponent,
-        UndFechadasComponent,
-        HorariosComponent,
-        EstruturaComponent,
-        LocalComponent,
-        SearchListComponent,
-        MatProgressBarModule,
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    templateUrl: './forms.component.html',
-    styleUrl: './forms.component.scss'
+  selector: 'forms',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './forms.component.html',
+  styleUrl: './forms.component.scss',
 })
 export class FormsComponent implements OnInit {
   protected academias = output<Academias[]>();

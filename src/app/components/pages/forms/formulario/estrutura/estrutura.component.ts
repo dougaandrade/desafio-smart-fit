@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, inject, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GetUnitsService } from '../../../../../services/get-units.service';
@@ -6,10 +6,9 @@ import { Academias } from '../../../../../Interfaces/Ilocation.interface';
 import { MethodsFilter } from '../../../../../services/methods-filter.service';
 
 @Component({
-    selector: 'estrutura',
-    imports: [CommonModule, ReactiveFormsModule],
-    templateUrl: './estrutura.component.html',
-    styleUrl: '../forms.component.scss'
+  selector: 'estrutura',
+  templateUrl: './estrutura.component.html',
+  styleUrl: '../forms.component.scss',
 })
 // regex para validar o conteudo
 // /Obs./.exec(value.content)

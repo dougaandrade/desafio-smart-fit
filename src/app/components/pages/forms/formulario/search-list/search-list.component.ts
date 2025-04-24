@@ -1,6 +1,6 @@
 import { Component, inject, output } from '@angular/core';
 import { Academias } from '../../../../../Interfaces/Ilocation.interface';
-import { CommonModule } from '@angular/common';
+
 import { GetUnitsService } from '../../../../../services/get-units.service';
 import { MethodsFilter } from '../../../../../services/methods-filter.service';
 import { FormsModule } from '@angular/forms';
@@ -8,7 +8,7 @@ import { debounceTime, Observable, take } from 'rxjs';
 
 @Component({
     selector: 'search-list',
-    imports: [CommonModule, FormsModule],
+    imports: [FormsModule],
     templateUrl: './search-list.component.html',
     styleUrls: ['./search-list.component.scss', '../forms.component.scss']
 })

@@ -1,5 +1,5 @@
 import { Component, inject, output } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { MethodsFilter } from '../../../../../services/methods-filter.service';
 import { GetUnitsService } from '../../../../../services/get-units.service';
@@ -9,7 +9,7 @@ import { UF } from '../../../../../enum/locaisUf.enum';
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'local',
-    imports: [CommonModule, ReactiveFormsModule],
+    imports: [ReactiveFormsModule],
     templateUrl: './local.component.html',
     styleUrl: '../forms.component.scss'
 })

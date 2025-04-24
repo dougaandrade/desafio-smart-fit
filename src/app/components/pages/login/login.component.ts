@@ -1,5 +1,5 @@
 import { AuthService } from './../../../services/auth.service';
-import { CommonModule } from '@angular/common';
+
 import { Component, inject } from '@angular/core';
 import {
   FormBuilder,
@@ -11,10 +11,9 @@ import {
 import { Iuser } from '../../../Interfaces/Iusers.interface';
 
 @Component({
-    selector: 'app-login',
-    imports: [CommonModule, ReactiveFormsModule],
-    templateUrl: './login.component.html',
-    styleUrl: './login.component.scss'
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent {
   private readonly loginAuth = inject(AuthService);
