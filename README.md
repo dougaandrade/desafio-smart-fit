@@ -94,17 +94,6 @@ Para executar a aplicação localmente, siga os passos abaixo:
 
 ```
 
-### ⚙️ Como Executar Docker🐋
-
-Para executar a aplicação localmente, siga os passos abaixo:
-
-> 1. Build in Dockerfile:
-
-```bash
- docker-compose up --build
-
-```
-
 # Test Proposal
 
 > Smart Fit, as it operates in the fitness segment, went through several changes during the pandemic. It was necessary to develop a page to search for **closed** or **open** units for consultation and reservation.
@@ -167,13 +156,3 @@ To run the application locally, follow the steps below:
 
 ```
 
-### ⚙️ How to Execute Docker🐋
-
-To run the application locally, follow the steps below:
-
-> 1. Build in Dockerfile:
-
-```bash
- docker-compose up --build
-
-```
