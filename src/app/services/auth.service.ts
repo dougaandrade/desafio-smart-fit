@@ -13,10 +13,11 @@ export class AuthService {
   private readonly notify = inject(NotifyService);
   private readonly storage = inject(StorageService);
   private readonly UsersLog = inject(UsersService);
+
   private readonly currentUserSubject = new BehaviorSubject<string>('Login');
-  public currentUser$: Observable<string> =
+  public readonly currentUser$: Observable<string> =
     this.currentUserSubject.asObservable();
-  router = inject(Router);
+  private readonly router = inject(Router);
 
   login(Iuser: Iuser): Observable<boolean> {
     const userfind = this.UsersLog.getUsers().find(

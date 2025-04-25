@@ -1,6 +1,6 @@
 import { GetUnitsService } from './get-units.service';
 import { Academias } from '../Interfaces/Ilocation.interface';
-import { inject, Injectable, Output, output } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { NotifyService } from './notify.service';
 import { Subject } from 'rxjs';
@@ -9,15 +9,15 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class MethodsFilter {
-  // esse decorator so funciona em services
-  private filtersmethods = new Subject<Academias[]>();
-  filtersmethods$ = this.filtersmethods.asObservable();
+  // na service deve ser criado um subject, pois o output não pode ser usado dentro de uma service
 
+  private readonly filtersmethods = new Subject<Academias[]>();
+  filtersmethods$ = this.filtersmethods.asObservable();
   private readonly notify = inject(NotifyService);
 
   resultadosCount = 0;
-  formBuilder$ = inject(FormBuilder);
-  unitService$ = inject(GetUnitsService);
+  private readonly formBuilder$ = inject(FormBuilder);
+  private readonly unitService$ = inject(GetUnitsService);
 
   formGroup = this.formBuilder$.group({
     hour: [''],

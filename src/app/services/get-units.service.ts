@@ -22,9 +22,8 @@ const OPENING_HOURS: Readonly<
 })
 export class GetUnitsService {
   private readonly http = inject(HttpClient);
-  private readonly source$ = this.http
-    .get<IunitsResponse>(API_URL)
-    .pipe(shareReplay(1));
+  private readonly source$ = this.http.get<IunitsResponse>(API_URL);
+
   private transformWeekday(weekday: number): string {
     const weekdays = ['Dom.', 'Seg. à Sex.', 'Sáb.'];
     return weekdays[weekday] || 'Seg. à Sex.';
