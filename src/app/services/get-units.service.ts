@@ -84,7 +84,9 @@ export class GetUnitsService {
   }
 
   private filterbyTitle(academias: Academia[], title: string): Academia[] {
-    return academias.filter((value) => value.title.toLowerCase() === title);
+    return academias.filter((value) =>
+      value.title.toLowerCase().includes(title.toLowerCase())
+    );
   }
 
   async obterAcademias(

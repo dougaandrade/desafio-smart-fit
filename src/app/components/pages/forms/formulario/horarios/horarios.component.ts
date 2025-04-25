@@ -40,8 +40,7 @@ export class HorariosComponent {
       })
     );
 
-    this.updateResultadosCount(filteredAcademias);
-    this.filterhorarios.emit(filteredAcademias);
+    return this.filterhorarios.emit(filteredAcademias);
   }
 
   async onAfternoon() {
@@ -65,8 +64,7 @@ export class HorariosComponent {
       })
     );
 
-    this.updateResultadosCount(filteredAcademias);
-    this.filterhorarios.emit(filteredAcademias);
+    return this.filterhorarios.emit(filteredAcademias);
   }
 
   async onNight() {
@@ -89,7 +87,6 @@ export class HorariosComponent {
       })
     );
 
-    this.updateResultadosCount(filteredAcademias);
-    this.filterhorarios.emit(filteredAcademias);
+    return this.filterhorarios.emit(filteredAcademias);
   }
 }

@@ -38,7 +38,7 @@ export class FormsComponent implements OnInit {
   private readonly methods = inject(MethodsFilter);
 
   formgroup = this.methods.formGroup;
-  isModalVisible: boolean = false;
+  isModalVisible = false;
   resultadosCount = 0;
 
   ngOnInit() {

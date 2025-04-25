@@ -28,7 +28,7 @@ import { SearchListComponent } from '../search-list/search-list.component';
 export class ModalComponent {
   readonly isvisible = input(false);
   // valor vazio pois estou usando para retirar o valor do input
-  protected modal = output<Academias[]>();
+  protected readonly modal = output<Academias[]>();
   private readonly methods$ = inject(MethodsFilter);
 
   closed = output();

@@ -50,8 +50,7 @@ export class SearchListComponent {
     searchTitle$
       .pipe(debounceTime(250), take(1))
       .subscribe((filteredAcademias) => {
-        this.updateResultadosCount(filteredAcademias);
-        this.searchcomponent.emit(filteredAcademias);
+        return this.searchcomponent.emit(filteredAcademias);
       });
   }
 }

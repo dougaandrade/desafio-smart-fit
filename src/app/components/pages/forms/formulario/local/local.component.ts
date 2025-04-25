@@ -32,8 +32,7 @@ export class LocalComponent {
       this.local.emit(academias);
     } else {
       const filteredAcademias = academias.filter((value) => value.uf === uf);
-      this.updateResultadosCount(filteredAcademias);
-      this.local.emit(filteredAcademias);
+      return this.local.emit(filteredAcademias);
     }
   }
 }

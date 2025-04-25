@@ -28,7 +28,6 @@ export class UndFechadasComponent {
 
     const filteredAcademias = academias.filter((value) => !value.opened);
 
-    this.updateResultadosCount(filteredAcademias);
-    this.undfechada.emit(filteredAcademias);
+    return this.undfechada.emit(filteredAcademias);
   }
 }

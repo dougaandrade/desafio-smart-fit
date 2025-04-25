@@ -27,8 +27,7 @@ export class EstruturaComponent {
       (value) => value.mask === 'required'
     );
 
-    this.updateResultadosCount(filteredAcademias);
-    this.estrutura.emit(filteredAcademias);
+    return this.estrutura.emit(filteredAcademias);
   }
 
   async onFilterTowel() {
@@ -36,8 +35,7 @@ export class EstruturaComponent {
       (value) => value.towel === 'required'
     );
 
-    this.updateResultadosCount(filteredAcademias);
-    this.estrutura.emit(filteredAcademias);
+    return this.estrutura.emit(filteredAcademias);
   }
 
   async onFilterFountain() {
@@ -45,8 +43,7 @@ export class EstruturaComponent {
       (value) => value.fountain === 'partial'
     );
 
-    this.updateResultadosCount(filteredAcademias);
-    this.estrutura.emit(filteredAcademias);
+    return this.estrutura.emit(filteredAcademias);
   }
 
   async onFilterLocker() {
@@ -54,7 +51,6 @@ export class EstruturaComponent {
       (value) => value.locker_room === 'allowed'
     );
 
-    this.updateResultadosCount(filteredAcademias);
-    this.estrutura.emit(filteredAcademias);
+    return this.estrutura.emit(filteredAcademias);
   }
 }
