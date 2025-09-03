@@ -24,6 +24,7 @@ export class SearchListComponent {
   async onSearch() {
     if (this.searchTerm.trim() === '' || this.searchTerm.trim().length === 0) {
       this.methods$.loadAllAcademias();
+      this.updateResultadosCount([]);
       return;
     }
 
